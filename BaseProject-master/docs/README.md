@@ -1,4 +1,4 @@
-# DOCUMENT DIRECTORY
+# Document Folder
 
 # Structure
 ```
