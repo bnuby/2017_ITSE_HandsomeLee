@@ -1,11 +1,12 @@
 # Document Folder
 
-# Structure
+## Structure
 ```
 .
 ├── ...
 ├── 使用案例規格(個人)
 ├── 客戶
+├── README.md
 ├── handsomlee_D0543117_使用案例規格書.pdf
 └── 選課需求構想書(handsome lee).docx
 ```
