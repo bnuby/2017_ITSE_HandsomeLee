@@ -1,4 +1,4 @@
-# This Page is Record the Project Details from the Customers
+# Project Detail (Customers)
 
 ## Structure
 ```
