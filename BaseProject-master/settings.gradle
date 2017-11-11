@@ -1,1 +1,2 @@
+include ':gotroute'
 rootProject.name = 'BaseProject'
