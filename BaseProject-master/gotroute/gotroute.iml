@@ -1,31 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":gotroute" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" type="JAVA_MODULE" version="4">
-  <component name="FacetManager">
-    <facet type="android-gradle" name="Android-Gradle">
-      <configuration>
-        <option name="GRADLE_PROJECT_PATH" value=":gotroute" />
-      </configuration>
-    </facet>
-    <facet type="android" name="Android">
-      <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="debug" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
-        <afterSyncTasks>
-          <task>generateDebugSources</task>
-        </afterSyncTasks>
-        <option name="ALLOW_USER_CONFIGURATION" value="false" />
-        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
-        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/debug/res" />
-        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
-      </configuration>
-    </facet>
-  </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
-    <output url="file://$MODULE_DIR$/build/intermediates/classes/debug" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/debug" />
+<module external.linked.project.id="gotroute" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
+<<<<<<< HEAD
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/debug" isTestSource="false" generated="true" />
@@ -103,141 +80,10 @@
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
+=======
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+>>>>>>> dd283121e9a96978f5d3d6017509737e5bfe9cc9
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="play-services-awareness-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tagmanager-v4-impl-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-database-connection-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gass-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-messaging-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-library-1.3" level="project" />
-    <orderEntry type="library" exported="" name="play-services-nearby-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-panorama-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-messaging-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-instantapps-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-analytics-impl-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-instantapps-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-common-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="recyclerview-v7-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gass-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="palette-v7-25.2.0" level="project" />
-    <orderEntry type="library" exported="" name="firebase-storage-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="exposed-instrumentation-api-publish-0.5" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tagmanager-api-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-database-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javax.annotation-api-1.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-cast-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gcm-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-wallet-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-wallet-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-storage-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-auth-base-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-storage-common-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="common-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="1_common-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-fido-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-common-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-wearable-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-base-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tagmanager-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-identity-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-iid-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-auth-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-integration-1.3" level="project" />
-    <orderEntry type="library" exported="" name="play-services-auth-api-phone-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-analytics-impl-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-safetynet-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-auth-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="jsr305-2.0.1" level="project" />
-    <orderEntry type="library" exported="" name="firebase-config-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-maps-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tagmanager-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-analytics-impl-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-iid-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="rules-0.5" level="project" />
-    <orderEntry type="library" exported="" name="transition-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="mediarouter-v7-25.2.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tasks-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-iid-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="support-core-ui-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-auth-base-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
-    <orderEntry type="library" exported="" name="play-services-basement-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="support-fragment-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="firebase-dynamic-links-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-appindexing-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="appcompat-v7-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-plus-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="support-vector-drawable-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-safetynet-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-vision-common-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="runner-0.5" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="espresso-idling-resource-2.2.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-analytics-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-cast-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-maps-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-games-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-crash-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-auth-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-config-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-drive-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="support-media-compat-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-places-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-storage-common-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-dynamic-links-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="animated-vector-drawable-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-nearby-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-panorama-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tagmanager-v4-impl-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-vision-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-location-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-database-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-vision-common-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-database-connection-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="support-core-utils-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-games-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-plus-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-appinvite-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-places-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javawriter-2.1.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-appinvite-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-drive-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-fitness-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tasks-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-lite-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-analytics-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-auth-api-phone-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-fido-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="constraint-layout-1.0.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-fitness-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-lite-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-vision-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-auth-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-base-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tagmanager-api-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gcm-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="support-compat-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-awareness-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-basement-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-27.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="espresso-core-2.2.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-cast-framework-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-location-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="design-27.0.1" level="project" />
-    <orderEntry type="library" exported="" name="firebase-appindexing-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-wearable-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javax.inject-1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-analytics-license-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="runtime-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-iid-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-cast-framework-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-analytics-11.4.2" level="project" />
-    <orderEntry type="library" exported="" name="firebase-analytics-impl-11.4.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="junit-4.12" level="project" />
-    <orderEntry type="library" exported="" name="play-services-identity-11.4.2" level="project" />
   </component>
 </module>
