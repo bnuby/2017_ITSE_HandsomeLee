@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BaseProject.iml" filepath="$PROJECT_DIR$/BaseProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gotroute/BaseProject-master-gotroute.iml" filepath="$PROJECT_DIR$/gotroute/BaseProject-master-gotroute.iml" />
       <module fileurl="file://$PROJECT_DIR$/gotroute/gotroute.iml" filepath="$PROJECT_DIR$/gotroute/gotroute.iml" />
     </modules>
   </component>

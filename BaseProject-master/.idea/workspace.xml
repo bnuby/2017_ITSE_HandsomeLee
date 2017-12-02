@@ -20,6 +20,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="ErrorTreeViewConfiguration">
     <option name="autoscrollToSource" value="true" />
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
@@ -67,16 +70,136 @@
       </state>
     </system>
   </component>
+  <component name="FileColors">
+    <fileColor scope="Non-Project Files (Material Oceanic)" color="2E3C43" />
+    <fileColor scope="Non-Project Files (Material Darker)" color="323232" />
+    <fileColor scope="Non-Project Files (Material Lighter)" color="eae8e8" />
+    <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ReportActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/ReportActivity.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+            <state relative-caret-position="182">
+              <caret line="166" column="9" lean-forward="false" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_maps.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_maps.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="-227">
+              <caret line="22" column="2" lean-forward="false" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+              <folding>
+                <element signature="e#1483#1508#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_car_parking.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_car_parking.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleMapSystem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/GoogleMapSystem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/ReportActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="40" column="9" lean-forward="false" selection-start-line="40" selection-start-column="9" selection-end-line="45" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1361#1627#0" expanded="true" />
+                <element signature="e#1626#1627#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MapsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarParkingActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/CarParkingActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="62" lean-forward="false" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_report.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_report.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationSystem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/LocationSystem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,6 +217,16 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>SectionsP</find>
+      <find>Manifest</find>
+      <find>req</find>
+      <find>inva</find>
+      <find>onRequestPermissionsResult</find>
+      <find>Invalid</find>
+      <find>checkGPSEnabled</find>
+      <find>checkGPSPermission</find>
+      <find>startAc</find>
+      <find>String</find>
+      <find>zoom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -3143,20 +3276,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/CarParkingActivity.java" />
         <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/report.java" />
-        <option value="$PROJECT_DIR$/gotroute/src/main/res/layout/activity_car_parking.xml" />
         <option value="$PROJECT_DIR$/gotroute/build.gradle" />
-        <option value="$PROJECT_DIR$/gotroute/src/main/res/layout/activity_maps.xml" />
         <option value="$PROJECT_DIR$/gotroute/build/intermediates/res/merged/debug/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/gotroute/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java" />
-        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MapsActivity.java" />
-        <option value="$PROJECT_DIR$/gotroute/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/gotroute/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/gotroute/src/main/res/values/reports.xml" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/LocationSystem.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/res/layout/activity_car_parking.xml" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Google.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/CarParkingActivity.java" />
         <option value="$PROJECT_DIR$/gotroute/src/main/res/layout/activity_report.xml" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java" />
         <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/ReportActivity.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/GoogleMapSystem.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/res/layout/activity_maps.xml" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MapsActivity.java" />
       </list>
     </option>
   </component>
@@ -3166,11 +3302,36 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2880" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-54" />
     <option name="y" value="24" />
-    <option name="width" value="960" />
-    <option name="height" value="1056" />
+    <option name="width" value="1912" />
+    <option name="height" value="1024" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Correctness</id>
+          </State>
+          <State>
+            <id>ImportsJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>UNUSED_IMPORT</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -3187,9 +3348,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -3201,12 +3362,6 @@
               <item name="BaseProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="BaseProject-master" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="gotroute" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="BaseProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BaseProject-master" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="gotroute" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BaseProject" type="b2602c69:ProjectViewProjectNode" />
@@ -3255,15 +3410,6 @@
               <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="BaseProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BaseProject-master" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="gotroute" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="values" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -3274,15 +3420,16 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gotroute" />
+    <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="device.picker.selection" value="Pixel_XL_API_25" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/gotroute" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -3293,6 +3440,7 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/gotroute/src/main/res/drawable" />
     </key>
   </component>
@@ -3540,20 +3688,27 @@
       <workItem from="1510423080719" duration="6519000" />
       <workItem from="1510429956359" duration="23000" />
       <workItem from="1510485838094" duration="2290000" />
+      <workItem from="1511618558709" duration="4759000" />
+      <workItem from="1511678375340" duration="433000" />
+      <workItem from="1511679975840" duration="13000" />
+      <workItem from="1511680124286" duration="15274000" />
+      <workItem from="1511845214646" duration="12574000" />
+      <workItem from="1511863559714" duration="16197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29391000" />
+    <option name="totallyTimeSpent" value="78641000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2880" y="24" width="1922" height="1092" extended-state="6" />
+    <frame x="-54" y="24" width="1912" height="1024" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.50426894" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35117057" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="ConsoleMavenPlugin" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3564,16 +3719,18 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.49573106" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25884244" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -3582,8 +3739,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -3592,15 +3747,72 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/ReportActivity.java">
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="81" lean-forward="false" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
+        <state relative-caret-position="126">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#758#783#0" expanded="true" />
+            <marker date="1511864422200" expanded="true" signature="495:513" ph="&quot;gotroute&quot;" />
+            <marker date="1511864422200" expanded="false" signature="867:885" ph="&quot;gotroute&quot;" />
+            <marker date="1511864422200" expanded="true" signature="1215:1244" ph="&quot;Map&quot;" />
+            <marker date="1511864422200" expanded="true" signature="1394:1407" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/LocationSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="29" column="6" lean-forward="false" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#819#1069#0" expanded="false" />
+            <element signature="e#1068#1069#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_maps.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding>
+            <element signature="e#1483#1508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_report.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="52" lean-forward="false" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3609,11 +3821,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/ReportActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/ReportActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="81" lean-forward="false" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/ReportActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="24" column="81" lean-forward="true" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3622,19 +3848,11 @@
         <state relative-caret-position="648">
           <caret line="36" column="35" lean-forward="false" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
           <folding>
-            <marker date="1510425886624" expanded="true" signature="107:1341" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="317:1328" ph="..." />
-            <marker date="1510425886624" expanded="false" signature="424:442" ph="&quot;gotroute&quot;" />
-            <marker date="1510425886624" expanded="true" signature="594:926" ph="..." />
-            <marker date="1510425886624" expanded="false" signature="662:680" ph="&quot;gotroute&quot;" />
-            <marker date="1510425886624" expanded="true" signature="758:910" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="942:1055" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="1010:1039" ph="&quot;Map&quot;" />
-            <marker date="1510425886624" expanded="true" signature="1101:1117" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="1167:1183" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="1200:1311" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="1285:1310" ph="&quot;AIzaSyAAHNEplndM_O6Mg6ibsHzdMvAb-6dQI4I&quot;" />
-            <marker date="1510425886624" expanded="true" signature="1315:1328" ph="..." />
+            <element signature="e#758#783#0" expanded="true" />
+            <marker date="1511864422200" expanded="true" signature="495:513" ph="&quot;gotroute&quot;" />
+            <marker date="1511864422200" expanded="false" signature="867:885" ph="&quot;gotroute&quot;" />
+            <marker date="1511864422200" expanded="true" signature="1215:1244" ph="&quot;Map&quot;" />
+            <marker date="1511864422200" expanded="true" signature="1394:1407" ph="..." />
           </folding>
         </state>
       </provider>
@@ -3664,10 +3882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1510404278306" expanded="true" signature="10:1007" ph="..." />
-            <marker date="1510404278306" expanded="true" signature="18:882" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3715,81 +3929,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/res/menu/menu_main.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_car_parking.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_maps.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_report.xml" />
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/LocationManager.java" />
+    <entry file="file://$PROJECT_DIR$/.idea/gradle.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="38" column="12" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="38" selection-end-column="12" />
-          <folding>
-            <marker date="1510425886624" expanded="true" signature="107:1341" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="317:1328" ph="..." />
-            <marker date="1510425886624" expanded="false" signature="424:442" ph="&quot;gotroute&quot;" />
-            <marker date="1510425886624" expanded="true" signature="594:926" ph="..." />
-            <marker date="1510425886624" expanded="false" signature="662:680" ph="&quot;gotroute&quot;" />
-            <marker date="1510425886624" expanded="true" signature="758:910" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="942:1055" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="1010:1039" ph="&quot;Map&quot;" />
-            <marker date="1510425886624" expanded="true" signature="1101:1117" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="1167:1183" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="1200:1311" ph="..." />
-            <marker date="1510425886624" expanded="true" signature="1285:1310" ph="&quot;AIzaSyAAHNEplndM_O6Mg6ibsHzdMvAb-6dQI4I&quot;" />
-            <marker date="1510425886624" expanded="true" signature="1315:1328" ph="..." />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/CarParkingActivity.java">
+    <entry file="file://$PROJECT_DIR$/gotroute/.idea/gradle.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="52" lean-forward="false" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
-          <folding>
-            <marker date="1510424944561" expanded="true" signature="142:2527" ph="..." />
-            <marker date="1510424944561" expanded="true" signature="840:1273" ph="..." />
-            <marker date="1510424944561" expanded="true" signature="1317:2479" ph="..." />
-            <marker date="1510424944561" expanded="true" signature="1749:1946" ph="..." />
-            <marker date="1510424944561" expanded="true" signature="1990:2190" ph="..." />
-            <marker date="1510424944561" expanded="true" signature="2234:2434" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_car_parking.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1510409580814" expanded="true" signature="83:724" ph="..." />
-            <marker date="1510409580814" expanded="true" signature="436:677" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MapsActivity.java">
+    <entry file="jar://$USER_HOME$/.android/build-cache/3d46f656fdec80f64daff7096be022a5058d117b/output/jars/classes.jar!/com/google/android/gms/dynamite/DynamiteModule.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="126">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/values/reports.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="72" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3797,69 +3992,146 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/menu/menu_main.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.android/build-cache/5083f47c94856b9a53db1113a39d87708956afbd/output/jars/classes.jar!/com/google/android/gms/maps/GoogleMap.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12614">
+          <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
           <folding>
-            <marker date="1510401854291" expanded="true" signature="10:663" ph="..." />
-            <marker date="1510401854291" expanded="true" signature="117:345" ph="..." />
-            <marker date="1510401854291" expanded="true" signature="383:483" ph="..." />
+            <element signature="e#758#783#0" expanded="true" />
+            <marker date="1511864422200" expanded="true" signature="495:513" ph="&quot;gotroute&quot;" />
+            <marker date="1511864422200" expanded="false" signature="867:885" ph="&quot;gotroute&quot;" />
+            <marker date="1511864422200" expanded="true" signature="1215:1244" ph="&quot;Map&quot;" />
+            <marker date="1511864422200" expanded="true" signature="1394:1407" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_car_parking.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/CarParkingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/LocationSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-          <folding>
-            <marker date="1510429257998" expanded="true" signature="10:448" ph="..." />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/values/reports.xml">
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/GoogleMapSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="186">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
-            <marker date="1510429267834" expanded="true" signature="49:255" ph="..." />
-            <marker date="1510429267834" expanded="true" signature="87:242" ph="..." />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_report.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding>
-            <marker date="1510429655866" expanded="true" signature="83:2031" ph="..." />
-            <marker date="1510429655866" expanded="true" signature="431:973" ph="..." />
-            <marker date="1510429655866" expanded="true" signature="987:1600" ph="..." />
-            <marker date="1510429655866" expanded="true" signature="1612:1983" ph="..." />
-          </folding>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_maps.xml">
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="62" lean-forward="false" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="166" column="9" lean-forward="false" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
           <folding>
-            <marker date="1510418635269" expanded="true" signature="83:1025" ph="..." />
-            <marker date="1510418635269" expanded="true" signature="459:978" ph="..." />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/ReportActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        <state relative-caret-position="240">
+          <caret line="40" column="9" lean-forward="false" selection-start-line="40" selection-start-column="9" selection-end-line="45" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1361#1627#0" expanded="true" />
+            <element signature="e#1626#1627#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/layout/activity_maps.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-227">
+          <caret line="22" column="2" lean-forward="false" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+          <folding>
+            <element signature="e#1483#1508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3886,7 +4158,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Android (gotroute)|Android</last-edited>
+          <last-edited>Java-Gradle</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -3909,7 +4181,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>Android API 27 Platform</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -3926,6 +4198,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -3934,6 +4207,17 @@
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
           <last-edited>support-fragment-27.0.1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
