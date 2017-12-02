@@ -46,5 +46,4 @@ public class ReportActivity extends Fragment {
     });
     return rootView;
   }
-  
 }

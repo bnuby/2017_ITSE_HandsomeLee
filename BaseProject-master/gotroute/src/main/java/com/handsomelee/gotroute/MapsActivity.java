@@ -163,7 +163,6 @@ public class MapsActivity extends GoogleMapSystem {
 //    marker = mMap.addMarker(markerOptions);
 //  }
   
-  
   /**
    * bestLocation Getter Method
    */

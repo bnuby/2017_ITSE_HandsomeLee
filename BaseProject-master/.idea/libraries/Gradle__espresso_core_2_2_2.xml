@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: espresso-core-2.2.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/5e3b660b60b904ac89f53e71106fa09ff680c976/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/5e3b660b60b904ac89f53e71106fa09ff680c976/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/espresso/espresso-core/2.2.2/espresso-core-2.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

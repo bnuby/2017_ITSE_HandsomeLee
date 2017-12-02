@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
   private static Location mLastLocation;
   
   private static int GPS_REQUEST_CODE = 1;
-  
+
   private TabLayout.OnTabSelectedListener tabLayoutOnTabListener = new TabLayout.OnTabSelectedListener() {
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
@@ -53,19 +53,18 @@ public class MainActivity extends AppCompatActivity {
   };
   
 
+ 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    
+
     pageAdapter = new PagerAdapter(getSupportFragmentManager());
     viewPager = (ViewPager) findViewById(R.id.viewPager);
     TabLayout tab = (TabLayout) findViewById(R.id.tabLayout);
     tab.addOnTabSelectedListener(tabLayoutOnTabListener);
     viewPager.setAdapter(pageAdapter);
     viewPager.setCurrentItem(0);
-    
-    
     checkGPSEnabled();
 //    AccessLastKnownLocation();
     
@@ -77,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
     public PagerAdapter(FragmentManager fm) {
       super(fm);
     }
-    
     @Override
     public Fragment getItem(int position) {
       switch (position) {
@@ -98,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
       }
       
     }
-    
     @Override
     public int getCount() {
       return 3;

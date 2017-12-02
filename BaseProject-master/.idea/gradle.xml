@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/gotroute" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

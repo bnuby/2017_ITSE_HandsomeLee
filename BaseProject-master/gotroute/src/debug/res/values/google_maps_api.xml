@@ -1,6 +1,10 @@
 <resources>
   <!--
+<<<<<<< HEAD
     TODO: Before you run your application, you need a GoogleMapSystem Maps API key.
+=======
+    TODO: Before you run your application, you need a Google Maps API key.
+>>>>>>> fdac9a7e39d0c91e9b653ab4f3116be1dc63684f
 
     To get one, follow this link, follow the directions and press "Create" at the end:
 
