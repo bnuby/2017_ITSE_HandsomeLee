@@ -6,7 +6,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.handsomelee.gotroute.CarParkingActivity">
+        tools:context="com.handsomelee.gotroute.Controller.CarParkingActivity">
 
   <CheckBox
           android:text="CheckBox"
