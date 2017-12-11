@@ -20,7 +20,10 @@
           app:layout_constraintLeft_toLeftOf="parent"
           android:layout_marginBottom="0dp"
           app:layout_constraintBottom_toTopOf="@+id/tabLayout"
-          android:id="@+id/viewPager"/>
+          android:id="@+id/viewPager"
+          android:gravity="center"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintVertical_bias="0.0"/>
 
   <android.support.design.widget.TabLayout
           android:id="@+id/tabLayout"
@@ -35,23 +38,17 @@
     <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Tab_Best_Way"
-            android:text="Best Way"
+            android:id="@+id/Tab_Map"
+            android:text="Map"
             android:icon="@drawable/routes"/>
 
     <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Tab_Car_Parking"
-            android:text="Car Parking"
-            android:icon="@drawable/car"/>
+            android:id="@+id/Tab_Setting"
+            android:text="Setting"
+            android:icon="@android:drawable/ic_menu_preferences"/>
 
-    <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Tab_Report"
-            android:text="Report"
-            android:icon="@drawable/account_alert"/>
   </android.support.design.widget.TabLayout>
 
 </android.support.constraint.ConstraintLayout>

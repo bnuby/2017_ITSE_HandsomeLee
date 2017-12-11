@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+  <TextView
+          android:text="Report"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/textView"
+          android:textSize="40dp"
+          android:textAlignment="center"/>
+
+  <Spinner
+          android:layout_width="600px"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_window"
+          android:layout_marginTop="50px"
+          android:layout_gravity="center_horizontal"/>
+
+  <EditText
+          android:layout_width="match_parent"
+          android:layout_height="100dp"
+          android:ems="10"
+          android:id="@+id/comment_window"
+          android:hint="Comment"
+          android:layout_marginTop="50px"
+          android:inputType="textMultiLine"/>
+
+  <LinearLayout
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:weightSum="1">
+
+    <Button
+            android:text="Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancel_window"
+            android:layout_weight="0.5"
+            />
+
+    <Button
+            android:text="Send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/send_window"
+            android:layout_weight="0.5"/>
+  </LinearLayout>
+
+</LinearLayout>

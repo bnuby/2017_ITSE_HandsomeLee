@@ -7,6 +7,28 @@
         android:layout_height="match_parent"
         tools:context="com.handsomelee.gotroute.Controller.ReportActivity">
 
+  <Button
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:id="@+id/ReportBtn"
+          android:background="@drawable/account_alert"
+          android:onClick="parkingBtn"
+          android:layout_marginRight="15dp"
+          app:layout_constraintRight_toRightOf="parent"
+          android:layout_marginBottom="0dp"
+          app:layout_constraintBottom_toTopOf="@+id/CarParkingBtn"/>
+
+  <Button
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:id="@+id/CarParkingBtn"
+          android:layout_marginRight="15dp"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:layout_marginBottom="15dp"
+          android:background="@drawable/car"
+          android:onClick="parkingBtn"/>
+
   <com.google.android.gms.maps.MapView
           android:layout_width="0dp"
           android:layout_height="0dp"
@@ -15,14 +37,15 @@
           app:layout_constraintLeft_toLeftOf="parent"
           app:layout_constraintRight_toRightOf="parent"
           android:apiKey="@string/test_google_api"
-          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintHorizontal_bias="1.0"
           app:layout_constraintTop_toTopOf="parent"
           app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintVertical_bias="0.0"
+          app:layout_constraintVertical_bias="1.0"
           tools:layout_constraintTop_creator="1"
           tools:layout_constraintRight_creator="1"
           tools:layout_constraintBottom_creator="1"
-          tools:layout_constraintLeft_creator="1"/>
+          tools:layout_constraintLeft_creator="1"
+          />
 
   <fragment
           android:layout_width="0dp"
@@ -36,7 +59,7 @@
           app:layout_constraintRight_toRightOf="parent"
           android:layout_marginLeft="20dp"
           app:layout_constraintLeft_toLeftOf="parent"
-          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintHorizontal_bias="1.0"
           tools:layout_constraintRight_creator="1"
           android:layout_marginStart="20dp"
           android:layout_marginEnd="20dp"
@@ -104,5 +127,93 @@
           android:onClick="requestNavigation"
           tools:layout_constraintRight_creator="1"
           tools:layout_constraintLeft_creator="1"/>
+
+  <RadioGroup
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          app:layout_constraintTop_toBottomOf="@+id/Destination"
+          android:layout_marginRight="20dp"
+          app:layout_constraintRight_toRightOf="parent"
+          android:layout_marginLeft="20dp"
+          app:layout_constraintLeft_toLeftOf="parent"
+          android:id="@+id/navigationRadioGroup"
+          android:checkedButton="@+id/WalkingRadio"
+          android:orientation="horizontal"
+          android:background="@color/cast_intro_overlay_button_background_color"
+          android:layout_marginStart="20dp"
+          android:layout_marginEnd="20dp"
+          android:isScrollContainer="true">
+
+    <RadioButton
+            android:text="Driving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/DrivingRadio"
+            android:layout_weight="1"
+            android:button="@android:color/transparent"
+            android:textAlignment="center"/>
+
+    <RadioButton
+            android:text="Walking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/WalkingRadio"
+            android:layout_weight="1"
+            android:button="@android:color/transparent"
+            android:textAlignment="center"/>
+
+    <RadioButton
+            android:text="Trainsit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TransitRadio"
+            android:layout_weight="1"
+            android:button="@android:color/transparent"
+            android:textAlignment="center"/>
+
+    <RadioButton
+            android:text="Cycling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/CyclingRadio"
+            android:layout_weight="1"
+            android:button="@android:color/transparent"
+            android:textAlignment="center"/>
+
+  </RadioGroup>
+
+  <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintBottom_toBottomOf="@+id/mapView"
+          app:layout_constraintTop_toBottomOf="@+id/navigationRadioGroup"
+          android:id="@+id/ListViewParent"
+          android:elevation="10dp">
+
+    <Button
+            android:text="^"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/ListViewBtn"
+            android:layout_weight="1"
+            android:onClick="listViewBtn"
+            android:textSize="5sp"
+            android:textAlignment="center"
+            android:background="@drawable/full_button"
+            android:textColor="@color/cast_intro_overlay_button_background_color"/>
+
+    <ListView
+            android:layout_width="match_parent"
+            android:id="@+id/ListView"
+            android:background="@color/cast_expanded_controller_progress_text_color"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+  </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

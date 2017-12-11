@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+        >
+
+  <LinearLayout
+
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+    <TextView
+            android:text="Wen Qiang Car Park"
+            android:layout_height="wrap_content"
+            android:id="@+id/carParkName"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:layout_width="0dp"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+
+    <TextView
+            android:text="Open :"
+            android:layout_height="wrap_content"
+            android:id="@+id/openLbl"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"/>
+
+    <TextView
+            android:text="No"
+            android:layout_height="wrap_content"
+            android:id="@+id/isOpen"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/holo_red_dark"/>
+  </LinearLayout>
+
+  <LinearLayout
+
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+
+    <TextView
+            android:layout_height="wrap_content"
+            android:id="@+id/available_label"
+            android:autoText="false"
+            android:text="available :"
+            android:minWidth="60dp"
+            android:layout_width="65dp"/>
+
+    <TextView
+            android:text="0"
+            android:layout_height="wrap_content"
+            android:id="@+id/available"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_width="wrap_content"/>
+  </LinearLayout>
+
+  <LinearLayout
+
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center">
+
+    <TextView
+            android:text="Press to update."
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_width="wrap_content"/>
+  </LinearLayout>
+
+</LinearLayout>

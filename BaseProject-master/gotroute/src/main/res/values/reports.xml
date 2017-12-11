@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string-array name="reports_array">
-    <item>Please Select one</item>
+    <item>Please Select One</item>
     <item>Temporary Inspection</item>
     <item>Road Block</item>
     <item>Mobile Speed Track</item>

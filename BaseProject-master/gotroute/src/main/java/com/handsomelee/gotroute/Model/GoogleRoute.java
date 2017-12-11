@@ -21,6 +21,6 @@ public class GoogleRoute {
     public JsonObject polyline;
     public JsonObject start_location;
     public String travel_mode;
-  
+    public Route[] steps;
   }
 }

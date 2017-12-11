@@ -1,21 +1,23 @@
 package com.handsomelee.gotroute.Services;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
+import android.widget.Button;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.handsomelee.gotroute.Controller.MapsActivity;
+import com.handsomelee.gotroute.MainActivity;
 
 public class LocationSystem implements LocationListener {
   
   private LocationManager locationManager;
   private Location location;
+  static boolean reset;
   
   public LocationSystem(Context context) {
     locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
@@ -30,12 +32,16 @@ public class LocationSystem implements LocationListener {
     return location;
   }
   
-  public double getLongtitude() {
+  public double getLongitude() {
     return location.getLongitude();
   }
   
   public Location getLocation() {
     return location;
+  }
+  
+  public LatLng getLatLng() {
+    return new LatLng(location.getLatitude(), location.getLongitude());
   }
   
   public double getLatitude() {
@@ -45,7 +51,48 @@ public class LocationSystem implements LocationListener {
   @Override
   public void onLocationChanged(Location location) {
     this.location = location;
-    Log.v("latitude", location.getLatitude() + "");
+    
+    if (MapsActivity.getProgressType() == RequestHandler.ProgressType.Navigation) {
+      boolean checkInLine = false;
+      CameraPosition cameraPosition = new CameraPosition.Builder()
+              .target(getLatLng())
+              .zoom(25f)
+              .tilt(80f)
+              .build();
+      MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+      reset = false;
+      for (int i = 1; i < MainActivity.latLngs.size() - 1; i++) {
+        if (checkIsInRange(location, MainActivity.latLngs.get(i), MainActivity.latLngs.get(i + 1))) {
+          checkInLine = true;
+          break;
+        }
+      }
+      if (!checkInLine) {
+        
+        Button button = new Button(MainActivity.mActivity);
+        MainActivity.requestNavigation(button);
+        button.destroyDrawingCache();
+      }
+    } else if (!reset) {
+      CameraPosition cameraPosition = new CameraPosition.Builder()
+              .target(getLatLng())
+              .zoom(15f)
+              .build();
+      MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+      reset = true;
+    }
+  }
+  
+  public boolean checkIsInRange(Location location, LatLng... latLng) {
+    final double EPSILON =1 * Math.pow(10, -5);
+    Log.v(latLng[0].latitude + "," + latLng[0].longitude, latLng[1].latitude + "," + latLng[1].longitude);
+    double a = (latLng[0].latitude - latLng[1].latitude) / (latLng[0].longitude - latLng[1].longitude);
+    double b = latLng[1].latitude - a * latLng[1].longitude;
+    Log.v("abs", Math.abs(location.getLatitude() - (a * location.getLongitude() + b))+"");
+    if (Math.abs(location.getLatitude() - (a * location.getLongitude() + b)) < EPSILON) {
+      return true;
+    }
+    return false;
   }
   
   @Override

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+  <android.support.constraint.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Distance"/>
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/duration"
+            tools:layout_editor_absoluteY="0dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"/>
+  </android.support.constraint.ConstraintLayout>
+
+  <TextView
+          android:text="TextView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/html_instructions"/>
+
+  <TextView
+          android:text="TextView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/travel_mode"/>
+
+  <TextView
+          android:text="TextView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/maneuver"/>
+
+</LinearLayout>

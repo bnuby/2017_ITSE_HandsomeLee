@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+  <TextView
+          android:text="TextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/updateTitle"
+          android:layout_gravity="center"
+          android:textSize="24sp"
+          android:textStyle="bold"
+          android:elevation="1dp"
+          />
+
+  <LinearLayout
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:weightSum="1">
+
+    <TextView
+            android:text="Available :"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView4"
+            android:elevation="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/availableNumberET"
+            android:layout_weight="0.5"
+            android:hint="number available"/>
+  </LinearLayout>
+
+  <LinearLayout
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:weightSum="1">
+
+    <Button
+            android:text="Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancelUpdateBtn"
+            android:layout_weight="0.5"/>
+
+    <Button
+            android:text="UPDATE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/updateCarParkBtn"
+            android:layout_weight="0.5"/>
+
+  </LinearLayout>
+</LinearLayout>

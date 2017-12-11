@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.handsomelee.gotroute.Controller.SettingActivity"
+        android:orientation="horizontal">
+
+  <LinearLayout
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:weightSum="1">
+
+    <TextView
+            android:text="Refresh Time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView2"
+            android:layout_weight="0.5"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:autoSizeMaxTextSize="20dp"
+            android:autoSizeMinTextSize="10dp"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/refreshET"
+            android:layout_weight="0.5"
+            android:hint="default : 30 seconds"/>
+  </LinearLayout>
+</android.widget.LinearLayout>

@@ -1,11 +1,18 @@
 package com.handsomelee.gotroute.Model;
 
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.JsonElement;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Report {
+  private JsonElement no;
   private String dateTime;
   private String reportType;
   private String comment;
   private Location location;
+  private String user;
   
   public Report(String dateTime, String reportType, String comment, Location location) {
     this.dateTime = dateTime;
@@ -34,13 +41,36 @@ public class Report {
     return location;
   }
   
+  public static class fetchReport {
+    public JsonElement no;
+    public String time;
+    public String comment;
+    public String type;
+    private String location;
+    public String user;
+    
+    public LatLng getLatLng() {
+      try {
+        JSONObject location = new JSONObject(this.location);
+        return new LatLng(location.getDouble("latitude"), location.getDouble("longitude"));
+      } catch (JSONException e) {
+        e.printStackTrace();
+      }
+      return null;
+    }
+  }
+  
+  public static Location ConvertLocation(android.location.Location location) {
+    return new Location(location.getLatitude(), location.getLongitude());
+  }
+  
   public static class Location {
     private double latitude;
-    private double longtitude;
+    private double longitude;
     
-    public Location(double latitude, double longtitude) {
+    public Location(double latitude, double longitude) {
       this.latitude = latitude;
-      this.longtitude = longtitude;
+      this.longitude = longitude;
     }
     
     // latitude Getter Method
@@ -49,8 +79,14 @@ public class Report {
     }
     
     // longtitude Getter Method
-    public double getLongtitude() {
-      return longtitude;
+    public double getLongitude() {
+      return longitude;
     }
+    
+    public LatLng getLatLng() {
+      return new LatLng(latitude, longitude);
+    }
+    
+    
   }
 }

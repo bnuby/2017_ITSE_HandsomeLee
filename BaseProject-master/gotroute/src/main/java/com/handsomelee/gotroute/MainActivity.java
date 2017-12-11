@@ -1,10 +1,13 @@
 package com.handsomelee.gotroute;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -19,35 +22,37 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
-import android.widget.Toast;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.LocationSource;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.handsomelee.gotroute.Controller.CarParkingActivity;
 import com.handsomelee.gotroute.Controller.MapsActivity;
-import com.handsomelee.gotroute.Controller.ReportActivity;
-import com.handsomelee.gotroute.Model.Report;
+import com.handsomelee.gotroute.Controller.SettingActivity;
+import com.handsomelee.gotroute.Model.DeviceInfo;
+import com.handsomelee.gotroute.Model.PlaceSearch;
+import com.handsomelee.gotroute.Services.LocalDatabase;
 import com.handsomelee.gotroute.Services.LocationSystem;
-import com.handsomelee.gotroute.Services.RequestDirection;
-import org.json.JSONException;
+import com.handsomelee.gotroute.Services.RequestHandler;
 
 import java.text.DateFormat;
-import java.util.Date;
-import java.util.HashMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Map;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LocationSource.OnLocationChangedListener {
   
   private ViewPager viewPager;
   
@@ -63,9 +68,17 @@ public class MainActivity extends AppCompatActivity {
   
   public static RequestQueue queue;
   
+  public static RequestHandler.DirectionType directionType = RequestHandler.DirectionType.Driving;
+  
   public static android.app.FragmentManager mFragmentManager;
   
   public static List<LatLng> latLngs;
+  
+  public static PlaceSearch placeSearch;
+  
+  public static Activity mActivity;
+  private boolean ListViewDrawer;
+  
   
   private TabLayout.OnTabSelectedListener tabLayoutOnTabListener = new TabLayout.OnTabSelectedListener() {
     @Override
@@ -86,9 +99,12 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    mActivity = this;
     if (mFragmentManager == null) {
       mFragmentManager = getFragmentManager();
     }
+    createUserId();
+    
     setContentView(R.layout.activity_main);
     queue = Volley.newRequestQueue(this);
     pageAdapter = new PagerAdapter(getSupportFragmentManager());
@@ -97,18 +113,45 @@ public class MainActivity extends AppCompatActivity {
     tab.addOnTabSelectedListener(tabLayoutOnTabListener);
     viewPager.setAdapter(pageAdapter);
     viewPager.setCurrentItem(0);
+    ViewTreeObserver treeObserver = viewPager.getViewTreeObserver();
+    if (treeObserver.isAlive()) {
+      treeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        @Override
+        public void onGlobalLayout() {
+          DeviceInfo.getInstance().setScreenHeight(viewPager.getHeight());
+          DeviceInfo.getInstance().setScreenWidth(viewPager.getWidth());
+          viewPager.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+        }
+      });
+    }
     checkGPSEnabled();
-//    AccessLastKnownLocation();
-    
     requestLocationPermissions();
-    locationSystem = new LocationSystem(this);
-    Log.v("latitude", locationSystem.getLatitude() + "");
-    
+    test();
   }
   
+  public void test() {
+    StringRequest request = new StringRequest("localhost/index.php", new Response.Listener<String>() {
+      @Override
+      public void onResponse(String s) {
+        Log.v("response", s);
+      }
+    }, new Response.ErrorListener() {
+      @Override
+      public void onErrorResponse(VolleyError volleyError) {
+        Log.e("request failed", volleyError.toString());
+      }
+    });
+    queue.add(request);
+  }
+
+  
   MapsActivity tab1;
-  CarParkingActivity tab2;
-  ReportActivity tab3;
+  SettingActivity tab2;
+  
+  @Override
+  public void onLocationChanged(Location location) {
+    Log.v("location", location.getLatitude() + "");
+  }
   
   
   public class PagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
@@ -127,13 +170,8 @@ public class MainActivity extends AppCompatActivity {
         
         case 1:
           if (tab2 == null)
-            tab2 = new CarParkingActivity();
+            tab2 = new SettingActivity();
           return tab2;
-        
-        case 2:
-          if (tab3 == null)
-            tab3 = new ReportActivity();
-          return tab3;
         
         default:
           return null;
@@ -143,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
     
     @Override
     public int getCount() {
-      return 3;
+      return 2;
     }
   }
   
@@ -175,6 +213,29 @@ public class MainActivity extends AppCompatActivity {
     }
   }
   
+  public void createUserId() {
+    final LocalDatabase database = new LocalDatabase(this);
+    Cursor cursor = database.getData();
+    if (cursor.moveToNext()) {
+      DateFormat df = new SimpleDateFormat("E MMM DD HH:mm:ss ZZZZZZZZZ yyyy");
+      DeviceInfo.getInstance().setId(cursor.getString(0));
+      DeviceInfo.getInstance().setRefreshTime(Long.parseLong(cursor.getString(2)));
+      try {
+        DeviceInfo.getInstance().setDate(df.parse(cursor.getString(1)));
+        Log.v("device", DeviceInfo.getInstance().getDate().toString());
+        
+      } catch (ParseException e) {
+        Log.e("Parse Exception", e.toString());
+      } catch (Exception e) {
+        Log.e("Exception", e.toString());
+      }
+      MapsActivity.updateRefreshSecond();
+      Log.v("device", DeviceInfo.getInstance().getId());
+      Log.v("device", DeviceInfo.getInstance().getRefreshTime() + "");
+      
+    }
+  }
+  
   private void requestLocationPermissions() {
     String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
     if (!checkGPSPermission(this)) {
@@ -182,7 +243,8 @@ public class MainActivity extends AppCompatActivity {
       return;
     }
     Log.v("Logger", "Logger");
-    MapsActivity.EnableMyLocationSetting(1000);
+    MapsActivity.EnableMyLocationSetting(this);
+    locationSystem = new LocationSystem(this);
     
   }
   
@@ -191,49 +253,14 @@ public class MainActivity extends AppCompatActivity {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     if (requestCode == GPS_REQUEST_CODE && permissions[0].equals(Manifest.permission.ACCESS_FINE_LOCATION)
             && permissions[1].equals(Manifest.permission.ACCESS_COARSE_LOCATION) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-      MapsActivity.EnableMyLocationSetting(100);
+      MapsActivity.EnableMyLocationSetting(this);
+      locationSystem = new LocationSystem(this);
       Log.v("GPS", "GPS is Activated");
 //      return;
     } else {
       Log.v("GPS", "Failed to Activated");
       requestLocationPermissions();
     }
-  }
-  
-  public void sendReport(View v) throws JSONException {
-    String dateTime = DateFormat.getDateTimeInstance().format(new Date());
-    final Report report = new Report(dateTime, ReportActivity.reportType, ReportActivity.comment, new Report.Location(locationSystem.getLatitude(), locationSystem.getLongtitude()));
-    Toast.makeText(this, "location : " + locationSystem.getLatitude() + ", " + locationSystem.getLongtitude()
-            + "\nDate : " + dateTime + "\nReport type : " + ReportActivity.reportType + "\ncomment : " + ReportActivity.comment, Toast.LENGTH_LONG).show();
-    
-    int secret = 12345;
-    String url = "https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj/service/findCollection/incoming_webhook/reportInsert?secret=" + secret;
-    StringRequest objectRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-      @Override
-      public void onResponse(String s) {
-        Log.v("Success", s.toString());
-      }
-    }, new Response.ErrorListener() {
-      @Override
-      public void onErrorResponse(VolleyError volleyError) {
-        Log.v("Failed", volleyError.toString());
-        
-      }
-    }) {
-      @Override
-      protected Map<String, String> getParams() {
-        Map<String, Double> location = new HashMap<>();
-        location.put("latitude", locationSystem.getLatitude());
-        location.put("longtitude", locationSystem.getLongtitude());
-        Map<String, String> map = new HashMap<>();
-        map.put("location", location.toString());
-        map.put("time", report.getDateTime());
-        map.put("type", report.getReportType());
-        map.put("comment", report.getComment());
-        return map;
-      }
-    };
-    queue.add(objectRequest);
   }
   
   public static Boolean removeFragment(int id) {
@@ -250,10 +277,11 @@ public class MainActivity extends AppCompatActivity {
     return true;
   }
   
-  public boolean requestNavigation(final View v) {
-    if (((Button) v).getText().equals("navigation")) {
+  public static boolean requestNavigation(final View v) {
+//    if (((Button) v).getText().equals("navigation")) {
+    if (MapsActivity.getProgressType() == RequestHandler.ProgressType.Free || ((Button) v).getText().equals("")) {
       try {
-        final String locString = locationSystem.getLatitude() + "," + locationSystem.getLongtitude();
+        final String locString = locationSystem.getLatitude() + "," + locationSystem.getLongitude();
         String destination = "";
         Log.v("mode", MapsActivity.getMarkerType().toString());
         switch (MapsActivity.getMarkerType()) {
@@ -271,30 +299,29 @@ public class MainActivity extends AppCompatActivity {
         Log.v("origin", locString);
         Log.v("LatLng", destination);
         
-        final FragmentActivity activity = this;
+        final FragmentActivity activity = (FragmentActivity) mActivity;
         
         
         // Your Position
-        if ((locationSystem.getLatitude() + "," + locationSystem.getLongtitude()).equals(locString)) {
+        if ((locationSystem.getLatitude() + "," + locationSystem.getLongitude()).equals(locString)) {
           MapsActivity.origin.setText("Your Position");
         } else {
           MapsActivity.origin.setText(locString);
         }
         MapsActivity.showOriginAndDestination();
         
-        RequestDirection.requestDirection(this, RequestDirection.DirectionType.Walking, locString, destination);
+        RequestHandler.requestDirection(mActivity, directionType, locString, destination);
         
         new AsyncTask<Void, Void, Void>() {
           @Override
           protected Void doInBackground(Void... voids) {
-            while (latLngs == null || latLngs.size() == 0) {
-              if (!RequestDirection.status) {
+            while (!RequestHandler.getNavigationStatus()) {
+              if (!RequestHandler.directionStatus) {
                 Log.v("error", "d");
                 return null;
               }
             }
-            ;
-            runOnUiThread(new Runnable() {
+            mActivity.runOnUiThread(new Runnable() {
               @Override
               public void run() {
                 Log.v("PollyLatLong", "lat=" + latLngs);
@@ -302,6 +329,15 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("RUN", "lat");
                 MapsActivity.drawPolyLines(activity, latLngs);
                 ((Button) v).setText("cancel");
+                
+                MapsActivity.setProgressType(RequestHandler.ProgressType.Navigation);
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(locationSystem.getLatLng())
+                        .zoom(20f)
+                        .tilt(80f)
+                        .build();
+                MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                MapsActivity.showListView();
               }
             });
             return null;
@@ -315,13 +351,62 @@ public class MainActivity extends AppCompatActivity {
       MapsActivity.hideOriginAndDestination();
       MapsActivity.removePolyline();
       ((Button) v).setText("navigation");
+      MapsActivity.closeListView();
+      MapsActivity.setProgressType(RequestHandler.ProgressType.Free);
+      CameraPosition cameraPosition = new CameraPosition.Builder()
+              .target(locationSystem.getLatLng())
+              .zoom(15f)
+              .build();
+      MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
     
     return true;
   }
   
-  public static Location getLocation() {
-    return locationSystem.getLocation();
+  public void listViewBtn(View v) {
+    if (((Button) v).getText().equals("^")) {
+      MapsActivity.showListView();
+    } else {
+      MapsActivity.hideListView();
+    }
   }
   
+  public void parkingBtn(View v) {
+    if (!RequestHandler.parkingStatus) {
+      RequestHandler.requestPlaceSearch(MapsActivity.getmMap().getCameraPosition().target, "", "parking");
+      
+      Log.v("true", "");
+    } else {
+      Log.v("false", "");
+      MapsActivity.removeParkingMarker();
+      RequestHandler.parkingStatus = false;
+    }
+  }
+  
+  public static LocationSystem getLocationSystem() {
+    return locationSystem;
+  }
+  
+  
+  public static boolean hasLocationSystem() {
+    return locationSystem != null;
+  }
+  
+  public static int getWidth() {
+    return DeviceInfo.getInstance().getScreenWidth();
+  }
+  
+  public static int calculateWidth(double divide) {
+    return (int) (Math.ceil(DeviceInfo.getInstance().getScreenWidth() / divide));
+  }
+  
+  public static int calculateHeight(double divide) {
+    return (int) (Math.ceil(DeviceInfo.getInstance().getScreenHeight() / divide));
+  }
+  
+  public static int getHeight() {
+    return DeviceInfo.getInstance().getScreenHeight();
+  }
 }
+
+

@@ -1,64 +1,102 @@
 package com.handsomelee.gotroute.Services;
 
-import android.os.AsyncTask;
 import android.util.Log;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.handsomelee.gotroute.MainActivity;
+import com.handsomelee.gotroute.Model.DeviceInfo;
+import com.handsomelee.gotroute.Model.Report;
 
-import java.io.Console;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DatabaseConnect {
   
-  MongoClientURI uri;
-  MongoClient mongo;
-  MongoDatabase database;
-  MongoCollection<Document> collection;
+  static String secretKey = "12345";
   
-  
-  public DatabaseConnect(String host) {
-    uri = new MongoClientURI(host);
-    mongo = new MongoClient(uri);
-    
+  public static String[] fetchData(String db, String collection) {
+    String url = "https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj" +
+            "/service/findCollection/incoming_webhook/FindCollection" +
+            "?secret=" + secretKey + "&db=" + db + "&collection=" + collection;
+    final String[] response = new String[2];
+    StringRequest request = new StringRequest(url, new Response.Listener<String>() {
+      @Override
+      public void onResponse(String s) {
+        response[0] = s;
+        Log.v("Success", "Fetch Data From MongoDB");
+      }
+    }, new Response.ErrorListener() {
+      @Override
+      public void onErrorResponse(VolleyError volleyError) {
+        Log.e("Failed", "Fetch Data From MongoDB");
+      }
+    });
+    MainActivity.queue.add(request);
+    return response;
   }
   
-  public DatabaseConnect() {
-    try {
-      uri = new MongoClientURI("mongodb://bnuby:373511@cluster0-shard-00-00-c0x3w.mongodb.net:27017,cluster0-shard-00-01-c0x3w.mongodb.net:27017,cluster0-shard-00-02-c0x3w.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin");
-      mongo = new MongoClient(uri);
-      database = mongo.getDatabase("handsomelee");
-      Log.v("Done", "done");
-    } catch (Exception e){
-      Log.e("Exception", e.getLocalizedMessage());
-    }
-    
-  }
-  
-  public Boolean collectionFind(final String collectionName) {
-    
-    try {
-      
-      new AsyncTask<Void, Void, Void>() {
-        @Override
-        protected Void doInBackground(Void... voids) {
-          collection = database.getCollection(collectionName);
-          MongoCursor<Document> cursor = collection.find().iterator();
-          while (cursor.hasNext()) {
-            Log.v("collection", cursor.next().toJson());
-          }
-          Log.v("find", "End");
-          return null;
+  public static void updateCarParking(final String name, final String available) {
+    String url = "https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj/" +
+            "service/findCollection/incoming_webhook/Insert_And_Update_Car_Parking" +
+            "?secret=" + secretKey;
+    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+      @Override
+      public void onResponse(String s) {
+        if (s.equals("true")) {
+          Log.v("Success", "Insert Into Car Parking -> MongoDB\n" + s);
+        } else {
+          Log.v("Failed", "Insert Into Car Parking -> MongoDB\n" + s);
         }
-      }.execute();
-      
-      Log.v("Thread", "End");
-      return true;
-    } catch (Exception e) {
-      return false;
-    }
-    
+      }
+    }, new Response.ErrorListener() {
+      @Override
+      public void onErrorResponse(VolleyError volleyError) {
+        Log.e("Failed to Connect", "Insert Into Car Parking -> MongoDB\n" + volleyError.toString());
+      }
+    }) {
+      @Override
+      protected Map<String, String> getParams() throws AuthFailureError {
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        map.put("available", available);
+        return map;
+      }
+    };
+    MainActivity.queue.add(request);
   }
+  
+  public static void insertReportData(final Report report) {
+    String url = "https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj" +
+            "/service/findCollection/incoming_webhook/reportInsert?secret=" + secretKey;
+    StringRequest objectRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+      @Override
+      public void onResponse(String s) {
+        Log.v("Success", s.toString());
+      }
+    }, new Response.ErrorListener() {
+      @Override
+      public void onErrorResponse(VolleyError volleyError) {
+        Log.v("Failed", volleyError.toString());
+        
+      }
+    }) {
+      @Override
+      protected Map<String, String> getParams() {
+        String location = String.format("{latitude:%s, longitude:%s}", report.getLocation().getLatitude(), report.getLocation().getLongitude());
+        Map<String, String> map = new HashMap<>();
+        map.put("location", location);
+        map.put("time", report.getDateTime());
+        map.put("type", report.getReportType());
+        map.put("comment", report.getComment());
+        map.put("user", DeviceInfo.getInstance().getId());
+        return map;
+      }
+    };
+    MainActivity.queue.add(objectRequest);
+  }
+  
+  
 }

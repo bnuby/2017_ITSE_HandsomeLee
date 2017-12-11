@@ -1,10 +1,10 @@
 package com.handsomelee.gotroute.Services;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,12 +18,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.*;
+import com.handsomelee.gotroute.Model.ParkingWindow;
+import com.handsomelee.gotroute.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener, GoogleMap.OnMyLocationClickListener
-        , GoogleMap.OnMyLocationButtonClickListener {
+public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener
+        , GoogleMap.OnMyLocationClickListener {
   
   public enum MARKERTYPE {LatLng, Address, Name}
   
@@ -56,23 +58,26 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
     return rootView;
   }
   
-  public static void EnableMyLocationSetting(long delayMillis) {
+  public static void EnableMyLocationSetting(final Activity activity) {
     
-    Handler handler = new Handler();
-    handler.postDelayed(new Runnable() {
+    new AsyncTask<Void, String, Boolean>() {
       @Override
-      public void run() {
-        while (mMap == null) ;
-        if (mMap != null) {
-          //    if (MainActivity.checkGPSPermission(this)) {
-          mMap.setMyLocationEnabled(true);
-          mMap.getUiSettings().setMyLocationButtonEnabled(false);
-          mMap.getUiSettings().setZoomControlsEnabled(true);
-          mMap.getUiSettings().setZoomGesturesEnabled(true);
-        }
+      protected Boolean doInBackground(Void... voids) {
+        while (mMap == null || !MainActivity.hasLocationSystem()) ;
+        activity.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            Log.v("getpermission", "asd");
+            mMap.setMyLocationEnabled(true);
+            mMap.getUiSettings().setMyLocationButtonEnabled(false);
+            mMap.getUiSettings().setMapToolbarEnabled(false);
+            mMap.getUiSettings().setTiltGesturesEnabled(true);
+            mMap.getUiSettings().setZoomGesturesEnabled(true);
+          }
+        });
+        return true;
       }
-    }, delayMillis);
-    
+    }.execute();
     
   }
   
@@ -85,7 +90,6 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
   public void onMapReady(GoogleMap googleMap) {
     mMap = googleMap;
     mMap.setMapType(googleMapType);
-    mMap.setOnMyLocationButtonClickListener(this);
     mMap.setOnMyLocationClickListener(this);
     mMap.setOnMapLongClickListener(this);
   }
@@ -94,26 +98,27 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
     new AsyncTask<Void, Void, Boolean>() {
       @Override
       protected Boolean doInBackground(Void... voids) {
-        while (mMap == null){
-          if(!RequestDirection.status){
-            Log.v("error","d");
+        while (mMap == null) {
+          if (!RequestHandler.directionStatus) {
+            Log.v("error", "d");
             return false;
           }
-        };
+        }
+        ;
         if (latLngs.size() > 0) {
+          RequestHandler.setNavigationStatus(false);
           final PolylineOptions polylineOptions = new PolylineOptions();
           final List<CircleOptions> circleOptions = new ArrayList<>();
           polylineOptions.addAll(latLngs);
-          circles = new ArrayList<>();
-          circleOptions.add(new CircleOptions().center(latLngs.get(0)).fillColor(Color.TRANSPARENT).radius(20).strokeColor(Color.BLUE).strokeWidth(10));
-          circleOptions.add(new CircleOptions().center(latLngs.get(latLngs.size() - 1)).fillColor(Color.TRANSPARENT).radius(20).strokeColor(Color.RED).strokeWidth(10));
-          latLngs.clear();
+          
           activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-              if(polyline != null) {
-                polyline.remove();
-              }
+              
+              removePolyline();
+              circles = new ArrayList<>();
+              circleOptions.add(new CircleOptions().center(latLngs.get(0)).fillColor(Color.TRANSPARENT).radius(20).strokeColor(Color.BLUE).strokeWidth(10));
+              circleOptions.add(new CircleOptions().center(latLngs.get(latLngs.size() - 1)).fillColor(Color.TRANSPARENT).radius(20).strokeColor(Color.RED).strokeWidth(10));
               polylineOptions.color(Color.BLUE);
               polylineOptions.startCap(new RoundCap());
               polylineOptions.endCap(new SquareCap()).jointType(JointType.ROUND);
@@ -127,15 +132,13 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
         return false;
       }
     }.execute();
-  
-  
   }
   
   public static void removePolyline() {
-    if(polyline != null)
+    if (polyline != null)
       polyline.remove();
-    if(circles != null){
-      for(Circle circle : circles) {
+    if (circles != null) {
+      for (Circle circle : circles) {
         circle.remove();
       }
       circles.clear();
@@ -144,29 +147,34 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
   
   
   @Override
-  public boolean onMyLocationButtonClick() {
-    Toast.makeText(getActivity(), "MyLocation button clicked", Toast.LENGTH_SHORT).show();
-    // Return false so that we don't consume the event and the default behavior still occurs
-    // (the camera animates to the user's current position).
-    return false;
-  }
-  
-  @Override
   public void onMyLocationClick(@NonNull Location location) {
-    
     Toast.makeText(getActivity(), "Current location:\nLatitude : " + location.getLatitude() + "\nLongtitude : " + location.getLongitude(), Toast.LENGTH_LONG).show();
   }
   
   @Override
   public void onMapLongClick(LatLng latLng) {
-    if (marker != null) {
-      marker.remove();
-    }
+    removeMarker();
     MarkerOptions markerOptions = new MarkerOptions();
-    markerOptions.position(latLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+    markerOptions.position(latLng)
+            .title("target latlong")
+            .snippet(String.format("%.4f,%.4f", latLng.latitude, latLng.longitude))
+            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+    
     marker = mMap.addMarker(markerOptions);
+    ParkingWindow parkingWindow = new ParkingWindow(getActivity());
+    mMap.setInfoWindowAdapter(null);
+//    mMap.setInfoWindowAdapter(parkingWindow);
     markerType = MARKERTYPE.LatLng;
     this.latLng = latLng;
+  }
+  
+  public Boolean removeMarker() {
+    if (marker != null) {
+      marker.remove();
+      marker = null;
+      return true;
+    }
+    return false;
   }
   
   public static MARKERTYPE getMarkerType() {
@@ -205,5 +213,10 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
   public void onLowMemory() {
     super.onLowMemory();
     mapView.onLowMemory();
+  }
+  
+  // mMap Getter Method
+  public static GoogleMap getmMap() {
+    return mMap;
   }
 }
