@@ -27,35 +27,21 @@ import java.util.List;
 public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener
         , GoogleMap.OnMyLocationClickListener {
   
-  public enum MARKERTYPE {LatLng, Address, Name}
-  
   protected static GoogleMap mMap;
+  protected static MARKERTYPE markerType;
+  protected static LatLng latLng;
+  protected static Polyline polyline;
+  protected static List<Circle> circles;
   protected MapView mapView;
   protected View rootView;
   protected int mapViewId;
   protected int layoutActivityId;
   protected int googleMapType;
   protected Marker marker;
-  protected static MARKERTYPE markerType;
-  protected static LatLng latLng;
-  protected static Polyline polyline;
-  protected static List<Circle> circles;
-  
   public GoogleMapSystem(int mapViewId, int layoutActivityId, int googleMapType) {
     this.mapViewId = mapViewId;
     this.layoutActivityId = layoutActivityId;
     this.googleMapType = googleMapType;
-  }
-  
-  @Override
-  public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-    Log.v("create", "View");
-    rootView = layoutInflater.inflate(layoutActivityId, viewGroup, false);
-    mapView = ((MapView) rootView.findViewById(mapViewId));
-    mapView.onCreate(bundle);
-    mapView.getMapAsync(this);
-    addOn();
-    return rootView;
   }
   
   public static void EnableMyLocationSetting(final Activity activity) {
@@ -81,39 +67,26 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
     
   }
   
-  @Override
-  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-    super.onActivityCreated(savedInstanceState);
-  }
-  
-  @Override
-  public void onMapReady(GoogleMap googleMap) {
-    mMap = googleMap;
-    mMap.setMapType(googleMapType);
-    mMap.setOnMyLocationClickListener(this);
-    mMap.setOnMapLongClickListener(this);
-  }
-  
   public static void drawPolyLines(final FragmentActivity activity, final List<LatLng> latLngs) {
     new AsyncTask<Void, Void, Boolean>() {
       @Override
       protected Boolean doInBackground(Void... voids) {
         while (mMap == null) {
-          if (!RequestHandler.directionStatus) {
+          if (!DatabaseConnect.directionStatus) {
             Log.v("error", "d");
             return false;
           }
         }
-        ;
         if (latLngs.size() > 0) {
-          RequestHandler.setNavigationStatus(false);
           final PolylineOptions polylineOptions = new PolylineOptions();
           final List<CircleOptions> circleOptions = new ArrayList<>();
+          
           polylineOptions.addAll(latLngs);
           
           activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+              Log.v("PollyLine", polylineOptions.getPoints().toString());
               
               removePolyline();
               circles = new ArrayList<>();
@@ -125,6 +98,7 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
               polyline = mMap.addPolyline(polylineOptions);
               circles.add(mMap.addCircle(circleOptions.get(0)));
               circles.add(mMap.addCircle(circleOptions.get(1)));
+              latLngs.clear();
             }
           });
           return true;
@@ -145,6 +119,42 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
     }
   }
   
+  public static MARKERTYPE getMarkerType() {
+    return markerType;
+  }
+  
+  public static LatLng getLatLng() {
+    return latLng;
+  }
+  
+  // mMap Getter Method
+  public static GoogleMap getmMap() {
+    return mMap;
+  }
+  
+  @Override
+  public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    Log.v("create", "View");
+    rootView = layoutInflater.inflate(layoutActivityId, viewGroup, false);
+    mapView = ((MapView) rootView.findViewById(mapViewId));
+    mapView.onCreate(bundle);
+    mapView.getMapAsync(this);
+    addOn();
+    return rootView;
+  }
+  
+  @Override
+  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+  }
+  
+  @Override
+  public void onMapReady(GoogleMap googleMap) {
+    mMap = googleMap;
+    mMap.setMapType(googleMapType);
+    mMap.setOnMyLocationClickListener(this);
+    mMap.setOnMapLongClickListener(this);
+  }
   
   @Override
   public void onMyLocationClick(@NonNull Location location) {
@@ -177,14 +187,6 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
     return false;
   }
   
-  public static MARKERTYPE getMarkerType() {
-    return markerType;
-  }
-  
-  public static LatLng getLatLng() {
-    return latLng;
-  }
-  
   public void addOn() {
   
   }
@@ -215,8 +217,5 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
     mapView.onLowMemory();
   }
   
-  // mMap Getter Method
-  public static GoogleMap getmMap() {
-    return mMap;
-  }
+  public enum MARKERTYPE {LatLng, Address, Name}
 }

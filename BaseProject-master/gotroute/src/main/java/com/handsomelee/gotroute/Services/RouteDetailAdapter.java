@@ -13,13 +13,13 @@ import java.util.List;
 
 public class RouteDetailAdapter extends BaseAdapter {
   
-  private Context mContext;
-  private LayoutInflater mLayoutInflater;
-  private List<RouteInfo.RouteDetail> routeDetails;
   int layoutId;
   int[] viewId;
+  private Context mContext;
+  private LayoutInflater mLayoutInflater;
+  private RouteInfo.RouteDetail[] routeDetails;
   
-  public RouteDetailAdapter(Context mContext, List<RouteInfo.RouteDetail> routeDetails, int layoutId, int[] viewId) {
+  public RouteDetailAdapter(Context mContext, RouteInfo.RouteDetail[] routeDetails, int layoutId, int[] viewId) {
     this.mContext = mContext;
     this.routeDetails = routeDetails;
     this.layoutId = layoutId;
@@ -29,14 +29,12 @@ public class RouteDetailAdapter extends BaseAdapter {
   
   @Override
   public int getCount() {
-    
-    Log.v("routeDetails", "" + routeDetails.size());
-    return routeDetails.size();
+    return routeDetails.length;
   }
   
   @Override
   public Object getItem(int i) {
-    return routeDetails.get(i);
+    return routeDetails[i];
   }
   
   @Override
@@ -47,11 +45,12 @@ public class RouteDetailAdapter extends BaseAdapter {
   @Override
   public View getView(int i, View view, ViewGroup viewGroup) {
     View rowView = mLayoutInflater.inflate(layoutId, viewGroup, false);
-    ((TextView) rowView.findViewById(viewId[0])).setText(routeDetails.get(i).distance);
-    ((TextView) rowView.findViewById(viewId[1])).setText(routeDetails.get(i).duration);
-    ((TextView) rowView.findViewById(viewId[2])).setText(routeDetails.get(i).html_instructions);
-    ((TextView) rowView.findViewById(viewId[3])).setText(routeDetails.get(i).travel_mode);
-    ((TextView) rowView.findViewById(viewId[4])).setText(routeDetails.get(i).maneuver);
+    ((TextView) rowView.findViewById(viewId[0])).setText(routeDetails[i].getDistance());
+    ((TextView) rowView.findViewById(viewId[1])).setText(routeDetails[i].getDuration());
+    ((TextView) rowView.findViewById(viewId[2])).setText(routeDetails[i].getInstructions());
+    ((TextView) rowView.findViewById(viewId[3])).setText(routeDetails[i].getTravelMode());
+    if (routeDetails[i].getTransit() != null)
+      ((TextView) rowView.findViewById(viewId[4])).setText(routeDetails[i].getTransit().getBusNo());
     return rowView;
   }
 }

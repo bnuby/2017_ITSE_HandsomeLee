@@ -15,9 +15,9 @@ import com.handsomelee.gotroute.MainActivity;
 
 public class LocationSystem implements LocationListener {
   
+  static boolean reset;
   private LocationManager locationManager;
   private Location location;
-  static boolean reset;
   
   public LocationSystem(Context context) {
     locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
@@ -52,7 +52,7 @@ public class LocationSystem implements LocationListener {
   public void onLocationChanged(Location location) {
     this.location = location;
     
-    if (MapsActivity.getProgressType() == RequestHandler.ProgressType.Navigation) {
+    if (MapsActivity.getProgressType() == MapsActivity.ProgressType.Navigation) {
       boolean checkInLine = false;
       CameraPosition cameraPosition = new CameraPosition.Builder()
               .target(getLatLng())
@@ -84,11 +84,11 @@ public class LocationSystem implements LocationListener {
   }
   
   public boolean checkIsInRange(Location location, LatLng... latLng) {
-    final double EPSILON =1 * Math.pow(10, -5);
+    final double EPSILON = 1 * Math.pow(10, -5);
     Log.v(latLng[0].latitude + "," + latLng[0].longitude, latLng[1].latitude + "," + latLng[1].longitude);
     double a = (latLng[0].latitude - latLng[1].latitude) / (latLng[0].longitude - latLng[1].longitude);
     double b = latLng[1].latitude - a * latLng[1].longitude;
-    Log.v("abs", Math.abs(location.getLatitude() - (a * location.getLongitude() + b))+"");
+    Log.v("abs", Math.abs(location.getLatitude() - (a * location.getLongitude() + b)) + "");
     if (Math.abs(location.getLatitude() - (a * location.getLongitude() + b)) < EPSILON) {
       return true;
     }
@@ -97,16 +97,16 @@ public class LocationSystem implements LocationListener {
   
   @Override
   public void onStatusChanged(String s, int i, Bundle bundle) {
-  
+
   }
   
   @Override
   public void onProviderEnabled(String s) {
-  
+
   }
   
   @Override
   public void onProviderDisabled(String s) {
-  
+
   }
 }

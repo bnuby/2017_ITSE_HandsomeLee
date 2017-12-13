@@ -41,7 +41,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.handsomelee.gotroute.Controller.MapsActivity;
 import com.handsomelee.gotroute.Controller.SettingActivity;
 import com.handsomelee.gotroute.Model.DeviceInfo;
+import com.handsomelee.gotroute.Model.GoogleRoute;
 import com.handsomelee.gotroute.Model.PlaceSearch;
+import com.handsomelee.gotroute.Services.DatabaseConnect;
 import com.handsomelee.gotroute.Services.LocalDatabase;
 import com.handsomelee.gotroute.Services.LocationSystem;
 import com.handsomelee.gotroute.Services.RequestHandler;
@@ -50,36 +52,26 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity implements LocationSource.OnLocationChangedListener {
   
-  private ViewPager viewPager;
-  
-  private PagerAdapter pageAdapter;
-  
-  private static FusedLocationProviderClient mFusedLocationClient;
-  
-  private static Location mLastLocation;
-  
-  private static int GPS_REQUEST_CODE = 1;
-  
-  private static LocationSystem locationSystem;
-  
   public static RequestQueue queue;
-  
-  public static RequestHandler.DirectionType directionType = RequestHandler.DirectionType.Driving;
-  
+  public static MapsActivity.DirectionType directionType = MapsActivity.DirectionType.Driving;
   public static android.app.FragmentManager mFragmentManager;
-  
   public static List<LatLng> latLngs;
-  
   public static PlaceSearch placeSearch;
-  
   public static Activity mActivity;
+  private static FusedLocationProviderClient mFusedLocationClient;
+  private static Location mLastLocation;
+  private static int GPS_REQUEST_CODE = 1;
+  private static LocationSystem locationSystem;
+  MapsActivity tab1;
+  SettingActivity tab2;
+  private ViewPager viewPager;
+  private PagerAdapter pageAdapter;
   private boolean ListViewDrawer;
-  
-  
   private TabLayout.OnTabSelectedListener tabLayoutOnTabListener = new TabLayout.OnTabSelectedListener() {
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
@@ -94,7 +86,133 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     public void onTabReselected(TabLayout.Tab tab) {
     }
   };
+
+  public static Boolean checkGPSPermission(Context context) {
+    return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+  }
   
+  public static Boolean removeFragment(int id) {
+    try {
+      android.app.FragmentManager fm = mFragmentManager;
+      android.app.Fragment fragment = fm.findFragmentById(id);
+      android.app.FragmentTransaction ft = fm.beginTransaction();
+      ft.remove(fragment);
+      ft.commit();
+    } catch (Exception e) {
+      return false;
+    }
+    
+    return true;
+  }
+  
+  public static boolean requestNavigation(final View v) {
+    (v).setClickable(false);
+    if (MapsActivity.getProgressType() == MapsActivity.ProgressType.Free || ((Button) v).getText().equals("")) {
+      MapsActivity.setProgressType(MapsActivity.ProgressType.Navigation);
+      try {
+        final String locString = locationSystem.getLatitude() + "," + locationSystem.getLongitude();
+        String destination = "";
+        Log.v("mode", MapsActivity.getMarkerType().toString());
+        switch (MapsActivity.getMarkerType()) {
+          case Name:
+            MapsActivity.destination.setText(MapsActivity.getDestinationString());
+            destination = MapsActivity.getDestinationString().replace(' ', '+');
+            break;
+          case LatLng:
+            destination = MapsActivity.getLatLng().latitude + "," + MapsActivity.getLatLng().longitude;
+            MapsActivity.destination.setText(String.format("%.4f, %.4f", Double.parseDouble(destination.split(",")[0]), Double.parseDouble(destination.split(",")[1])));
+            break;
+          case Address:
+            break;
+        }
+        
+        final FragmentActivity activity = (FragmentActivity) mActivity;
+        
+        
+        // Your Position
+        if ((locationSystem.getLatitude() + "," + locationSystem.getLongitude()).equals(locString)) {
+          MapsActivity.origin.setText("Your Position");
+        } else {
+          MapsActivity.origin.setText(locString);
+        }
+        
+        MapsActivity.requestDirection(locString, destination, directionType);
+        
+        new AsyncTask<Void, Void, Void>() {
+          @Override
+          protected Void doInBackground(Void... voids) {
+            while (!DatabaseConnect.getNavigationStatus()) {
+              if (!DatabaseConnect.directionStatus) {
+                ((Button) v).setClickable(true);
+                Log.v("error", "d");
+                return null;
+              }
+            }
+            DatabaseConnect.setNavigationStatus(false);
+            mActivity.runOnUiThread(new Runnable() {
+              @Override
+              public void run() {
+                Log.v("RUN", "lat");
+                MapsActivity.drawPolyLines(activity, latLngs);
+                MapsActivity.showOriginAndDestination();
+                ((Button) v).setClickable(true);
+                ((Button) v).setText("cancel");
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(locationSystem.getLatLng())
+                        .zoom(20f)
+                        .tilt(80f)
+                        .build();
+                MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                MapsActivity.showListView();
+              }
+            });
+            return null;
+          }
+        }.execute();
+      } catch (Exception e) {
+        Log.e("Exception", "Request Navigation Failed!\n" + e.toString());
+        MapsActivity.setProgressType(MapsActivity.ProgressType.Free);
+        return false;
+      }
+    } else {
+      MapsActivity.hideOriginAndDestination();
+      MapsActivity.removePolyline();
+      ((Button) v).setText("navigation");
+      MapsActivity.closeListView();
+      MapsActivity.setProgressType(MapsActivity.ProgressType.Free);
+      CameraPosition cameraPosition = new CameraPosition.Builder()
+              .target(locationSystem.getLatLng())
+              .zoom(15f)
+              .build();
+      MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+    }
+    
+    return true;
+  }
+  
+  public static LocationSystem getLocationSystem() {
+    return locationSystem;
+  }
+  
+  public static boolean hasLocationSystem() {
+    return locationSystem != null;
+  }
+  
+  public static int getWidth() {
+    return DeviceInfo.getInstance().getScreenWidth();
+  }
+  
+  public static int calculateWidth(double divide) {
+    return (int) (Math.ceil(DeviceInfo.getInstance().getScreenWidth() / divide));
+  }
+  
+  public static int calculateHeight(double divide) {
+    return (int) (Math.ceil(DeviceInfo.getInstance().getScreenHeight() / divide));
+  }
+  
+  public static int getHeight() {
+    return DeviceInfo.getInstance().getScreenHeight();
+  }
   
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -126,67 +244,12 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     }
     checkGPSEnabled();
     requestLocationPermissions();
-    test();
+    
   }
-  
-  public void test() {
-    StringRequest request = new StringRequest("localhost/index.php", new Response.Listener<String>() {
-      @Override
-      public void onResponse(String s) {
-        Log.v("response", s);
-      }
-    }, new Response.ErrorListener() {
-      @Override
-      public void onErrorResponse(VolleyError volleyError) {
-        Log.e("request failed", volleyError.toString());
-      }
-    });
-    queue.add(request);
-  }
-
-  
-  MapsActivity tab1;
-  SettingActivity tab2;
   
   @Override
   public void onLocationChanged(Location location) {
     Log.v("location", location.getLatitude() + "");
-  }
-  
-  
-  public class PagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
-    public PagerAdapter(FragmentManager fm) {
-      super(fm);
-    }
-    
-    @Override
-    public Fragment getItem(int position) {
-      switch (position) {
-        case 0:
-          if (tab1 == null) {
-            tab1 = new MapsActivity(R.id.mapView, R.layout.activity_maps, GoogleMap.MAP_TYPE_NORMAL);
-          }
-          return tab1;
-        
-        case 1:
-          if (tab2 == null)
-            tab2 = new SettingActivity();
-          return tab2;
-        
-        default:
-          return null;
-      }
-      
-    }
-    
-    @Override
-    public int getCount() {
-      return 2;
-    }
-  }
-  
-  public static Boolean checkGPSPermission(Context context) {
-    return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
   }
   
   private void checkGPSEnabled() {
@@ -263,106 +326,6 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     }
   }
   
-  public static Boolean removeFragment(int id) {
-    try {
-      android.app.FragmentManager fm = mFragmentManager;
-      android.app.Fragment fragment = fm.findFragmentById(id);
-      android.app.FragmentTransaction ft = fm.beginTransaction();
-      ft.remove(fragment);
-      ft.commit();
-    } catch (Exception e) {
-      return false;
-    }
-    
-    return true;
-  }
-  
-  public static boolean requestNavigation(final View v) {
-//    if (((Button) v).getText().equals("navigation")) {
-    if (MapsActivity.getProgressType() == RequestHandler.ProgressType.Free || ((Button) v).getText().equals("")) {
-      try {
-        final String locString = locationSystem.getLatitude() + "," + locationSystem.getLongitude();
-        String destination = "";
-        Log.v("mode", MapsActivity.getMarkerType().toString());
-        switch (MapsActivity.getMarkerType()) {
-          case Name:
-            MapsActivity.destination.setText(MapsActivity.getDestinationString());
-            destination = MapsActivity.getDestinationString().replace(' ', '+');
-            break;
-          case LatLng:
-            destination = MapsActivity.getLatLng().latitude + "," + MapsActivity.getLatLng().longitude;
-            MapsActivity.destination.setText(String.format("%.4f, %.4f", Double.parseDouble(destination.split(",")[0]), Double.parseDouble(destination.split(",")[1])));
-            break;
-          case Address:
-            break;
-        }
-        Log.v("origin", locString);
-        Log.v("LatLng", destination);
-        
-        final FragmentActivity activity = (FragmentActivity) mActivity;
-        
-        
-        // Your Position
-        if ((locationSystem.getLatitude() + "," + locationSystem.getLongitude()).equals(locString)) {
-          MapsActivity.origin.setText("Your Position");
-        } else {
-          MapsActivity.origin.setText(locString);
-        }
-        MapsActivity.showOriginAndDestination();
-        
-        RequestHandler.requestDirection(mActivity, directionType, locString, destination);
-        
-        new AsyncTask<Void, Void, Void>() {
-          @Override
-          protected Void doInBackground(Void... voids) {
-            while (!RequestHandler.getNavigationStatus()) {
-              if (!RequestHandler.directionStatus) {
-                Log.v("error", "d");
-                return null;
-              }
-            }
-            mActivity.runOnUiThread(new Runnable() {
-              @Override
-              public void run() {
-                Log.v("PollyLatLong", "lat=" + latLngs);
-                
-                Log.v("RUN", "lat");
-                MapsActivity.drawPolyLines(activity, latLngs);
-                ((Button) v).setText("cancel");
-                
-                MapsActivity.setProgressType(RequestHandler.ProgressType.Navigation);
-                CameraPosition cameraPosition = new CameraPosition.Builder()
-                        .target(locationSystem.getLatLng())
-                        .zoom(20f)
-                        .tilt(80f)
-                        .build();
-                MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                MapsActivity.showListView();
-              }
-            });
-            return null;
-          }
-        }.execute();
-      } catch (Exception e) {
-        Log.e("Exception", "Request Navigation Failed!\n" + e.toString());
-        return false;
-      }
-    } else {
-      MapsActivity.hideOriginAndDestination();
-      MapsActivity.removePolyline();
-      ((Button) v).setText("navigation");
-      MapsActivity.closeListView();
-      MapsActivity.setProgressType(RequestHandler.ProgressType.Free);
-      CameraPosition cameraPosition = new CameraPosition.Builder()
-              .target(locationSystem.getLatLng())
-              .zoom(15f)
-              .build();
-      MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-    }
-    
-    return true;
-  }
-  
   public void listViewBtn(View v) {
     if (((Button) v).getText().equals("^")) {
       MapsActivity.showListView();
@@ -383,29 +346,35 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     }
   }
   
-  public static LocationSystem getLocationSystem() {
-    return locationSystem;
-  }
-  
-  
-  public static boolean hasLocationSystem() {
-    return locationSystem != null;
-  }
-  
-  public static int getWidth() {
-    return DeviceInfo.getInstance().getScreenWidth();
-  }
-  
-  public static int calculateWidth(double divide) {
-    return (int) (Math.ceil(DeviceInfo.getInstance().getScreenWidth() / divide));
-  }
-  
-  public static int calculateHeight(double divide) {
-    return (int) (Math.ceil(DeviceInfo.getInstance().getScreenHeight() / divide));
-  }
-  
-  public static int getHeight() {
-    return DeviceInfo.getInstance().getScreenHeight();
+  public class PagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
+    public PagerAdapter(FragmentManager fm) {
+      super(fm);
+    }
+    
+    @Override
+    public Fragment getItem(int position) {
+      switch (position) {
+        case 0:
+          if (tab1 == null) {
+            tab1 = new MapsActivity(R.id.mapView, R.layout.activity_maps, GoogleMap.MAP_TYPE_NORMAL);
+          }
+          return tab1;
+        
+        case 1:
+          if (tab2 == null)
+            tab2 = new SettingActivity();
+          return tab2;
+        
+        default:
+          return null;
+      }
+      
+    }
+    
+    @Override
+    public int getCount() {
+      return 2;
+    }
   }
 }
 

@@ -10,7 +10,7 @@ public class PlaceSearch {
   public String status;
   
   public static class searchDetail {
-  
+
     public JsonObject geometry;
     public String name;
     public JsonObject opening_hours;

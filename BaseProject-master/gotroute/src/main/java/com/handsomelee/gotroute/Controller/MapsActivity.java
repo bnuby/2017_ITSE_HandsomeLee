@@ -3,14 +3,22 @@ package com.handsomelee.gotroute.Controller;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.graphics.Color;
+import android.net.http.SslError;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.util.Base64;
 import android.util.Log;
 import android.view.*;
+import android.webkit.*;
 import android.widget.*;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.evgenii.jsevaluator.JsEvaluator;
+import com.evgenii.jsevaluator.interfaces.JsCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
@@ -27,23 +35,20 @@ import com.handsomelee.gotroute.Services.GoogleMapSystem;
 import com.handsomelee.gotroute.Services.RequestHandler;
 import com.handsomelee.gotroute.Services.RouteDetailAdapter;
 
+import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import static android.content.ContentValues.TAG;
 
 public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListener
         , GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener {
-  
-  private EditText editText;
-  private static PlaceAutocompleteFragment autocompleteFragment;
+  private static final Handler refreshHandler = new Handler();
   public static PlaceAutocompleteFragment origin;
   public static PlaceAutocompleteFragment destination;
-  private Button getLocationBtn;
-  private Button navigationBtn;
-  private static String destinationString = "";
-  private static RequestHandler.ProgressType progressType = RequestHandler.ProgressType.Free;
-  private static final Handler refreshHandler = new Handler();
   public static RadioGroup navigationRadioGroup;
   public static ListView listView;
   public static LinearLayout listLinearLayoutView;
@@ -52,14 +57,300 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   public static Button listViewBtn;
   public static Marker[] carParkingMarkers;
   public static Marker[] reportMarkers;
+  private static PlaceAutocompleteFragment autocompleteFragment;
+  private static String destinationString = "";
+  private static ProgressType progressType = ProgressType.Free;
   private static long refreshSecond;
   int PLACE_PICKER_REQUEST = 1;
-  
   GestureDetector gestureDetector;
-  
+  private EditText editText;
+  private Button getLocationBtn;
+  private Button navigationBtn;
   public MapsActivity(int mapViewId, int layoutActivityId, int googleMapType) {
     super(mapViewId, layoutActivityId, googleMapType);
     
+  }
+  
+  public static void requestDirection(String origin, String destination, DirectionType type) {
+    String url = "http://192.168.31.38/index.php";
+    String mode = "";
+    switch (type) {
+      case Walking:
+        mode = "walking";
+        break;
+      case Cycling:
+        mode = "bicycling";
+        break;
+      case Transit:
+        mode = "transit";
+        break;
+      case Driving:
+      default:
+        mode = "driving";
+    }
+    WebView webView = MainActivity.mActivity.findViewById(R.id.webView);
+    webView.getSettings().setJavaScriptEnabled(true);
+    webView.setWebViewClient(new WebViewClient() {
+      
+      @Override
+      public void onPageFinished(final WebView view, String url) {
+        Log.v("Finished", url);
+        new Handler().postDelayed(new Runnable() {
+          @Override
+          public void run() {
+            view.evaluateJavascript("(function() { return document.querySelector(\"#json\").innerHTML })()",
+                    new ValueCallback<String>() {
+                      @Override
+                      public void onReceiveValue(String s) {
+                        String string = convertStandardJSONString(s);
+                        DatabaseConnect.fetchDirection(string);
+                      }
+                    });
+          }
+        }, 2000);
+
+//        StringRequest request = new StringRequest("https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj/service/findCollection/incoming_webhook/fetch_direction?secret=12345",
+//                new Response.Listener<String>() {
+//                  @Override
+//                  public void onResponse(String s) {
+//                    new Handler().postDelayed(new Runnable() {
+//                      @Override
+//                      public void run() {
+//                        DatabaseConnect.fetchDirection();
+//                      }
+//                    }, 0);
+//                  }
+//                },
+//                new Response.ErrorListener() {
+//                  @Override
+//                  public void onErrorResponse(VolleyError volleyError) {
+//                    Log.e("Direction", volleyError.toString());
+//                  }
+//                });
+//        MainActivity.queue.add(request);
+        super.onPageFinished(view, url);
+      }
+    });
+    webView.loadUrl(String.format("%s?origin=%s&destination=%s&travelMode=%s&id=%s", url, origin, destination, mode, DeviceInfo.getInstance().getId()));
+  }
+  
+  public static String convertStandardJSONString(String data_json) {
+    data_json = data_json.substring(1, data_json.length() - 1);
+    data_json = data_json.replace("\\", "");
+    data_json = data_json.replace("&gt;", "");
+    data_json = data_json.replace("div style=\"font-size:0.9em\"", "");
+    data_json = data_json.replace("&lt;", "");
+    return data_json;
+  }
+  
+  public static void closeListView() {
+    listViewBtn.setText("^");
+    listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight()).start();
+  }
+  
+  public static void showListView() {
+    listViewBtn.setText("v");
+    listLinearLayoutView.setVisibility(View.VISIBLE);
+
+//    listView.animate().setDuration(600).y(0).start();
+    listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight() - listLinearLayoutView.getHeight()).start();
+    
+  }
+  
+  public static void hideListView() {
+    listViewBtn.setText("^");
+    listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight() - 40).start();
+    
+  }
+  
+  public static void hideOriginAndDestination() {
+    origin.getView().setClickable(false);
+    destination.getView().setClickable(false);
+    origin.getView().animate().setDuration(600).y(-300).alpha(0).start();
+    navigationRadioGroup.animate().setDuration(600).y(-70).alpha(0).start();
+    destination.getView().animate().setDuration(600).y(-100).alpha(0).withEndAction(new Runnable() {
+      @Override
+      public void run() {
+        origin.getView().setVisibility(View.INVISIBLE);
+        destination.getView().setVisibility(View.INVISIBLE);
+      }
+    }).start();
+    
+    autocompleteFragment.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(85.33)).start();
+  }
+  
+  public static void showOriginAndDestination() {
+    origin.getView().setClickable(true);
+    destination.getView().setClickable(true);
+    origin.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(85.34)).start();
+    destination.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(20.8) + MainActivity.calculateHeight(85.34) + 20).start();
+    origin.getView().setVisibility(View.VISIBLE);
+    destination.getView().setVisibility(View.VISIBLE);
+    navigationRadioGroup.animate().y(2 * (MainActivity.calculateHeight(13.8)) + MainActivity.calculateHeight(85.34) + 40).alpha(1).start();
+    autocompleteFragment.getView().animate().setDuration(600).alpha(0).y(-200).start();
+  }
+  
+  public static void removeParkingMarker() {
+    if (carParkingMarkers != null && carParkingMarkers.length > 0) {
+      for (Marker i : carParkingMarkers) {
+        i.remove();
+      }
+    }
+  }
+  
+  // RefreshSecond Setter Method
+  public static void updateRefreshSecond() {
+    MapsActivity.refreshSecond = DeviceInfo.getInstance().getRefreshTime() * 1000;
+  }
+  
+  public static void processReport() {
+    final String[] fetchData = DatabaseConnect.fetchData("handsomelee", "reports");
+    new AsyncTask<Void, Void, Void>() {
+      @Override
+      protected Void doInBackground(Void... voids) {
+        while (mMap == null) ;
+        while (fetchData[0] == null) {
+          System.out.print("buffer");
+        }
+        MainActivity.mActivity.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            Gson gson = new Gson();
+            Report.fetchReport[] reports = gson.fromJson(fetchData[0], Report.fetchReport[].class);
+            if (reportMarkers != null && reportMarkers.length > 0) {
+              for (Marker marker : reportMarkers) {
+                marker.remove();
+                marker = null;
+              }
+            }
+            reportMarkers = new Marker[reports.length];
+            for (int i = 0; i < reports.length; i++) {
+              MarkerOptions options = new MarkerOptions()
+                      .title(reports[i].type)
+                      .position(reports[i].getLatLng())
+                      .snippet(reports[i].comment);
+              switch (reports[i].type) {
+                case "Temporary Inspection":
+                  options.icon(BitmapDescriptorFactory.fromResource(R.drawable.temporary_inspection));
+                  break;
+                case "Road Block":
+                  options.icon(BitmapDescriptorFactory.fromResource(R.drawable.road_block));
+                  break;
+                case "Mobile Speed Track":
+                  options.icon(BitmapDescriptorFactory.fromResource(R.drawable.speed_track));
+                  break;
+              }
+              reportMarkers[i] = mMap.addMarker(options);
+            }
+            fetchData[0] = null;
+          }
+        });
+        return null;
+      }
+    }.execute();
+  }
+  
+  public static void processParking() {
+    removeParkingMarker();
+    final PlaceSearch placeSearch = MainActivity.placeSearch;
+    if (MainActivity.placeSearch != null && placeSearch.status.equals("OK")) {
+      MainActivity.mActivity.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+          if (placeSearch.results != null) {
+            carParkingMarkers = new Marker[placeSearch.results.length];
+            
+            for (int i = 0; i < placeSearch.results.length; i++) {
+              int available = 0;
+              String title = "";
+              int open_now = 0;
+//              if (placeSearch.results[i].hasPhotoReference()) {
+//                RequestHandler.requestGooglePhoto(placeSearch.results[i].getPhotoReference(), i);
+//              }
+              if (placeSearch.results[i].name != null) {
+                title = placeSearch.results[i].name;
+              }
+              if (placeSearch.results[i].opening_hours != null && placeSearch.results[i].opening_hours.has("open_now")) {
+                if (placeSearch.results[i].opening_hours.get("open_now").getAsBoolean()) {
+                  open_now = 1;
+                } else {
+                  open_now = -1;
+                }
+                Log.v("open", "" + open_now);
+              }
+              
+              MarkerOptions markerOptions = new MarkerOptions()
+                      .position(placeSearch.results[i].getLatLng())
+                      .title(title)
+                      .snippet(open_now + "," + available)
+                      .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking));
+//              ParkingWindow parkingWindow = new ParkingWindow(MainActivity.mActivity);
+//              mMap.setInfoWindowAdapter(parkingWindow);
+              final String finalTitle = title;
+              final int finalI = i;
+              mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
+                  Log.v("title", finalTitle);
+                  Log.v("index", finalI + "");
+                  ParkingWindow.updateButton(marker.getTitle(), marker.getSnippet().split(",")[1], marker);
+                }
+              });
+              carParkingMarkers[i] = mMap.addMarker(markerOptions);
+              carParkingMarkers[i].setTag(String.format("parking"));
+            }
+            new AsyncTask<Void, Void, Void>() {
+              @Override
+              protected Void doInBackground(Void... voids) {
+                final String fetchData[] = DatabaseConnect.fetchData("handsomelee", "carParking");
+                while (fetchData[0] == null) ;
+                MainActivity.mActivity.runOnUiThread(new Runnable() {
+                  @Override
+                  public void run() {
+                    Gson gson = new Gson();
+                    final CarParking[] carParkings = gson.fromJson(fetchData[0], CarParking[].class);
+                    for (Marker marker : carParkingMarkers) {
+                      for (CarParking carParking : carParkings) {
+                        if (carParking.getName().equals(marker.getTitle())) {
+                          String snippet = marker.getSnippet().split(",")[0];
+                          marker.setSnippet(snippet + "," + carParking.getAvailable());
+                        }
+                      }
+                    }
+                  }
+                });
+                
+                return null;
+              }
+            }.execute();
+          } else {
+            Toast.makeText(MainActivity.mActivity, "Parking Not Found.", Toast.LENGTH_LONG);
+          }
+        }
+      });
+    } else {
+      Toast.makeText(MainActivity.mActivity, "Parking Request Failed.", Toast.LENGTH_LONG);
+    }
+  }
+  
+  public static String getDestinationString() {
+    return destinationString;
+  }
+  
+  // progressType Getter Method
+  public static ProgressType getProgressType() {
+    return progressType;
+  }
+  
+  // ProgressType Setter Method
+  public static void setProgressType(ProgressType progressType) {
+    MapsActivity.progressType = progressType;
+  }
+  
+  public static void configureRouteDetail() {
+    int viewId[] = {R.id.Distance, R.id.duration, R.id.html_instructions, R.id.travel_mode, R.id.maneuver};
+    mAdapter = new RouteDetailAdapter(MainActivity.mActivity, routeInfo.steps, R.layout.simple_list, viewId);
+    listView.setAdapter(mAdapter);
   }
   
   @Override
@@ -69,7 +360,7 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   }
   
   private void autoRefresh() {
-    Log.v("Report","refresh");
+    Log.v("Report", "refresh");
     refreshHandler.postDelayed(new Runnable() {
       @Override
       public void run() {
@@ -130,7 +421,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
         ));
       }
     });
-    
     reportBtn.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -173,29 +463,8 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   }
   
   public void configureListView() {
-//    listView.setScrollY(ListView.SCROLL_AXIS_VERTICAL);
-//    listView.animate().y(MainActivity.getHeight() + 100).start();
     listLinearLayoutView.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, MainActivity.calculateHeight(100.0 / 50)));
     listLinearLayoutView.animate().y(MainActivity.getHeight() + 100).start();
-  }
-  
-  public static void closeListView() {
-    listViewBtn.setText("^");
-    listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight()).start();
-  }
-  
-  public static void showListView() {
-    listViewBtn.setText("v");
-//    listView.animate().setDuration(600).y(0).start();
-    listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight() - listLinearLayoutView.getHeight()).start();
-    
-  }
-  
-  public static void hideListView() {
-    listViewBtn.setText("^");
-//    listView.animate().setDuration(600).y(MainActivity.getHeight() + 100).start();
-    listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight() - 40).start();
-    
   }
   
   public void configureRadioGroup() {
@@ -205,23 +474,22 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
       public void onCheckedChanged(RadioGroup radioGroup, int i) {
         switch (i) {
           case R.id.CyclingRadio:
-            MainActivity.directionType = RequestHandler.DirectionType.Cycling;
+            MainActivity.directionType = DirectionType.Cycling;
             MainActivity.requestNavigation(new Button(getContext()));
             break;
           case R.id.DrivingRadio:
-            MainActivity.directionType = RequestHandler.DirectionType.Driving;
+            MainActivity.directionType = DirectionType.Driving;
             MainActivity.requestNavigation(new Button(getContext()));
             break;
           case R.id.TransitRadio:
-            MainActivity.directionType = RequestHandler.DirectionType.Transit;
+            MainActivity.directionType = DirectionType.Transit;
             MainActivity.requestNavigation(new Button(getContext()));
             break;
           case R.id.WalkingRadio:
-            MainActivity.directionType = RequestHandler.DirectionType.Walking;
+            MainActivity.directionType = DirectionType.Walking;
             MainActivity.requestNavigation(new Button(getContext()));
             break;
         }
-        Log.v("radioButton", (i == R.id.CyclingRadio) + "");
       }
     });
   }
@@ -242,34 +510,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
     destination.getView().animate().y(-100).start();
   }
   
-  public static void hideOriginAndDestination() {
-    origin.getView().setClickable(false);
-    destination.getView().setClickable(false);
-    origin.getView().animate().setDuration(600).y(-300).alpha(0).start();
-    navigationRadioGroup.animate().setDuration(600).y(-70).alpha(0).start();
-    destination.getView().animate().setDuration(600).y(-100).alpha(0).withEndAction(new Runnable() {
-      @Override
-      public void run() {
-        origin.getView().setVisibility(View.INVISIBLE);
-        destination.getView().setVisibility(View.INVISIBLE);
-        Log.v("Origin", origin.getView().getY() + "," + destination.getView().getY());
-      }
-    }).start();
-    
-    autocompleteFragment.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(85.33)).start();
-  }
-  
-  public static void showOriginAndDestination() {
-    origin.getView().setClickable(true);
-    destination.getView().setClickable(true);
-    origin.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(85.34)).start();
-    destination.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(12.8) + MainActivity.calculateHeight(85.34) + 20).start();
-    origin.getView().setVisibility(View.VISIBLE);
-    destination.getView().setVisibility(View.VISIBLE);
-    navigationRadioGroup.animate().y(2 * (MainActivity.calculateHeight(12.8)) + MainActivity.calculateHeight(85.34) + 40).alpha(1).start();
-    autocompleteFragment.getView().animate().setDuration(600).alpha(0).y(-200).start();
-  }
-  
   public void placeMarker(Place place) {
     if (place == null) {
       return;
@@ -285,19 +525,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
             .build();                   // Creates a CameraPosition from the builder
     mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     markerType = MARKERTYPE.Name;
-  }
-  
-  public static void removeParkingMarker() {
-    if (carParkingMarkers != null && carParkingMarkers.length > 0) {
-      for (Marker i : carParkingMarkers) {
-        i.remove();
-      }
-    }
-  }
-  
-  // RefreshSecond Setter Method
-  public static void updateRefreshSecond() {
-    MapsActivity.refreshSecond = DeviceInfo.getInstance().getRefreshTime() * 1000;
   }
   
   public void reportProcessBtn() {
@@ -321,7 +548,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
         
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
-          
         }
       });
       Log.v("view", "Start");
@@ -341,160 +567,26 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
       send.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-          if(!reportType[0].equals("Please Select One")) {
+          if (!reportType[0].equals("Please Select One")) {
             report[0] = new Report(dateTime, reportType[0], comment.getText().toString(), new Report.Location(marker.getPosition().latitude, marker.getPosition().longitude));
-                      DatabaseConnect.insertReportData(report[0]);
-                      processReport();
-                      alertDialog.dismiss();
+            DatabaseConnect.insertReportData(report[0]);
+            processReport();
+            alertDialog.dismiss();
           } else {
             Toast.makeText(MainActivity.mActivity, "Please select report type.", Toast.LENGTH_SHORT).show();
           }
-          
         }
       });
       alertDialog.show();
     } else {
       Toast.makeText(MainActivity.mActivity, "Please put marker", Toast.LENGTH_LONG).show();
     }
-    
-  }
-  
-  public static void processReport() {
-    final String[] fetchData = DatabaseConnect.fetchData("handsomelee", "reports");
-    new AsyncTask<Void, Void, Void>() {
-      @Override
-      protected Void doInBackground(Void... voids) {
-        while (mMap == null);
-        while (fetchData[0] == null){ System.out.print("buffer"); }
-        MainActivity.mActivity.runOnUiThread(new Runnable() {
-          @Override
-          public void run() {
-            Gson gson = new Gson();
-            Report.fetchReport[] reports = gson.fromJson(fetchData[0], Report.fetchReport[].class);
-            if(reportMarkers != null && reportMarkers.length > 0) {
-              for(Marker marker : reportMarkers) {
-                marker.remove();
-                marker = null;
-              }
-            }
-            reportMarkers = new Marker[reports.length];
-            for (int i = 0; i < reports.length; i++) {
-              MarkerOptions options = new MarkerOptions()
-                      .title(reports[i].type)
-                      .position(reports[i].getLatLng())
-                      .snippet(reports[i].comment);
-              switch (reports[i].type) {
-                case "Temporary Inspection":
-                  options.icon(BitmapDescriptorFactory.fromResource(R.drawable.temporary_inspection));
-                  break;
-                case "Road Block":
-                  options.icon(BitmapDescriptorFactory.fromResource(R.drawable.road_block));
-                  break;
-                case "Mobile Speed Track":
-                  options.icon(BitmapDescriptorFactory.fromResource(R.drawable.speed_track));
-                  break;
-              }
-              reportMarkers[i] = mMap.addMarker(options);
-            }
-            fetchData[0] = null;
-          }
-        });
-        return null;
-      }
-    }.execute();
-  }
-  
-  public static void processParking() {
-    removeParkingMarker();
-    final PlaceSearch placeSearch = MainActivity.placeSearch;
-    if (MainActivity.placeSearch != null && placeSearch.status.equals("OK")) {
-      MainActivity.mActivity.runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-          if (placeSearch.results != null) {
-            carParkingMarkers = new Marker[placeSearch.results.length];
-            
-            for (int i = 0; i < placeSearch.results.length; i++) {
-              int available = 0;
-              String title = "";
-              int open_now = 0;
-              if (placeSearch.results[i].hasPhotoReference()) {
-                RequestHandler.requestGooglePhoto(placeSearch.results[i].getPhotoReference(), i);
-              }
-              if (placeSearch.results[i].name != null) {
-                title = placeSearch.results[i].name;
-              }
-              if (placeSearch.results[i].opening_hours != null && placeSearch.results[i].opening_hours.has("open_now")) {
-                if (placeSearch.results[i].opening_hours.get("open_now").getAsBoolean()) {
-                  open_now = 1;
-                } else {
-                  open_now = -1;
-                }
-                Log.v("open", "" + open_now);
-              }
-              
-              MarkerOptions markerOptions = new MarkerOptions()
-                      .position(placeSearch.results[i].getLatLng())
-                      .title(title)
-                      .snippet(open_now + "," + available)
-                      .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking));
-//              ParkingWindow parkingWindow = new ParkingWindow(MainActivity.mActivity);
-//              mMap.setInfoWindowAdapter(parkingWindow);
-              final String finalTitle = title;
-              final int finalI = i;
-              mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-                @Override
-                public void onInfoWindowClick(Marker marker) {
-                  Log.v("title", finalTitle);
-                  Log.v("index", finalI + "");
-                  ParkingWindow.updateButton(marker.getTitle(), marker.getSnippet().split(",")[1], marker);
-                }
-              });
-              carParkingMarkers[i] = mMap.addMarker(markerOptions);
-              carParkingMarkers[i].setTag(String.format("parking"));
-            }
-            new AsyncTask<Void, Void, Void>() {
-              @Override
-              protected Void doInBackground(Void... voids) {
-                final String fetchData[] = DatabaseConnect.fetchData("handsomelee", "carParking");
-                while (fetchData[0] == null) ;
-                Log.v("FetchData", fetchData[0]);
-                
-                MainActivity.mActivity.runOnUiThread(new Runnable() {
-                  @Override
-                  public void run() {
-                    Gson gson = new Gson();
-                    final CarParking[] carParkings = gson.fromJson(fetchData[0], CarParking[].class);
-                    for (Marker marker : carParkingMarkers) {
-                      for (CarParking carParking : carParkings) {
-                        if (carParking.getName().equals(marker.getTitle())) {
-                          String snippet = marker.getSnippet().split(",")[0];
-                          marker.setSnippet(snippet + "," + carParking.getAvailable());
-                        }
-                      }
-                    }
-                  }
-                });
-                
-                return null;
-              }
-            }.execute();
-          } else {
-            Toast.makeText(MainActivity.mActivity, "Parking Not Found.", Toast.LENGTH_LONG);
-          }
-        }
-      });
-    } else {
-      Toast.makeText(MainActivity.mActivity, "Parking Request Failed.", Toast.LENGTH_LONG);
-    }
   }
   
   @Override
   public boolean onMarkerClick(Marker marker) {
-    Log.v("marker", "inside");
     if (marker.getTag() != null) {
       if (((String) marker.getTag()).equals("parking")) {
-        Log.v("marker", "parking");
         mMap.setInfoWindowAdapter(new ParkingWindow(MainActivity.mActivity));
       }
     } else {
@@ -506,7 +598,7 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   
   @Override
   public void onMapClick(LatLng latLng) {
-    if (progressType == RequestHandler.ProgressType.Free) {
+    if (progressType == ProgressType.Free) {
       autocompleteFragment.setText("");
       removeMarker();
       hideNavigationBtn();
@@ -520,7 +612,7 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
     removePolyline();
     closeListView();
     navigationBtn.setText("navigation");
-    MapsActivity.setProgressType(RequestHandler.ProgressType.Free);
+    MapsActivity.setProgressType(ProgressType.Free);
     autocompleteFragment.setText(String.format("%.4f,\t%.4f", latLng.latitude, latLng.longitude));
     if (mMap.getCameraPosition().zoom >= 15f) {
       CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -532,25 +624,10 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
     showNavigationBtn();
   }
   
-  public static String getDestinationString() {
-    return destinationString;
-  }
-  
   // navigationBtn Getter Method
   public Button getNavigationBtn() {
     return navigationBtn;
   }
-  
-  // progressType Getter Method
-  public static RequestHandler.ProgressType getProgressType() {
-    return progressType;
-  }
-  
-  // ProgressType Setter Method
-  public static void setProgressType(RequestHandler.ProgressType progressType) {
-    MapsActivity.progressType = progressType;
-  }
-  
   
   @Override
   public void onDestroyView() {
@@ -563,23 +640,23 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   @Override
   public void onPlaceSelected(Place place) {
     // TODO: Get info about the selected place.
-    Log.i(TAG, "Place: " + place.getName());
     destinationString = place.getName().toString();
-    Log.v("Place Address", place.getName().toString());
     placeMarker(place);
     showNavigationBtn();
-  }
-  
-  public static void configureRouteDetail() {
-    int viewId[] = {R.id.Distance, R.id.duration, R.id.html_instructions, R.id.travel_mode, R.id.maneuver};
-    mAdapter = new RouteDetailAdapter(MainActivity.mActivity, routeInfo.routeDetails, R.layout.simple_list, viewId);
-    listView.setAdapter(mAdapter);
   }
   
   @Override
   public void onError(Status status) {
     // TODO: Handle the error.
     Log.i(TAG, "An error occurred: " + status);
+  }
+  
+  public enum ProgressType {
+    Navigation, Free
+  }
+  
+  public enum DirectionType {
+    Driving, Walking, Transit, Cycling
   }
   
 }

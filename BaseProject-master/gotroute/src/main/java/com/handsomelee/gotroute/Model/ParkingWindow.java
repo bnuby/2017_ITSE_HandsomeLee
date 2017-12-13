@@ -22,37 +22,6 @@ public class ParkingWindow implements GoogleMap.InfoWindowAdapter {
     this.context = context;
   }
   
-  @Override
-  public View getInfoWindow(Marker marker) {
-    return null;
-  }
-  
-  @Override
-  public View getInfoContents(Marker marker) {
-    View view = context.getLayoutInflater().inflate(R.layout.parking_window, null);
-    final TextView windowTitle = view.findViewById(R.id.carParkName);
-    TextView isOpen = view.findViewById(R.id.isOpen);
-    final TextView available = view.findViewById(R.id.available);
-    String[] array = marker.getSnippet().split(",");
-    switch (Integer.valueOf(array[0])) {
-      case 1:
-        isOpen.setText("YES");
-        isOpen.setTextColor(Color.GREEN);
-        break;
-      case 0:
-        isOpen.setText("-");
-        isOpen.setTextColor(Color.RED);
-        break;
-      case -1:
-        isOpen.setText("NO");
-        isOpen.setTextColor(Color.RED);
-        break;
-    }
-    windowTitle.setText(marker.getTitle());
-    available.setText(array[1]);
-    return view;
-  }
-  
   public static void updateButton(final CharSequence title, CharSequence numberOfAvailable, final Marker marker) {
     final AlertDialog updateDialog;
     AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.mActivity);
@@ -63,8 +32,8 @@ public class ParkingWindow implements GoogleMap.InfoWindowAdapter {
     Button cancelBtn = mView.findViewById(R.id.cancelUpdateBtn);
     titleTv.setText(title);
     availableEt.setText(numberOfAvailable);
-    
-    
+
+
     mBuilder.setView(mView);
     updateDialog = mBuilder.create();
     updateBtn.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +63,39 @@ public class ParkingWindow implements GoogleMap.InfoWindowAdapter {
         updateDialog.dismiss();
       }
     });
-    
+
     updateDialog.show();
+  }
+  
+  @Override
+  public View getInfoWindow(Marker marker) {
+    return null;
+  }
+  
+  @Override
+  public View getInfoContents(Marker marker) {
+    View view = context.getLayoutInflater().inflate(R.layout.parking_window, null);
+    final TextView windowTitle = view.findViewById(R.id.carParkName);
+    TextView isOpen = view.findViewById(R.id.isOpen);
+    final TextView available = view.findViewById(R.id.available);
+    String[] array = marker.getSnippet().split(",");
+    switch (Integer.valueOf(array[0])) {
+      case 1:
+        isOpen.setText("YES");
+        isOpen.setTextColor(Color.GREEN);
+        break;
+      case 0:
+        isOpen.setText("-");
+        isOpen.setTextColor(Color.RED);
+        break;
+      case -1:
+        isOpen.setText("NO");
+        isOpen.setTextColor(Color.RED);
+        break;
+    }
+    windowTitle.setText(marker.getTitle());
+    available.setText(array[1]);
+    return view;
   }
   
 }

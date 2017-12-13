@@ -38,4 +38,6 @@ dependencies {
     compile 'org.mongodb:mongo-java-driver:+'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.github.evgenyneu:js-evaluator-for-android:v4.0.0'
+
 }

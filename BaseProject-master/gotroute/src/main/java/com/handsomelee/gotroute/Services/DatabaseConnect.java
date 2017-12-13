@@ -1,21 +1,38 @@
 package com.handsomelee.gotroute.Services;
 
 import android.util.Log;
+import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.handsomelee.gotroute.Controller.MapsActivity;
 import com.handsomelee.gotroute.MainActivity;
 import com.handsomelee.gotroute.Model.DeviceInfo;
+import com.handsomelee.gotroute.Model.GoogleRoute;
 import com.handsomelee.gotroute.Model.Report;
+import com.handsomelee.gotroute.Model.RouteInfo;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DatabaseConnect {
   
+  public static boolean directionStatus = true;
+  public static boolean parkingStatus;
   static String secretKey = "12345";
+  static List<LatLng> latLngList;
+  private static Boolean navigationStatus = false;
   
   public static String[] fetchData(String db, String collection) {
     String url = "https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj" +
@@ -96,6 +113,40 @@ public class DatabaseConnect {
       }
     };
     MainActivity.queue.add(objectRequest);
+  }
+  
+  public static void fetchDirection(String s) {
+    try {
+      latLngList = new ArrayList<>();
+      JSONObject jsonObject = new JSONObject(s);
+      if (jsonObject.get("status").equals("ZERO_RESULTS")) {
+        directionStatus = false;
+        Toast.makeText(MainActivity.mActivity, "Can't Navigate", Toast.LENGTH_SHORT).show();
+        return;
+      }
+      JSONArray legs = jsonObject.getJSONArray("routes").getJSONObject(0).getJSONArray("legs");
+      Log.v("JSON", legs.toString());
+      Gson gson = new Gson();
+      GoogleRoute route[] = gson.fromJson(legs.toString(), GoogleRoute[].class);
+      GoogleRoute.fetchLatLng(latLngList, route[0].steps);
+      MainActivity.latLngs = latLngList;
+      navigationStatus = true;
+      GoogleRoute.processRouteInfo(legs);
+      MapsActivity.configureRouteDetail();
+    } catch (JSONException e) {
+      e.printStackTrace();
+      directionStatus = false;
+    }
+  }
+  // navigationStatus Getter Method
+  public static Boolean getNavigationStatus() {
+    Boolean a = navigationStatus;
+    return a;
+  }
+  
+  // NavigationStatus Setter Method
+  public static void setNavigationStatus(Boolean navigationStatus) {
+    DatabaseConnect.navigationStatus = navigationStatus;
   }
   
   

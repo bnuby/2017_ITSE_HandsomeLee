@@ -21,6 +21,10 @@ public class Report {
     this.location = location;
   }
   
+  public static Location ConvertLocation(android.location.Location location) {
+    return new Location(location.getLatitude(), location.getLongitude());
+  }
+  
   // dateTime Getter Method
   public String getDateTime() {
     return dateTime;
@@ -46,8 +50,8 @@ public class Report {
     public String time;
     public String comment;
     public String type;
-    private String location;
     public String user;
+    private String location;
     
     public LatLng getLatLng() {
       try {
@@ -58,10 +62,6 @@ public class Report {
       }
       return null;
     }
-  }
-  
-  public static Location ConvertLocation(android.location.Location location) {
-    return new Location(location.getLatitude(), location.getLongitude());
   }
   
   public static class Location {

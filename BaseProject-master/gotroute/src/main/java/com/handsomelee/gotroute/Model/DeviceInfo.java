@@ -6,28 +6,33 @@ import java.util.Date;
 
 public class DeviceInfo {
   
+  private static DeviceInfo _instance;
   private int screenWidth;
   private int screenHeight;
   private String id;
   private Date date;
   private Long refreshTime;
-  
-  private static DeviceInfo _instance;
 
-  public static DeviceInfo getInstance(){
-    if(_instance == null) {
+  public static DeviceInfo getInstance() {
+    if (_instance == null) {
       _instance = new DeviceInfo();
     }
     return _instance;
   }
   
-  public boolean hasScreenWidth() {   return (screenWidth != 0); }
+  public boolean hasScreenWidth() {
+    return (screenWidth != 0);
+  }
   
-  public boolean hasScreenHeight() {   return (screenHeight != 0); }
+  public boolean hasScreenHeight() {
+    return (screenHeight != 0);
+  }
   
   
   // screenWidth Getter Method
-  public int getScreenWidth() {    return screenWidth;  }
+  public int getScreenWidth() {
+    return screenWidth;
+  }
 
   // ScreenWidth Setter Method
   public void setScreenWidth(int screenWidth) {
@@ -67,7 +72,9 @@ public class DeviceInfo {
   }
   
   // refreshTime Getter Method
-  public Long getRefreshTime() { return refreshTime; }
+  public Long getRefreshTime() {
+    return refreshTime;
+  }
   
   // RefreshTime Setter Method
   public void setRefreshTime(long refreshTime) {

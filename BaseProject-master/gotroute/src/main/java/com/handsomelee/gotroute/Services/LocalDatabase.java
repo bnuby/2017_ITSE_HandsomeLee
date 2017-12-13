@@ -43,7 +43,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
   public void dropTable() {
     SQLiteDatabase db = this.getWritableDatabase();
     db.execSQL("drop table " + TABLE_NAME);
-    Log.v("drop","das");
+    Log.v("drop", "das");
   }
   
   public void insertData(String id, String dateTime, Long refreshTime) {
@@ -57,7 +57,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
     contentValues.put(COL_2, dateTime);
     contentValues.put(COL_3, refreshTime);
     
-    if(db.insert(TABLE_NAME, null, contentValues) == -1) {
+    if (db.insert(TABLE_NAME, null, contentValues) == -1) {
       Toast.makeText(MainActivity.mActivity, "Failed Insert", Toast.LENGTH_SHORT).show();
     } else {
       Toast.makeText(MainActivity.mActivity, "Sucessed Insert", Toast.LENGTH_SHORT).show();

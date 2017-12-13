@@ -2,9 +2,14 @@ package com.handsomelee.gotroute.Controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.handsomelee.gotroute.MainActivity;
@@ -18,24 +23,24 @@ public class SettingActivity extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     final View rootView = inflater.inflate(R.layout.activity_setting, container, false);
-  
+    
     
     final EditText refreshEt = rootView.findViewById(R.id.refreshET);
     refreshEt.setText(DeviceInfo.getInstance().getRefreshTime().toString());
     refreshEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
       @Override
       public void onFocusChange(View view, boolean b) {
-        if(!b) {
-          long temp = Long.parseLong(((EditText)view).getText().toString());
-                  if(temp < 30) {
-                    Toast.makeText(MainActivity.mActivity, "Please insert not smaller than 30.", Toast.LENGTH_LONG).show();
-                  } else {
-                    LocalDatabase database = new LocalDatabase(MainActivity.mActivity);
-                    DeviceInfo.getInstance().setRefreshTime(temp);
-                    MapsActivity.updateRefreshSecond();
-                    database.updateRefreshTime(temp);
-                    Toast.makeText(MainActivity.mActivity, "Apply Success", Toast.LENGTH_LONG).show();
-                  }
+        if (!b) {
+          long temp = Long.parseLong(((EditText) view).getText().toString());
+          if (temp < 30) {
+            Toast.makeText(MainActivity.mActivity, "Please insert not smaller than 30.", Toast.LENGTH_LONG).show();
+          } else {
+            LocalDatabase database = new LocalDatabase(MainActivity.mActivity);
+            DeviceInfo.getInstance().setRefreshTime(temp);
+            MapsActivity.updateRefreshSecond();
+            database.updateRefreshTime(temp);
+            Toast.makeText(MainActivity.mActivity, "Apply Success", Toast.LENGTH_LONG).show();
+          }
         }
       }
     });
@@ -46,7 +51,6 @@ public class SettingActivity extends Fragment {
         refreshEt.clearFocus();
       }
     });
-
     
     return rootView;
   }
