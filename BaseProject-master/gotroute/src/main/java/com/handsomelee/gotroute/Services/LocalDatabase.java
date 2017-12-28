@@ -22,11 +22,14 @@ public class LocalDatabase extends SQLiteOpenHelper {
   
   public LocalDatabase(Context context) {
     super(context, DATABASE_NAME, null, 1);
+    createTable();
   }
   
   @Override
   public void onCreate(SQLiteDatabase db) {
-    db.execSQL(String.format("create table %s ( ID TEXT PRIMARY KEY, Date DATE, RefreshTime LONG)", TABLE_NAME));
+//    db.execSQL(String.format("create table %s ( ID TEXT PRIMARY KEY, Date DATE, RefreshTime LONG)", TABLE_NAME));
+//    createTable();
+//    Log.v("sada","qwe");
   }
   
   @Override
@@ -37,7 +40,10 @@ public class LocalDatabase extends SQLiteOpenHelper {
   public void createTable() {
     SQLiteDatabase db = this.getWritableDatabase();
     db.execSQL(String.format("create table if not exists %s ( ID TEXT PRIMARY KEY, Date DATE, RefreshTime LONG)", TABLE_NAME));
-    insertData(UUID.randomUUID().toString(), new Date().toString(), 30L);
+    Cursor cursor = db.rawQuery("select * from " + TABLE_NAME, null);
+    Log.v("count", String.valueOf(cursor.getCount()));
+    if(cursor.getCount() == 0)
+      insertData(UUID.randomUUID().toString(), new Date().toString(), 30L);
   }
   
   public void dropTable() {

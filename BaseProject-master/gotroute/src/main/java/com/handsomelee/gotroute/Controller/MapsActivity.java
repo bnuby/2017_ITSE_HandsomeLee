@@ -2,23 +2,23 @@ package com.handsomelee.gotroute.Controller;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.net.http.SslError;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
-import android.util.Base64;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 import android.view.*;
-import android.webkit.*;
+import android.webkit.ValueCallback;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.*;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.evgenii.jsevaluator.JsEvaluator;
-import com.evgenii.jsevaluator.interfaces.JsCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
@@ -32,15 +32,10 @@ import com.handsomelee.gotroute.Model.*;
 import com.handsomelee.gotroute.R;
 import com.handsomelee.gotroute.Services.DatabaseConnect;
 import com.handsomelee.gotroute.Services.GoogleMapSystem;
-import com.handsomelee.gotroute.Services.RequestHandler;
 import com.handsomelee.gotroute.Services.RouteDetailAdapter;
 
-import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 import static android.content.ContentValues.TAG;
 
@@ -72,7 +67,8 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   }
   
   public static void requestDirection(String origin, String destination, DirectionType type) {
-    String url = "http://192.168.31.38/index.php";
+    String url = "http://www.kebohan.com/gibson.php";
+//    String url = "http://192.168.31.38/index.php";
     String mode = "";
     switch (type) {
       case Walking:
@@ -151,10 +147,7 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   public static void showListView() {
     listViewBtn.setText("v");
     listLinearLayoutView.setVisibility(View.VISIBLE);
-
-//    listView.animate().setDuration(600).y(0).start();
     listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight() - listLinearLayoutView.getHeight()).start();
-    
   }
   
   public static void hideListView() {
@@ -360,14 +353,27 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   }
   
   private void autoRefresh() {
-    Log.v("Report", "refresh");
+//    Log.v("Report", "refresh");
     refreshHandler.postDelayed(new Runnable() {
       @Override
       public void run() {
         processReport();
         autoRefresh();
+        notificationMessage();
       }
     }, refreshSecond);
+  }
+  
+  public void notificationMessage() {
+    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(MainActivity.mActivity)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_round))
+            .setContentTitle("asdasda")
+            .setDefaults(Notification.DEFAULT_ALL)
+            .setPriority(NotificationManager.IMPORTANCE_MAX)
+            .setContentText("This is a bitch apps");
+    NotificationManagerCompat managerCompat = NotificationManagerCompat.from(MainActivity.mActivity);
+    managerCompat.notify(NotificationManagerCompat.IMPORTANCE_HIGH, notificationBuilder.build());
   }
   
   @Override

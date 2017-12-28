@@ -2,14 +2,9 @@ package com.handsomelee.gotroute.Controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.handsomelee.gotroute.MainActivity;
@@ -26,6 +21,8 @@ public class SettingActivity extends Fragment {
     
     
     final EditText refreshEt = rootView.findViewById(R.id.refreshET);
+//    refreshEt.setText("5000");
+    
     refreshEt.setText(DeviceInfo.getInstance().getRefreshTime().toString());
     refreshEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
       @Override

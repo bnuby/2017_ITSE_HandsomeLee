@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationManager;
@@ -22,15 +21,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -41,7 +36,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.handsomelee.gotroute.Controller.MapsActivity;
 import com.handsomelee.gotroute.Controller.SettingActivity;
 import com.handsomelee.gotroute.Model.DeviceInfo;
-import com.handsomelee.gotroute.Model.GoogleRoute;
 import com.handsomelee.gotroute.Model.PlaceSearch;
 import com.handsomelee.gotroute.Services.DatabaseConnect;
 import com.handsomelee.gotroute.Services.LocalDatabase;
@@ -52,7 +46,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity implements LocationSource.OnLocationChangedListener {
@@ -279,7 +272,10 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
   public void createUserId() {
     final LocalDatabase database = new LocalDatabase(this);
     Cursor cursor = database.getData();
+    Log.v("here","asd");
+    
     if (cursor.moveToNext()) {
+      Log.v("here","asd1");
       DateFormat df = new SimpleDateFormat("E MMM DD HH:mm:ss ZZZZZZZZZ yyyy");
       DeviceInfo.getInstance().setId(cursor.getString(0));
       DeviceInfo.getInstance().setRefreshTime(Long.parseLong(cursor.getString(2)));
