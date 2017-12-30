@@ -1,5 +1,6 @@
 package com.handsomelee.gotroute.Services;
 
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
@@ -9,22 +10,17 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.handsomelee.gotroute.Controller.MapsActivity;
 import com.handsomelee.gotroute.MainActivity;
 import com.handsomelee.gotroute.Model.DeviceInfo;
 import com.handsomelee.gotroute.Model.GoogleRoute;
+import com.handsomelee.gotroute.Model.Location;
 import com.handsomelee.gotroute.Model.Report;
-import com.handsomelee.gotroute.Model.RouteInfo;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DatabaseConnect {
   
@@ -77,7 +73,7 @@ public class DatabaseConnect {
       @Override
       protected Map<String, String> getParams() throws AuthFailureError {
         Map<String, String> map = new HashMap<>();
-        map.put("name", name);
+        map.put("name", Base64.encodeToString(name.getBytes(), 0));
         map.put("available", available);
         return map;
       }
@@ -138,6 +134,37 @@ public class DatabaseConnect {
       directionStatus = false;
     }
   }
+  
+  public static void updateUserLocation(final Long duration, final Location location) {
+    String secret = "12345";
+    String url = "https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj/service" +
+            "/findCollection/incoming_webhook/uploadLocation?secret=" + secret;
+    final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+      @Override
+      public void onResponse(String s) {
+        Log.v("Update User Location", "Sucess");
+      }
+    }, new Response.ErrorListener() {
+      @Override
+      public void onErrorResponse(VolleyError volleyError) {
+        Log.e("Update User Location", "Failed");
+        
+      }
+    }) {
+      @Override
+      protected Map<String, String> getParams() throws AuthFailureError {
+        Date date = new Date();
+        Map<String, String> map = new HashMap<>();
+        map.put("id", DeviceInfo.getInstance().getId());
+        map.put("location", location.toString());
+        map.put("time", date.toString());
+        map.put("duration", duration.toString());
+        return map;
+      }
+    };
+    MainActivity.queue.add(request);
+  }
+  
   // navigationStatus Getter Method
   public static Boolean getNavigationStatus() {
     Boolean a = navigationStatus;

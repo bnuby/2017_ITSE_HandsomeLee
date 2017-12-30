@@ -64,29 +64,5 @@ public class Report {
     }
   }
   
-  public static class Location {
-    private double latitude;
-    private double longitude;
-    
-    public Location(double latitude, double longitude) {
-      this.latitude = latitude;
-      this.longitude = longitude;
-    }
-    
-    // latitude Getter Method
-    public double getLatitude() {
-      return latitude;
-    }
-    
-    // longtitude Getter Method
-    public double getLongitude() {
-      return longitude;
-    }
-    
-    public LatLng getLatLng() {
-      return new LatLng(latitude, longitude);
-    }
-    
-    
-  }
+  
 }

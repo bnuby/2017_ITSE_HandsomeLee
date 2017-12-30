@@ -2,22 +2,24 @@ package com.handsomelee.gotroute;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.*;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -37,10 +39,7 @@ import com.handsomelee.gotroute.Controller.MapsActivity;
 import com.handsomelee.gotroute.Controller.SettingActivity;
 import com.handsomelee.gotroute.Model.DeviceInfo;
 import com.handsomelee.gotroute.Model.PlaceSearch;
-import com.handsomelee.gotroute.Services.DatabaseConnect;
-import com.handsomelee.gotroute.Services.LocalDatabase;
-import com.handsomelee.gotroute.Services.LocationSystem;
-import com.handsomelee.gotroute.Services.RequestHandler;
+import com.handsomelee.gotroute.Services.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     public void onTabReselected(TabLayout.Tab tab) {
     }
   };
-
+  
   public static Boolean checkGPSPermission(Context context) {
     return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
   }
@@ -237,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     }
     checkGPSEnabled();
     requestLocationPermissions();
-    
+    CheckLocationService.start(this);
   }
   
   @Override
@@ -272,10 +271,10 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
   public void createUserId() {
     final LocalDatabase database = new LocalDatabase(this);
     Cursor cursor = database.getData();
-    Log.v("here","asd");
+    Log.v("here", "asd");
     
     if (cursor.moveToNext()) {
-      Log.v("here","asd1");
+      Log.v("here", "asd1");
       DateFormat df = new SimpleDateFormat("E MMM DD HH:mm:ss ZZZZZZZZZ yyyy");
       DeviceInfo.getInstance().setId(cursor.getString(0));
       DeviceInfo.getInstance().setRefreshTime(Long.parseLong(cursor.getString(2)));
@@ -342,6 +341,24 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     }
   }
   
+  public static void notificationMessage(String title, String contentText) {
+    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(MainActivity.mActivity, "1")
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setLargeIcon(BitmapFactory.decodeResource(Resources.getSystem(), R.mipmap.ic_launcher_round))
+            .setContentTitle(title)
+            .setDefaults(Notification.DEFAULT_ALL)
+            .setPriority(NotificationManager.IMPORTANCE_MAX)
+            .setContentText(contentText);
+    final NotificationManagerCompat managerCompat = NotificationManagerCompat.from(MainActivity.mActivity);
+    managerCompat.notify(20, notificationBuilder.build());
+    new Handler().postDelayed(new Runnable() {
+      @Override
+      public void run() {
+        managerCompat.cancel(20);
+      }
+    }, 5000L);
+  }
+  
   public class PagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
     public PagerAdapter(FragmentManager fm) {
       super(fm);
@@ -364,7 +381,6 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
         default:
           return null;
       }
-      
     }
     
     @Override

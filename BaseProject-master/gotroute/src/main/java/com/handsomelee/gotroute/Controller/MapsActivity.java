@@ -2,17 +2,13 @@ package com.handsomelee.gotroute.Controller;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+import android.util.Base64;
 import android.util.Log;
 import android.view.*;
 import android.webkit.ValueCallback;
@@ -257,9 +253,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
               int available = 0;
               String title = "";
               int open_now = 0;
-//              if (placeSearch.results[i].hasPhotoReference()) {
-//                RequestHandler.requestGooglePhoto(placeSearch.results[i].getPhotoReference(), i);
-//              }
               if (placeSearch.results[i].name != null) {
                 title = placeSearch.results[i].name;
               }
@@ -277,8 +270,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
                       .title(title)
                       .snippet(open_now + "," + available)
                       .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking));
-//              ParkingWindow parkingWindow = new ParkingWindow(MainActivity.mActivity);
-//              mMap.setInfoWindowAdapter(parkingWindow);
               final String finalTitle = title;
               final int finalI = i;
               mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -296,7 +287,9 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
               @Override
               protected Void doInBackground(Void... voids) {
                 final String fetchData[] = DatabaseConnect.fetchData("handsomelee", "carParking");
-                while (fetchData[0] == null) ;
+                while (fetchData[0] == null) {
+                  System.out.print("buffer");
+                };
                 MainActivity.mActivity.runOnUiThread(new Runnable() {
                   @Override
                   public void run() {
@@ -304,7 +297,12 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
                     final CarParking[] carParkings = gson.fromJson(fetchData[0], CarParking[].class);
                     for (Marker marker : carParkingMarkers) {
                       for (CarParking carParking : carParkings) {
-                        if (carParking.getName().equals(marker.getTitle())) {
+                        Log.v("Parking", carParkings.length+""+carParkings[0].getAvailable());
+                        Log.v("Parking", fetchData[0]);
+                        Log.v("Parking1", "asda");
+                        Log.v("Parking2", marker.getTitle());
+                        if (carParking.getName().equals(Base64.encodeToString(marker.getTitle().getBytes(), 0))) {
+                          Log.v("Parking", "Found");
                           String snippet = marker.getSnippet().split(",")[0];
                           marker.setSnippet(snippet + "," + carParking.getAvailable());
                         }
@@ -353,27 +351,13 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   }
   
   private void autoRefresh() {
-//    Log.v("Report", "refresh");
     refreshHandler.postDelayed(new Runnable() {
       @Override
       public void run() {
         processReport();
         autoRefresh();
-        notificationMessage();
       }
     }, refreshSecond);
-  }
-  
-  public void notificationMessage() {
-    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(MainActivity.mActivity)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_round))
-            .setContentTitle("asdasda")
-            .setDefaults(Notification.DEFAULT_ALL)
-            .setPriority(NotificationManager.IMPORTANCE_MAX)
-            .setContentText("This is a bitch apps");
-    NotificationManagerCompat managerCompat = NotificationManagerCompat.from(MainActivity.mActivity);
-    managerCompat.notify(NotificationManagerCompat.IMPORTANCE_HIGH, notificationBuilder.build());
   }
   
   @Override
@@ -574,7 +558,7 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
         @Override
         public void onClick(View view) {
           if (!reportType[0].equals("Please Select One")) {
-            report[0] = new Report(dateTime, reportType[0], comment.getText().toString(), new Report.Location(marker.getPosition().latitude, marker.getPosition().longitude));
+            report[0] = new Report(dateTime, reportType[0], comment.getText().toString(), new Location(marker.getPosition().latitude, marker.getPosition().longitude));
             DatabaseConnect.insertReportData(report[0]);
             processReport();
             alertDialog.dismiss();

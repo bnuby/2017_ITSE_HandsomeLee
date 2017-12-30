@@ -87,12 +87,23 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
             @Override
             public void run() {
               Log.v("PollyLine", polylineOptions.getPoints().toString());
-              
+              float accuracy = MainActivity.getLocationSystem().getCurrentLocation().getAccuracy();
               removePolyline();
               circles = new ArrayList<>();
-              circleOptions.add(new CircleOptions().center(latLngs.get(0)).fillColor(Color.TRANSPARENT).radius(20).strokeColor(Color.BLUE).strokeWidth(10));
-              circleOptions.add(new CircleOptions().center(latLngs.get(latLngs.size() - 1)).fillColor(Color.TRANSPARENT).radius(20).strokeColor(Color.RED).strokeWidth(10));
+              circleOptions.add(new CircleOptions()
+                      .center(latLngs.get(0))
+                      .fillColor(Color.TRANSPARENT)
+                      .radius(accuracy)
+                      .strokeColor(Color.BLUE)
+                      .strokeWidth(10));
+              circleOptions.add(new CircleOptions()
+                      .center(latLngs.get(latLngs.size() - 1))
+                      .fillColor(Color.TRANSPARENT)
+                      .radius(accuracy)
+                      .strokeColor(Color.RED)
+                      .strokeWidth(10));
               polylineOptions.color(Color.BLUE);
+              polylineOptions.width(5);
               polylineOptions.startCap(new RoundCap());
               polylineOptions.endCap(new SquareCap()).jointType(JointType.ROUND);
               polyline = mMap.addPolyline(polylineOptions);

@@ -36,10 +36,6 @@ public class LocationSystem implements LocationListener {
     return location.getLongitude();
   }
   
-  public Location getLocation() {
-    return location;
-  }
-  
   public LatLng getLatLng() {
     return new LatLng(location.getLatitude(), location.getLongitude());
   }

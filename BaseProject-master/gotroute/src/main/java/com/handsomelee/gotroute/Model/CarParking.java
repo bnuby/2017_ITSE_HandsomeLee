@@ -13,10 +13,7 @@ public class CarParking {
   
   // available Getter Method
   public int getAvailable() {
-    return available.getAsJsonObject().get("$numberLong").getAsInt();
+    return available.getAsInt();
   }
   
-  public class available {
-    public Long $numberLong;
-  }
 }

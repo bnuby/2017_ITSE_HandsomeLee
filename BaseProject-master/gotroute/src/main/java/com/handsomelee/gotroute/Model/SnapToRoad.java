@@ -5,7 +5,7 @@ public class SnapToRoad {
   
   
   public static class SnapPoint {
-    public Report.Location location;
+    public Location location;
     public int originalIndex;
     public String placeId;
   }

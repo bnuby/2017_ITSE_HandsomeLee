@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.handsomelee.gotroute.MainActivity;
@@ -18,38 +19,36 @@ public class SettingActivity extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     final View rootView = inflater.inflate(R.layout.activity_setting, container, false);
-    
-    
+    final Button applyButton = rootView.findViewById(R.id.ApplyButton);
     final EditText refreshEt = rootView.findViewById(R.id.refreshET);
-//    refreshEt.setText("5000");
     
     refreshEt.setText(DeviceInfo.getInstance().getRefreshTime().toString());
-    refreshEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-      @Override
-      public void onFocusChange(View view, boolean b) {
-        if (!b) {
-          long temp = Long.parseLong(((EditText) view).getText().toString());
-          if (temp < 30) {
+    
+    long second = Long.parseLong(refreshEt.getText().toString());
+    applyButton.setOnClickListener(new applyAction(second));
+    
+    return rootView;
+  }
+  
+  class applyAction implements View.OnClickListener {
+    long second;
+    
+    public applyAction(long second) {
+      this.second = second;
+    }
+  
+    @Override
+    public void onClick(View view) {
+      if (second < 30) {
             Toast.makeText(MainActivity.mActivity, "Please insert not smaller than 30.", Toast.LENGTH_LONG).show();
           } else {
             LocalDatabase database = new LocalDatabase(MainActivity.mActivity);
-            DeviceInfo.getInstance().setRefreshTime(temp);
+            DeviceInfo.getInstance().setRefreshTime(second);
             MapsActivity.updateRefreshSecond();
-            database.updateRefreshTime(temp);
+            database.updateRefreshTime(second);
             Toast.makeText(MainActivity.mActivity, "Apply Success", Toast.LENGTH_LONG).show();
           }
-        }
-      }
-    });
-    
-    rootView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        refreshEt.clearFocus();
-      }
-    });
-    
-    return rootView;
+    }
   }
   
   
