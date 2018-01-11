@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: play-services-wallet-license-11.4.2">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/4e89715df4b152459dd8c2fb2867bcd127dbec03/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/4e89715df4b152459dd8c2fb2867bcd127dbec03/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/23d61346d0b25b21f5afb7cc1f1e3d1885770d2f/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/23d61346d0b25b21f5afb7cc1f1e3d1885770d2f/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

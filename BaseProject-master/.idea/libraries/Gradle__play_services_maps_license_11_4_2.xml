@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: play-services-maps-license-11.4.2">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/c5dcb14feeec9895c23f9442651df5e7c0932d89/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/c5dcb14feeec9895c23f9442651df5e7c0932d89/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/07810c071be6f56a8b43da49f2686e8151f399b8/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/07810c071be6f56a8b43da49f2686e8151f399b8/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

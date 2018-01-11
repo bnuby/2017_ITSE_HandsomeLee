@@ -14,40 +14,40 @@ import com.handsomelee.gotroute.Controller.MapsActivity;
 import com.handsomelee.gotroute.MainActivity;
 
 public class LocationSystem implements LocationListener {
-  
+
   static boolean reset;
   private LocationManager locationManager;
   private Location location;
-  
+
   public LocationSystem(Context context) {
     locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-    
+
     if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
       locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 1, this);
       location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
     }
   }
-  
+
   public Location getCurrentLocation() {
     return location;
   }
-  
+
   public double getLongitude() {
     return location.getLongitude();
   }
-  
+
   public LatLng getLatLng() {
     return new LatLng(location.getLatitude(), location.getLongitude());
   }
-  
+
   public double getLatitude() {
     return location.getLatitude();
   }
-  
+
   @Override
   public void onLocationChanged(Location location) {
     this.location = location;
-    
+
     if (MapsActivity.getProgressType() == MapsActivity.ProgressType.Navigation) {
       boolean checkInLine = false;
       CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -64,7 +64,7 @@ public class LocationSystem implements LocationListener {
         }
       }
       if (!checkInLine) {
-        
+
         Button button = new Button(MainActivity.mActivity);
         MainActivity.requestNavigation(button);
         button.destroyDrawingCache();
@@ -78,7 +78,7 @@ public class LocationSystem implements LocationListener {
       reset = true;
     }
   }
-  
+
   public boolean checkIsInRange(Location location, LatLng... latLng) {
     final double EPSILON = 1 * Math.pow(10, -5);
     Log.v(latLng[0].latitude + "," + latLng[0].longitude, latLng[1].latitude + "," + latLng[1].longitude);
@@ -90,17 +90,17 @@ public class LocationSystem implements LocationListener {
     }
     return false;
   }
-  
+
   @Override
   public void onStatusChanged(String s, int i, Bundle bundle) {
 
   }
-  
+
   @Override
   public void onProviderEnabled(String s) {
 
   }
-  
+
   @Override
   public void onProviderDisabled(String s) {
 

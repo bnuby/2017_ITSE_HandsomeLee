@@ -10,58 +10,60 @@ import com.handsomelee.gotroute.MainActivity;
 import com.handsomelee.gotroute.Model.Location;
 
 public class CheckLocationService extends Service {
-  
+
   static LocationSystem locationSystem;
   static Location location;
   static Long duration;
   final Long UPDATED_DURATION = 2 * 60 * 1000L;
-  
+
   @Override
   public IBinder onBind(Intent intent) {
     return null;
   }
-  
+
   public static void start(Context context) {
     context.startService(new Intent(context, CheckLocationService.class));
   }
-  
+
   public static void stop(Context context) {
     context.stopService(new Intent(context, CheckLocationService.class));
   }
-  
+
   @Override
   public void onCreate() {
     super.onCreate();
-    initialize();
+    duration = 0L;
     runHandler();
   }
-  
+
   @Override
   public int onStartCommand(Intent intent, int flags, int startId) {
     super.onStartCommand(intent, flags, startId);
     return START_STICKY;
   }
-  
+
   public void runHandler() {
     new Handler().postDelayed(new Runnable() {
       @Override
       public void run() {
+        initialize();
         checkLocation();
         runHandler();
       }
     }, UPDATED_DURATION);
   }
-  
+
   private void initialize() {
     duration = 0L;
     if (locationSystem == null || location == null) {
       locationSystem = MainActivity.getLocationSystem();
-      location = new Location(locationSystem.getLatitude(), locationSystem.getLongitude());
+      if(locationSystem != null)
+        location = new Location(locationSystem.getLatitude(), locationSystem.getLongitude());
     }
   }
-  
+
   public boolean checkLocation() {
-    
+
     if (location != null) {
       if (location.equals(locationSystem.getCurrentLocation())) {
         duration += UPDATED_DURATION;
@@ -78,6 +80,6 @@ public class CheckLocationService extends Service {
     }
     return false;
   }
-  
+
 
 }
