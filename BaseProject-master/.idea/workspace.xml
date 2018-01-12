@@ -46,94 +46,10 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gotroute/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Controller/MapsActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#13210#13211#0" expanded="true" />
-                <element signature="e#13244#13245#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/DeviceInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseConnect.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/DatabaseConnect.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Report.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/Report.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlaceSearch.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/PlaceSearch.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>notifica</find>
-      <find>navigationBtn</find>
-      <find>navigation</find>
-      <find>MainActi</find>
-      <find>MainActivity</find>
-      <find>GoogleRoute</find>
-      <find>placeMarker</find>
-      <find>CarPark</find>
-      <find>ParkingWindow</find>
       <find>PlaceSearc</find>
       <find>SnapT</find>
       <find>CheckLocation</find>
@@ -141,7 +57,6 @@
       <find>Data</find>
       <find>DeviceInfo</find>
       <find>RouteInfo</find>
-      <find>DatabaseConnect</find>
       <find>Location</find>
       <find>Report</find>
       <find>PlaceSearchPlaceSearch</find>
@@ -152,6 +67,19 @@
       <find>RouteDetail</find>
       <find>Main</find>
       <find>MapsActivity</find>
+      <find>OnMapClickListener</find>
+      <find>MapCli</find>
+      <find>MarkerClick</find>
+      <find>MapClick</find>
+      <find>Selection</find>
+      <find>Override</find>
+      <find>PlaceSelectionListener</find>
+      <find>PlaceSelect</find>
+      <find>DatabaseConnect</find>
+      <find>requestDirection</find>
+      <find>processReport</find>
+      <find>ParkingWindow</find>
+      <find>queue</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -3236,10 +3164,24 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/DatabaseConnect.java" />
-        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/CarParking.java" />
         <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/GoogleMapSystem.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/ParkingWindow.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/GoogleRoute.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/DeviceInfo.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/Report.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/PlaceSearch.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/Location.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/RouteInfo.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/CheckLocationService.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/LocalDatabase.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/RouteDetailAdapter.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/DatabaseConnect.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/RequestHandler.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Controller/SettingActivity.java" />
         <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Controller/MapsActivity.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java" />
+        <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/LocationSystem.java" />
       </list>
     </option>
   </component>
@@ -3249,11 +3191,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="371" />
-    <option name="y" value="283" />
-    <option name="width" value="1920" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2" />
+    <option name="y" value="32" />
+    <option name="width" value="1918" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -3538,28 +3480,27 @@
       <option name="presentableId" value="Default" />
       <updated>1515744161107</updated>
       <workItem from="1515744162815" duration="92000" />
-      <workItem from="1515755430229" duration="9104000" />
+      <workItem from="1515755430229" duration="20557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9196000" />
+    <option name="totallyTimeSpent" value="20649000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="371" y="283" width="1920" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.50437635" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32938644" sideWeight="0.49562362" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33333334" sideWeight="0.49562362" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="ConsoleMavenPlugin" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34230354" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18551236" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2470651" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3573,7 +3514,8 @@
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15581644" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15581644" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56892776" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -3583,7 +3525,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -3598,65 +3539,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/BaseProject-master.iml" />
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/CheckLocationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="69" column="34" lean-forward="true" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/CarParking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/GoogleMapSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/ParkingWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <element signature="e#682#683#0" expanded="false" />
-            <element signature="e#714#715#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/PlaceSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/SnapToRoad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/LocationSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="50" column="55" lean-forward="false" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/com.handsomelee.gotroute.Model.RouteInfo">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -3777,188 +3659,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/com.handsomelee.gotroute.Controller.MapsActivity">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.handsomelee.gotroute.Controller.MapsActivity</OriginalElement>
-          <nodes>
-            <node x="1023.5" y="81.0">com.google.android.gms.maps.GoogleMap.InfoWindowAdapter</node>
-            <node x="1049.5" y="323.0">com.handsomelee.gotroute.Controller.MapsActivity</node>
-            <node x="14.5" y="81.0">com.handsomelee.gotroute.Model.Location</node>
-            <node x="888.5" y="81.0">android.support.v4.app.Fragment</node>
-            <node x="656.0" y="0.0">android.content.ComponentCallbacks</node>
-            <node x="1855.0" y="192.0">com.google.android.gms.location.places.ui.PlaceSelectionListener</node>
-            <node x="652.0" y="192.0">com.handsomelee.gotroute.Services.GoogleMapSystem</node>
-            <node x="5.5" y="192.0">com.handsomelee.gotroute.Model.Report</node>
-            <node x="869.0" y="0.0">android.arch.lifecycle.LifecycleOwner</node>
-            <node x="1648.0" y="192.0">com.google.android.gms.maps.GoogleMap.OnMapClickListener</node>
-            <node x="641.5" y="81.0">com.google.android.gms.maps.OnMapReadyCallback</node>
-            <node x="1039.0" y="192.0">com.handsomelee.gotroute.Model.ParkingWindow</node>
-            <node x="384.5" y="81.0">com.google.android.gms.maps.GoogleMap.OnMyLocationClickListener</node>
-            <node x="1217.0" y="192.0">com.handsomelee.gotroute.Model.RouteInfo</node>
-            <node x="2078.0" y="192.0">com.google.android.gms.maps.GoogleMap.OnMarkerClickListener</node>
-            <node x="142.5" y="81.0">com.google.android.gms.maps.GoogleMap.OnMapLongClickListener</node>
-            <node x="1504.0" y="192.0">com.handsomelee.gotroute.Model.CarParking</node>
-            <node x="1354.0" y="192.0">com.handsomelee.gotroute.Model.PlaceSearch</node>
-            <node x="1043.0" y="0.0">android.view.View.OnCreateContextMenuListener</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="com.handsomelee.gotroute.Model.Report" target="com.handsomelee.gotroute.Model.Location">
-              <point x="0.0" y="-15.5" />
-              <point x="53.0" y="172.0" />
-              <point x="55.0" y="172.0" />
-              <point x="-13.5" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.google.android.gms.maps.GoogleMap.OnMyLocationClickListener">
-              <point x="-35.200000000000045" y="-15.5" />
-              <point x="704.8" y="162.0" />
-              <point x="503.0" y="162.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.Report">
-              <point x="-53.82142857142867" y="-15.5" />
-              <point x="1064.1785714285713" y="293.0" />
-              <point x="76.75" y="293.0" />
-              <point x="23.75" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.Location">
-              <point x="-44.03571428571422" y="-15.5" />
-              <point x="1073.9642857142858" y="283.0" />
-              <point x="150.37976190476184" y="283.0" />
-              <point x="150.37976190476184" y="172.0" />
-              <point x="109.0" y="172.0" />
-              <point x="40.5" y="15.5" />
-            </edge>
-            <edge source="android.support.v4.app.Fragment" target="android.content.ComponentCallbacks">
-              <point x="-38.33333333333337" y="-15.5" />
-              <point x="907.6666666666665" y="56.0" />
-              <point x="752.5" y="56.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="android.support.v4.app.Fragment" target="android.arch.lifecycle.LifecycleOwner">
-              <point x="0.0" y="-15.5" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.RouteInfo">
-              <point x="14.678571428571331" y="-15.5" />
-              <point x="1132.6785714285713" y="253.0" />
-              <point x="1275.5" y="253.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.google.android.gms.maps.GoogleMap.OnMarkerClickListener">
-              <point x="63.60714285714289" y="-15.5" />
-              <point x="1181.607142857143" y="303.0" />
-              <point x="2181.0" y="303.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.google.android.gms.maps.OnMapReadyCallback">
-              <point x="0.0" y="-15.5" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.PlaceSearch">
-              <point x="24.46428571428578" y="-15.5" />
-              <point x="1142.4642857142858" y="263.0" />
-              <point x="1419.0" y="263.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.google.android.gms.maps.GoogleMap.OnMapLongClickListener">
-              <point x="-70.39999999999998" y="-15.5" />
-              <point x="669.5999999999999" y="172.0" />
-              <point x="253.5" y="172.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="android.support.v4.app.Fragment" target="android.view.View.OnCreateContextMenuListener">
-              <point x="38.33333333333337" y="-15.5" />
-              <point x="984.3333333333333" y="56.0" />
-              <point x="1175.0" y="56.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.google.android.gms.maps.GoogleMap.OnMapClickListener">
-              <point x="44.03571428571422" y="-15.5" />
-              <point x="1162.0357142857142" y="283.0" />
-              <point x="1741.5" y="283.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.CarParking">
-              <point x="34.25" y="-15.5" />
-              <point x="1152.25" y="273.0" />
-              <point x="1566.0" y="273.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="android.support.v4.app.Fragment">
-              <point x="-14.678571428571331" y="-15.5" />
-              <point x="1103.3214285714287" y="253.0" />
-              <point x="978.3563492063491" y="253.0" />
-              <point x="978.3563492063491" y="172.0" />
-              <point x="992.0" y="172.0" />
-              <point x="46.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.google.android.gms.location.places.ui.PlaceSelectionListener">
-              <point x="53.82142857142867" y="-15.5" />
-              <point x="1171.8214285714287" y="293.0" />
-              <point x="1956.5" y="293.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Services.GoogleMapSystem">
-              <point x="-24.46428571428578" y="-15.5" />
-              <point x="1093.5357142857142" y="263.0" />
-              <point x="784.0" y="263.0" />
-              <point x="44.0" y="15.5" />
-            </edge>
-            <edge source="android.support.v4.app.Fragment" target="android.support.v4.app.Fragment">
-              <point x="-46.0" y="15.5" />
-              <point x="900.0" y="132.0" />
-              <point x="868.5" y="132.0" />
-              <point x="868.5" y="104.25" />
-              <point x="-57.5" y="7.75" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.ParkingWindow">
-              <point x="-4.89285714285711" y="-15.5" />
-              <point x="1113.107142857143" y="243.0" />
-              <point x="1078.5" y="243.0" />
-              <point x="-39.5" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="android.support.v4.app.Fragment">
-              <point x="35.200000000000045" y="-15.5" />
-              <point x="775.2" y="162.0" />
-              <point x="946.0" y="162.0" />
-              <point x="0.0" y="15.5" />
-            </edge>
-            <edge source="com.handsomelee.gotroute.Model.ParkingWindow" target="com.google.android.gms.maps.GoogleMap.InfoWindowAdapter">
-              <point x="0.0" y="-15.5" />
-              <point x="0.0" y="15.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.5" x="539.5520050125308" y="293.27850026650367" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/Report.java">
+    <entry file="jar://$USER_HOME$/.android/build-cache/50e5ce624e16aaaf285608c36cb6d69294e17bfb/output/jars/classes.jar!/com/google/android/gms/location/places/ui/PlaceSelectionListener.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        <state relative-caret-position="180">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/RouteInfo.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/27.0.2/659085cb974e7ec1f25451d23f11578332ea0d7e/support-fragment-27.0.2-sources.jar!/android/support/v4/app/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        <state relative-caret-position="310">
+          <caret line="588" column="34" lean-forward="false" selection-start-line="588" selection-start-column="34" selection-end-line="588" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/DatabaseConnect.java">
+    <entry file="jar://$USER_HOME$/.android/build-cache/5083f47c94856b9a53db1113a39d87708956afbd/output/jars/classes.jar!/com/google/android/gms/maps/GoogleMap.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="28" />
+        <state relative-caret-position="108">
+          <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -3979,30 +3699,1754 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java">
+    <entry file="jar://$USER_HOME$/.android/build-cache/5083f47c94856b9a53db1113a39d87708956afbd/output/jars/classes.jar!/com/google/android/gms/maps/model/LatLng.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="118" column="38" lean-forward="false" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="38" />
+        <state relative-caret-position="198">
+          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/GoogleRoute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="42" column="4" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+          <folding>
+            <element signature="e#2962#2963#0" expanded="false" />
+            <element signature="e#3000#3001#0" expanded="false" />
+            <element signature="e#3036#3037#0" expanded="false" />
+            <element signature="e#3074#3075#0" expanded="false" />
+            <element signature="e#3107#3108#0" expanded="false" />
+            <element signature="e#3169#3170#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/DeviceInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="432">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/CarParking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/PlaceSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="31" column="2" lean-forward="false" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+          <folding>
+            <element signature="e#1012#1013#0" expanded="false" />
+            <element signature="e#1077#1078#0" expanded="false" />
+            <element signature="e#1123#1124#0" expanded="false" />
+            <element signature="e#1158#1159#0" expanded="false" />
+            <element signature="e#1203#1204#0" expanded="false" />
+            <element signature="e#1292#1293#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1391#1392#0" expanded="false" />
+            <element signature="e#1430#1431#0" expanded="false" />
+            <element signature="e#1512#1513#0" expanded="false" />
+            <element signature="e#1552#1553#0" expanded="false" />
+            <element signature="e#1634#1635#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/ParkingWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#797#798#0" expanded="false" />
+            <element signature="e#829#830#0" expanded="false" />
+            <element signature="e#2785#2786#0" expanded="false" />
+            <element signature="e#2806#2807#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/SnapToRoad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.handsomelee.gotroute">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.handsomelee.gotroute</OriginalElement>
+          <nodes>
+            <node x="" y="">com.handsomelee.gotroute.Services</node>
+            <node x="" y="">com.handsomelee.gotroute.MainActivity</node>
+            <node x="" y="">com.handsomelee.gotroute.BuildConfig</node>
+            <node x="" y="">com.handsomelee.gotroute.R</node>
+            <node x="" y="">com.handsomelee.gotroute.Model</node>
+            <node x="" y="">com.handsomelee.gotroute.MainActivityTest</node>
+            <node x="" y="">com.handsomelee.gotroute.Controller</node>
+            <node x="" y="">com.handsomelee.gotroute.test</node>
+            <node x="" y="">com.handsomelee.gotroute.Manifest</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8" x="118.75" y="273.375" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/Report.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1679">
+          <caret line="97" column="18" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="18" />
+          <folding>
+            <element signature="e#1481#1482#0" expanded="false" />
+            <element signature="e#1506#1507#0" expanded="false" />
+            <element signature="e#1573#1574#0" expanded="false" />
+            <element signature="e#1600#1601#0" expanded="false" />
+            <element signature="e#1661#1662#0" expanded="false" />
+            <element signature="e#1685#1686#0" expanded="false" />
+            <element signature="e#1750#1751#0" expanded="false" />
+            <element signature="e#1775#1776#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/GoogleMapSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="33" column="2" lean-forward="false" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Model/RouteInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="64" column="13" lean-forward="false" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.handsomelee.gotroute.Services.RouteDetailAdapter">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.handsomelee.gotroute.Services.RouteDetailAdapter</OriginalElement>
+          <nodes>
+            <node x="149.0" y="81.0">android.widget.SpinnerAdapter</node>
+            <node x="94.0" y="0.0">android.widget.Adapter</node>
+            <node x="77.5" y="162.0">android.widget.BaseAdapter</node>
+            <node x="0.0" y="81.0">android.widget.ListAdapter</node>
+            <node x="53.0" y="243.0">com.handsomelee.gotroute.Services.RouteDetailAdapter</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.handsomelee.gotroute.Services.RouteDetailAdapter" target="android.widget.BaseAdapter">
+              <point x="0.0" y="-15.5" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.widget.BaseAdapter" target="android.widget.SpinnerAdapter">
+              <point x="34.25" y="-15.5" />
+              <point x="180.25" y="137.0" />
+              <point x="227.5" y="137.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.widget.ListAdapter" target="android.widget.Adapter">
+              <point x="0.0" y="-15.5" />
+              <point x="64.5" y="56.0" />
+              <point x="120.0" y="56.0" />
+              <point x="-26.0" y="15.5" />
+            </edge>
+            <edge source="android.widget.SpinnerAdapter" target="android.widget.Adapter">
+              <point x="0.0" y="-15.5" />
+              <point x="227.5" y="56.0" />
+              <point x="172.0" y="56.0" />
+              <point x="26.0" y="15.5" />
+            </edge>
+            <edge source="android.widget.BaseAdapter" target="android.widget.ListAdapter">
+              <point x="-34.25" y="-15.5" />
+              <point x="111.75" y="137.0" />
+              <point x="64.5" y="137.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-398.0" y="184.0" />
+          <SelectedNodes>
+            <node>com.handsomelee.gotroute.Services.RouteDetailAdapter</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.handsomelee.gotroute.Controller.MapsActivity">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.handsomelee.gotroute.Controller.MapsActivity</OriginalElement>
+          <nodes>
+            <node x="5209.734669273379" y="464.0">android.support.v4.app.Fragment.InstantiationException</node>
+            <node x="5998.9367407599875" y="2064.0">com.handsomelee.gotroute.Model.GoogleRoute</node>
+            <node x="2905.0196975802705" y="1550.0">com.handsomelee.gotroute.MainActivity</node>
+            <node x="4534.828568548012" y="333.0">android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator</node>
+            <node x="3733.0785685480123" y="121.0">android.content.ComponentCallbacks</node>
+            <node x="3152.2096073583702" y="232.0">android.view.LayoutInflater.Factory2</node>
+            <node x="1263.277101694602" y="987.0">android.location.LocationListener</node>
+            <node x="2290.428030913604" y="1722.0">com.google.android.gms.maps.GoogleMap.OnMapClickListener</node>
+            <node x="1097.9280303030303" y="1309.0">com.handsomelee.gotroute.Services.CheckLocationService</node>
+            <node x="4348.328568548012" y="333.0">android.support.v4.app.SupportActivity.ExtraData</node>
+            <node x="3279.2096073583702" y="232.0">android.view.Window.Callback</node>
+            <node x="1611.6700635714344" y="1641.0">com.handsomelee.gotroute.Services.DatabaseConnect</node>
+            <node x="1916.136364246937" y="232.0">android.view.ContextThemeWrapper</node>
+            <node x="2134.948854670198" y="1138.0">android.support.v4.app.TaskStackBuilder.SupportParentable</node>
+            <node x="5366.119329580592" y="987.0">com.google.android.gms.maps.GoogleMap.OnMapLongClickListener</node>
+            <node x="3888.3285685480123" y="232.0">android.view.View.OnCreateContextMenuListener</node>
+            <node x="4570.328568548012" y="464.0">android.support.v4.app.Fragment.SavedState</node>
+            <node x="3265.120531689787" y="464.0">android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback</node>
+            <node x="4762.925133152021" y="826.0">android.support.v4.app.FragmentActivity.NonConfigurationInstances</node>
+            <node x="1830.2950635714344" y="1641.0">com.google.android.gms.maps.GoogleMap.InfoWindowAdapter</node>
+            <node x="5943.107685146395" y="987.0">com.handsomelee.gotroute.Model.PlaceSearch.searchDetail</node>
+            <node x="2433.914321236184" y="333.0">android.app.Service</node>
+            <node x="145.56838957339005" y="1550.0">com.handsomelee.gotroute.Model.RouteInfo.Transit</node>
+            <node x="4984.690758152021" y="705.0">android.support.v4.app.Fragment</node>
+            <node x="4978.984669273379" y="464.0">android.support.v4.app.Fragment.AnimationInfo</node>
+            <node x="5354.269540770234" y="1138.0">com.handsomelee.gotroute.Services.GoogleMapSystem</node>
+            <node x="6130.21507534058" y="1963.0">com.handsomelee.gotroute.Model.GoogleRoute.Route</node>
+            <node x="2858.0899837024563" y="1309.0">com.google.android.gms.maps.LocationSource.OnLocationChangedListener</node>
+            <node x="4173.328568548012" y="333.0">android.arch.lifecycle.LifecycleOwner</node>
+            <node x="2378.9905213368647" y="1309.0">android.support.v7.app.AppCompatActivity</node>
+            <node x="5405.955427628674" y="1309.0">com.handsomelee.gotroute.Services.GoogleMapSystem.MARKERTYPE</node>
+            <node x="4320.999785929799" y="121.0">android.support.annotation.RestrictTo</node>
+            <node x="347.6361353066004" y="1641.0">android.widget.BaseAdapter</node>
+            <node x="1965.9542310142842" y="1722.0">com.handsomelee.gotroute.Model.ParkingWindow</node>
+            <node x="449.8699047249056" y="1550.0">android.widget.ListAdapter</node>
+            <node x="2731.0899837024563" y="705.0">android.database.sqlite.SQLiteOpenHelper</node>
+            <node x="4542.995235214679" y="987.0">android.support.v4.app.FragmentActivity</node>
+            <node x="4951.190758152021" y="1309.0">com.handsomelee.gotroute.MainActivity.PagerAdapter</node>
+            <node x="1451.344305995677" y="1722.0">com.google.android.gms.maps.GoogleMap.OnMarkerClickListener</node>
+            <node x="6108.34007534058" y="1722.0">com.handsomelee.gotroute.Model.GoogleRoute.Path</node>
+            <node x="2687.0899837024563" y="1138.0">com.handsomelee.gotroute.Controller.SettingActivity</node>
+            <node x="5945.107685146395" y="1138.0">com.handsomelee.gotroute.Model.PlaceSearch</node>
+            <node x="2172.0321880035317" y="0.0">android.content.Context</node>
+            <node x="3027.2096073583702" y="232.0">android.view.KeyEvent.Callback</node>
+            <node x="957.9280303030303" y="1309.0">com.handsomelee.gotroute.Model.SnapToRoad.SnapPoint</node>
+            <node x="364.1361353066004" y="1309.0">android.widget.Adapter</node>
+            <node x="5928.34007534058" y="1309.0">com.handsomelee.gotroute.Services.RequestHandler</node>
+            <node x="1981.6834072576896" y="1963.0">com.handsomelee.gotroute.Controller.MapsActivity</node>
+            <node x="2773.0899837024563" y="826.0">com.handsomelee.gotroute.Services.LocalDatabase</node>
+            <node x="4921.734669273379" y="333.0">android.support.v4.app.Fragment.OnStartEnterTransitionListener</node>
+            <node x="604.0214198764206" y="1722.0">com.google.android.gms.location.places.ui.PlaceSelectionListener</node>
+            <node x="3896.9881414956017" y="464.0">android.support.annotation.RequiresApi</node>
+            <node x="3862.5785685480123" y="705.0">android.support.v4.app.BaseFragmentActivityApi14</node>
+            <node x="834.42803030303" y="1550.0">com.handsomelee.gotroute.Model.Report</node>
+            <node x="4289.995235214679" y="464.0">android.support.v4.app.SupportActivity</node>
+            <node x="1194.3604350279354" y="1138.0">com.handsomelee.gotroute.Services.LocationSystem</node>
+            <node x="3952.5160685480123" y="826.0">android.support.v4.app.BaseFragmentActivityApi16</node>
+            <node x="4517.988141495602" y="826.0">android.support.v4.app.FragmentActivity.HostCallbacks</node>
+            <node x="37.125" y="1722.0">com.handsomelee.gotroute.Services.RouteDetailAdapter</node>
+            <node x="5620.119329580592" y="987.0">com.google.android.gms.maps.GoogleMap.OnMyLocationClickListener</node>
+            <node x="5240.955427628674" y="1309.0">com.handsomelee.gotroute.Controller.MapsActivity.DirectionType</node>
+            <node x="1708.8292310142842" y="826.0">com.handsomelee.gotroute.Model.DeviceInfo</node>
+            <node x="1979.886364246937" y="121.0">android.content.ContextWrapper</node>
+            <node x="950.4280303030303" y="1550.0">com.handsomelee.gotroute.Model.SnapToRoad</node>
+            <node x="4448.828568548012" y="232.0">android.support.annotation.RestrictTo.Scope</node>
+            <node x="272.8699047249056" y="1550.0">android.widget.SpinnerAdapter</node>
+            <node x="2334.948854670198" y="1138.0">android.support.v7.app.ActionBarDrawerToggle.DelegateProvider</node>
+            <node x="2873.325611558765" y="464.0">android.support.v7.app.AppCompatCallback</node>
+            <node x="868.168332276297" y="1138.0">com.handsomelee.gotroute.Model.Location</node>
+            <node x="845.4361926036927" y="1641.0">com.handsomelee.gotroute.Model.Report.fetchReport</node>
+            <node x="2462.539321236184" y="232.0">android.content.ComponentCallbacks2</node>
+            <node x="85.31838957339005" y="1641.0">com.handsomelee.gotroute.Model.RouteInfo.RouteDetail</node>
+            <node x="5149.119329580592" y="987.0">com.google.android.gms.maps.OnMapReadyCallback</node>
+            <node x="3156.2096073583702" y="121.0">android.view.LayoutInflater.Factory</node>
+            <node x="578.6654358041187" y="987.0">com.handsomelee.gotroute.Controller.MapsActivity.ProgressType</node>
+            <node x="2666.0899837024563" y="987.0">com.handsomelee.gotroute.Controller.SettingActivity.ApplyAction</node>
+            <node x="74.62876730423295" y="1309.0">com.handsomelee.gotroute.Model.RouteInfo</node>
+            <node x="5377.955427628674" y="1722.0">com.handsomelee.gotroute.Model.CarParking</node>
+            <node x="3094.3346073583702" y="333.0">android.app.Activity</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="android.app.Activity">
+              <point x="-25.9354838709678" y="-15.5" />
+              <point x="2946.0842137093027" y="1430.0" />
+              <point x="2124.4488546701978" y="1430.0" />
+              <point x="2124.4488546701978" y="1118.0" />
+              <point x="2313.0113642469373" y="1118.0" />
+              <point x="2313.0113642469373" y="665.0" />
+              <point x="2643.6589448920986" y="665.0" />
+              <point x="2643.6589448920986" y="424.0" />
+              <point x="3123.5012740250368" y="424.0" />
+              <point x="-20.833333333333258" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.content.Context">
+              <point x="41.52777777777783" y="-15.5" />
+              <point x="5083.718535929798" y="665.0" />
+              <point x="5199.234669273379" y="665.0" />
+              <point x="5199.234669273379" y="81.0" />
+              <point x="2244.9905213368647" y="81.0" />
+              <point x="21.458333333333485" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.DatabaseConnect" target="com.handsomelee.gotroute.Model.DeviceInfo">
+              <point x="0.0" y="-15.5" />
+              <point x="1696.6700635714344" y="967.0" />
+              <point x="1745.4292310142841" y="967.0" />
+              <point x="-24.40000000000009" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.SettingActivity.ApplyAction" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="-52.80000000000018" y="15.5" />
+              <point x="2679.289983702456" y="1108.0" />
+              <point x="2638.823854670198" y="1108.0" />
+              <point x="2638.823854670198" y="1793.0" />
+              <point x="2062.6379527122344" y="1793.0" />
+              <point x="12.454545454545041" y="-15.5" />
+            </edge>
+            <edge source="android.app.Activity" target="android.view.View.OnCreateContextMenuListener">
+              <point x="41.66666666666674" y="-15.5" />
+              <point x="3186.0012740250368" y="313.0" />
+              <point x="3954.3285685480123" y="313.0" />
+              <point x="-66.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.Location">
+              <point x="-37.36363636363603" y="-15.5" />
+              <point x="2012.8197708940536" y="1873.0" />
+              <point x="817.5214198764206" y="1873.0" />
+              <point x="817.5214198764206" y="1259.0" />
+              <point x="874.918332276297" y="1259.0" />
+              <point x="-47.25" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Services.DatabaseConnect">
+              <point x="-8.303030303030027" y="-15.5" />
+              <point x="2041.8803769546596" y="1803.0" />
+              <point x="1678.844305995677" y="1803.0" />
+              <point x="1678.844305995677" y="1702.0" />
+              <point x="1675.4200635714344" y="1702.0" />
+              <point x="-21.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatActivity" target="android.app.Activity">
+              <point x="15.166666666666742" y="-15.5" />
+              <point x="2485.1571880035317" y="1269.0" />
+              <point x="2514.448854670198" y="1269.0" />
+              <point x="2514.448854670198" y="675.0" />
+              <point x="2842.825611558765" y="675.0" />
+              <point x="2842.825611558765" y="434.0" />
+              <point x="3131.8346073583702" y="434.0" />
+              <point x="-12.5" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Controller.MapsActivity.DirectionType">
+              <point x="33.21212121212102" y="-15.5" />
+              <point x="2083.3955284698104" y="1843.0" />
+              <point x="5346.8796700529165" y="1843.0" />
+              <point x="5346.8796700529165" y="1480.0" />
+              <point x="5330.955427628674" y="1480.0" />
+              <point x="18.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.PlaceSearch.searchDetail" target="com.handsomelee.gotroute.Model.PlaceSearch">
+              <point x="44.66666666666697" y="15.5" />
+              <point x="6054.774351813062" y="1118.0" />
+              <point x="6053.441018479728" y="1118.0" />
+              <point x="43.33333333333303" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Controller.MapsActivity.ProgressType">
+              <point x="-64.8387096774195" y="-15.5" />
+              <point x="2907.180987902851" y="1520.0" />
+              <point x="1087.4280303030303" y="1520.0" />
+              <point x="1087.4280303030303" y="1118.0" />
+              <point x="677.3654358041185" y="1118.0" />
+              <point x="28.199999999999818" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.PlaceSearch">
+              <point x="66.42424242424204" y="-15.5" />
+              <point x="2116.6076496819314" y="1923.0" />
+              <point x="6097.84007534058" y="1923.0" />
+              <point x="6097.84007534058" y="1289.0" />
+              <point x="6053.441018479728" y="1289.0" />
+              <point x="43.33333333333303" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.google.android.gms.maps.GoogleMap.OnMapClickListener">
+              <point x="8.303030303030027" y="-15.5" />
+              <point x="2058.4864375607194" y="1783.0" />
+              <point x="2383.928030913604" y="1783.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.GoogleRoute.Path" target="com.handsomelee.gotroute.Model.GoogleRoute">
+              <point x="-10.0" y="15.5" />
+              <point x="6138.34007534058" y="1943.0" />
+              <point x="6119.71507534058" y="1943.0" />
+              <point x="6119.71507534058" y="2014.0" />
+              <point x="6076.5617407599875" y="2014.0" />
+              <point x="8.625" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="android.support.v4.app.Fragment">
+              <point x="58.12121212121201" y="-15.5" />
+              <point x="2108.3046193789014" y="1903.0" />
+              <point x="5867.619329580592" y="1903.0" />
+              <point x="5867.619329580592" y="786.0" />
+              <point x="5093.940758152021" y="786.0" />
+              <point x="51.75" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.support.v4.app.Fragment">
+              <point x="-51.75" y="15.5" />
+              <point x="4990.440758152021" y="756.0" />
+              <point x="4964.690758152021" y="756.0" />
+              <point x="4964.690758152021" y="728.25" />
+              <point x="-57.5" y="7.75" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.SettingActivity.ApplyAction" target="com.handsomelee.gotroute.Services.LocalDatabase">
+              <point x="0.0" y="-15.5" />
+              <point x="2732.0899837024563" y="957.0" />
+              <point x="2787.9899837024564" y="957.0" />
+              <point x="-59.60000000000002" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.GoogleRoute" target="com.handsomelee.gotroute.Model.GoogleRoute.Route">
+              <point x="43.125" y="-15.5" />
+              <point x="6111.0617407599875" y="2034.0" />
+              <point x="6174.71507534058" y="2034.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.app.Activity" target="android.view.ContextThemeWrapper">
+              <point x="-41.66666666666674" y="-15.5" />
+              <point x="3102.6679406917037" y="303.0" />
+              <point x="2072.886364246937" y="303.0" />
+              <point x="52.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment.SavedState" target="android.support.v4.app.Fragment.SavedState">
+              <point x="-17.85714285714289" y="15.5" />
+              <point x="4614.971425690869" y="535.0" />
+              <point x="4530.328568548012" y="535.0" />
+              <point x="4530.328568548012" y="475.625" />
+              <point x="-62.5" y="-3.875" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.RouteInfo.RouteDetail" target="com.handsomelee.gotroute.Model.RouteInfo">
+              <point x="0.0" y="-15.5" />
+              <point x="150.31838957339005" y="1621.0" />
+              <point x="135.06838957339005" y="1621.0" />
+              <point x="135.06838957339005" y="1530.0" />
+              <point x="142.87876730423295" y="1530.0" />
+              <point x="9.75" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback">
+              <point x="-78.28125" y="-15.5" />
+              <point x="4548.213985214679" y="967.0" />
+              <point x="3419.120531689787" y="967.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.app.Activity" target="android.view.Window.Callback">
+              <point x="25.0" y="-15.5" />
+              <point x="3169.3346073583702" y="303.0" />
+              <point x="3331.7096073583702" y="303.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.GoogleRoute" target="com.handsomelee.gotroute.Model.RouteInfo">
+              <point x="-60.375" y="-15.5" />
+              <point x="6007.5617407599875" y="2044.0" />
+              <point x="26.625" y="2044.0" />
+              <point x="26.625" y="1510.0" />
+              <point x="84.37876730423295" y="1510.0" />
+              <point x="-48.75" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.annotation.RestrictTo.Scope">
+              <point x="-26.09375" y="-15.5" />
+              <point x="4600.401485214679" y="917.0" />
+              <point x="4498.828568548012" y="917.0" />
+              <point x="4498.828568548012" y="313.0" />
+              <point x="4500.745235214679" y="313.0" />
+              <point x="7.416666666666515" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Services.DatabaseConnect">
+              <point x="-33.5" y="15.5" />
+              <point x="2938.5196975802705" y="1611.0" />
+              <point x="1745.2414921428629" y="1611.0" />
+              <point x="48.57142857142844" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.Report.fetchReport" target="com.handsomelee.gotroute.Model.Report">
+              <point x="0.0" y="-15.5" />
+              <point x="910.9361926036927" y="1621.0" />
+              <point x="893.80303030303" y="1621.0" />
+              <point x="11.875" y="15.5" />
+            </edge>
+            <edge source="android.app.Activity" target="android.content.ComponentCallbacks2">
+              <point x="-25.0" y="-15.5" />
+              <point x="3119.3346073583702" y="293.0" />
+              <point x="2613.289321236184" y="293.0" />
+              <point x="50.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity" target="android.app.Activity">
+              <point x="-66.85714285714289" y="-15.5" />
+              <point x="4301.138092357536" y="394.0" />
+              <point x="3190.1679406917037" y="394.0" />
+              <point x="45.833333333333485" y="15.5" />
+            </edge>
+            <edge source="android.view.LayoutInflater.Factory2" target="android.view.LayoutInflater.Factory">
+              <point x="0.0" y="-15.5" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.FragmentActivity.NonConfigurationInstances">
+              <point x="46.96875" y="-15.5" />
+              <point x="4673.463985214679" y="937.0" />
+              <point x="4882.425133152021" y="937.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.support.v4.app.Fragment.SavedState">
+              <point x="-22.361111111111313" y="-15.5" />
+              <point x="5019.82964704091" y="625.0" />
+              <point x="4650.6857114051545" y="625.0" />
+              <point x="17.857142857142662" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.RouteDetailAdapter" target="android.content.Context">
+              <point x="-37.19999999999982" y="-15.5" />
+              <point x="92.92500000000018" y="1692.0" />
+              <point x="11.0" y="1692.0" />
+              <point x="11.0" y="61.0" />
+              <point x="2184.9071880035317" y="61.0" />
+              <point x="-38.625" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment.AnimationInfo" target="android.support.v4.app.Fragment.OnStartEnterTransitionListener">
+              <point x="0.0" y="-15.5" />
+              <point x="5052.984669273379" y="444.0" />
+              <point x="5055.234669273379" y="444.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v7.app.ActionBarDrawerToggle.DelegateProvider">
+              <point x="-15.166666666666742" y="-15.5" />
+              <point x="2454.8238546701978" y="1269.0" />
+              <point x="2419.448854670198" y="1269.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.arch.lifecycle.LifecycleOwner">
+              <point x="-35.13888888888869" y="-15.5" />
+              <point x="5007.051869263132" y="645.0" />
+              <point x="4211.828568548012" y="645.0" />
+              <point x="-38.5" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity.PagerAdapter" target="com.handsomelee.gotroute.MainActivity">
+              <point x="0.0" y="15.5" />
+              <point x="5023.190758152021" y="1440.0" />
+              <point x="2997.9551814512383" y="1440.0" />
+              <point x="25.9354838709678" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="android.app.Activity">
+              <point x="-75.42857142857156" y="-15.5" />
+              <point x="5366.840969341663" y="1098.0" />
+              <point x="3254.620531689787" y="1098.0" />
+              <point x="3254.620531689787" y="444.0" />
+              <point x="3148.5012740250368" y="444.0" />
+              <point x="4.1666666666667425" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.google.android.gms.maps.OnMapReadyCallback">
+              <point x="-25.142857142857338" y="-15.5" />
+              <point x="5417.126683627377" y="1078.0" />
+              <point x="5247.619329580592" y="1078.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.app.Activity" target="android.view.KeyEvent.Callback">
+              <point x="-8.333333333333258" y="-15.5" />
+              <point x="3136.0012740250368" y="283.0" />
+              <point x="3079.7096073583702" y="283.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v4.app.TaskStackBuilder.SupportParentable">
+              <point x="-75.83333333333326" y="-15.5" />
+              <point x="2394.1571880035317" y="1289.0" />
+              <point x="2224.448854670198" y="1289.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.BaseFragmentActivityApi14" target="android.support.v4.app.SupportActivity">
+              <point x="79.66666666666669" y="-15.5" />
+              <point x="4061.7452352146793" y="685.0" />
+              <point x="4406.995235214679" y="685.0" />
+              <point x="39.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatCallback" target="android.app.Activity">
+              <point x="0.0" y="-15.5" />
+              <point x="2966.825611558765" y="444.0" />
+              <point x="3140.1679406917037" y="444.0" />
+              <point x="-4.1666666666667425" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.RouteInfo.Transit" target="com.handsomelee.gotroute.Model.RouteInfo">
+              <point x="0.0" y="-15.5" />
+              <point x="193.56838957339005" y="1530.0" />
+              <point x="162.37876730423295" y="1530.0" />
+              <point x="29.25" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Services.LocalDatabase">
+              <point x="-4.322580645161452" y="-15.5" />
+              <point x="2967.697116935109" y="1380.0" />
+              <point x="2847.5899837024563" y="1380.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.DatabaseConnect" target="com.handsomelee.gotroute.Model.GoogleRoute">
+              <point x="-63.75" y="15.5" />
+              <point x="1632.9200635714344" y="1702.0" />
+              <point x="1667.844305995677" y="1702.0" />
+              <point x="1667.844305995677" y="2034.0" />
+              <point x="6024.8117407599875" y="2034.0" />
+              <point x="-43.125" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Services.RequestHandler">
+              <point x="56.1935483870966" y="-15.5" />
+              <point x="3028.213245967367" y="1510.0" />
+              <point x="5954.84007534058" y="1510.0" />
+              <point x="-53.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.SnapToRoad.SnapPoint" target="com.handsomelee.gotroute.Model.SnapToRoad">
+              <point x="39.66666666666697" y="15.5" />
+              <point x="1057.0946969696972" y="1530.0" />
+              <point x="1062.0946969696972" y="1530.0" />
+              <point x="44.66666666666697" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.DeviceInfo">
+              <point x="-16.606060606060964" y="-15.5" />
+              <point x="2033.5773466516287" y="1823.0" />
+              <point x="1440.844305995677" y="1823.0" />
+              <point x="1440.844305995677" y="957.0" />
+              <point x="1721.029231014284" y="957.0" />
+              <point x="-48.80000000000018" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.LocationSystem" target="com.handsomelee.gotroute.Controller.MapsActivity.ProgressType">
+              <point x="-52.33333333333303" y="-15.5" />
+              <point x="1220.5271016946024" y="1108.0" />
+              <point x="705.5654358041184" y="1108.0" />
+              <point x="56.399999999999636" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.CheckLocationService" target="com.handsomelee.gotroute.MainActivity">
+              <point x="66.0" y="15.5" />
+              <point x="1262.9280303030303" y="1500.0" />
+              <point x="2915.826149193174" y="1500.0" />
+              <point x="-56.1935483870966" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.google.android.gms.location.places.ui.PlaceSelectionListener">
+              <point x="-41.515151515151956" y="-15.5" />
+              <point x="2008.6682557425377" y="1883.0" />
+              <point x="705.5214198764206" y="1883.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Services.LocationSystem">
+              <point x="-51.8709677419356" y="-15.5" />
+              <point x="2920.148729838335" y="1490.0" />
+              <point x="1320.226127975222" y="1490.0" />
+              <point x="1320.226127975222" y="1209.0" />
+              <point x="1259.7771016946024" y="1209.0" />
+              <point x="-13.08333333333303" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator" target="android.support.annotation.RestrictTo.Scope">
+              <point x="-114.0" y="-15.5" />
+              <point x="4591.828568548012" y="313.0" />
+              <point x="4530.411901881345" y="313.0" />
+              <point x="37.08333333333337" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity.HostCallbacks" target="android.app.Activity">
+              <point x="-36.25" y="-15.5" />
+              <point x="4554.238141495602" y="786.0" />
+              <point x="3591.9538650231207" y="786.0" />
+              <point x="3591.9538650231207" y="414.0" />
+              <point x="3173.5012740250368" y="414.0" />
+              <point x="29.166666666666742" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.support.v4.app.Fragment.InstantiationException">
+              <point x="47.916666666666515" y="-15.5" />
+              <point x="5090.107424818687" y="675.0" />
+              <point x="5261.234669273379" y="675.0" />
+              <point x="-51.5" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment.OnStartEnterTransitionListener" target="android.support.v4.app.Fragment">
+              <point x="-89.0" y="15.5" />
+              <point x="4966.234669273379" y="444.0" />
+              <point x="4968.484669273379" y="444.0" />
+              <point x="4968.484669273379" y="595.0" />
+              <point x="5038.9963137075765" y="595.0" />
+              <point x="-3.1944444444443434" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator">
+              <point x="15.65625" y="-15.5" />
+              <point x="4642.151485214679" y="907.0" />
+              <point x="4705.828568548012" y="907.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment.InstantiationException" target="android.support.v4.app.Fragment">
+              <point x="51.5" y="15.5" />
+              <point x="5364.234669273379" y="685.0" />
+              <point x="5096.4963137075765" y="685.0" />
+              <point x="54.30555555555566" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment.AnimationInfo" target="android.support.v4.app.Fragment">
+              <point x="59.19999999999982" y="15.5" />
+              <point x="5112.184669273379" y="645.0" />
+              <point x="5070.940758152021" y="645.0" />
+              <point x="28.75" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.RouteInfo.RouteDetail" target="com.handsomelee.gotroute.Model.RouteInfo.Transit">
+              <point x="26.0" y="-15.5" />
+              <point x="176.31838957339005" y="1621.0" />
+              <point x="169.56838957339005" y="1621.0" />
+              <point x="-24.0" y="15.5" />
+            </edge>
+            <edge source="android.app.Service" target="android.content.ComponentCallbacks2">
+              <point x="24.25" y="-15.5" />
+              <point x="2506.664321236184" y="313.0" />
+              <point x="2512.789321236184" y="313.0" />
+              <point x="-50.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.BaseFragmentActivityApi14" target="android.content.Context">
+              <point x="-79.66666666666674" y="-15.5" />
+              <point x="3902.4119018813453" y="685.0" />
+              <point x="3722.5785685480123" y="685.0" />
+              <point x="3722.5785685480123" y="91.0" />
+              <point x="2236.4071880035317" y="91.0" />
+              <point x="12.875" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity" target="android.support.annotation.RestrictTo.Scope">
+              <point x="66.85714285714289" y="-15.5" />
+              <point x="4434.852378071822" y="444.0" />
+              <point x="4476.828568548012" y="444.0" />
+              <point x="4476.828568548012" y="313.0" />
+              <point x="4471.078568548012" y="313.0" />
+              <point x="-22.25" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.PlaceSearch" target="com.handsomelee.gotroute.Model.PlaceSearch.searchDetail">
+              <point x="-43.33333333333303" y="-15.5" />
+              <point x="5966.774351813062" y="1118.0" />
+              <point x="5965.441018479728" y="1118.0" />
+              <point x="-44.66666666666697" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.google.android.gms.maps.GoogleMap.OnMapLongClickListener">
+              <point x="0.0" y="-15.5" />
+              <point x="5442.269540770234" y="1088.0" />
+              <point x="5477.119329580592" y="1088.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity.DirectionType" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="54.0" y="15.5" />
+              <point x="5367.205427628674" y="1853.0" />
+              <point x="2087.5470436213254" y="1853.0" />
+              <point x="37.36363636363603" y="-15.5" />
+            </edge>
+            <edge source="android.widget.BaseAdapter" target="android.widget.SpinnerAdapter">
+              <point x="-34.25" y="-15.5" />
+              <point x="381.8861353066004" y="1621.0" />
+              <point x="351.3699047249056" y="1621.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.SettingActivity" target="com.handsomelee.gotroute.Model.DeviceInfo">
+              <point x="-60.0" y="-15.5" />
+              <point x="2702.0899837024563" y="1058.0" />
+              <point x="2302.0113642469373" y="1058.0" />
+              <point x="2302.0113642469373" y="957.0" />
+              <point x="1794.2292310142843" y="957.0" />
+              <point x="24.40000000000009" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.MainActivity.PagerAdapter">
+              <point x="21.61290322580635" y="-15.5" />
+              <point x="2993.632600806077" y="1430.0" />
+              <point x="4994.390758152021" y="1430.0" />
+              <point x="-28.800000000000182" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.LocalDatabase" target="com.handsomelee.gotroute.MainActivity">
+              <point x="29.799999999999955" y="15.5" />
+              <point x="2877.3899837024564" y="967.0" />
+              <point x="3114.5899837024563" y="967.0" />
+              <point x="3114.5899837024563" y="1390.0" />
+              <point x="2976.342278225432" y="1390.0" />
+              <point x="4.322580645161452" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity.ExtraData" target="android.support.v4.app.SupportActivity">
+              <point x="39.333333333333485" y="15.5" />
+              <point x="4446.661901881345" y="434.0" />
+              <point x="4412.566663786108" y="434.0" />
+              <point x="44.57142857142844" y="-15.5" />
+            </edge>
+            <edge source="android.app.Service" target="android.content.ContextWrapper">
+              <point x="-24.25" y="-15.5" />
+              <point x="2458.164321236184" y="313.0" />
+              <point x="2452.039321236184" y="313.0" />
+              <point x="2452.039321236184" y="212.0" />
+              <point x="2102.136364246937" y="212.0" />
+              <point x="40.75" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="android.content.Context">
+              <point x="64.8387096774195" y="-15.5" />
+              <point x="3036.85840725769" y="1530.0" />
+              <point x="6120.423408673914" y="1530.0" />
+              <point x="6120.423408673914" y="51.0" />
+              <point x="2270.7405213368647" y="51.0" />
+              <point x="47.208333333333485" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Model.PlaceSearch">
+              <point x="51.8709677419356" y="-15.5" />
+              <point x="3023.890665322206" y="1500.0" />
+              <point x="5917.84007534058" y="1500.0" />
+              <point x="5917.84007534058" y="1289.0" />
+              <point x="5966.774351813062" y="1289.0" />
+              <point x="-43.33333333333303" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.google.android.gms.maps.GoogleMap.OnMyLocationClickListener">
+              <point x="75.42857142857156" y="-15.5" />
+              <point x="5517.6981121988065" y="1118.0" />
+              <point x="5738.619329580592" y="1118.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.Report" target="com.handsomelee.gotroute.Model.Location">
+              <point x="-31.66666666666697" y="-15.5" />
+              <point x="850.2613636363631" y="1530.0" />
+              <point x="844.668332276297" y="1530.0" />
+              <point x="844.668332276297" y="1269.0" />
+              <point x="888.418332276297" y="1269.0" />
+              <point x="-33.75" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.GoogleRoute.Route" target="com.handsomelee.gotroute.Model.GoogleRoute">
+              <point x="29.66666666666697" y="15.5" />
+              <point x="6204.381742007247" y="2044.0" />
+              <point x="6128.3117407599875" y="2044.0" />
+              <point x="60.375" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.BaseFragmentActivityApi16" target="android.support.annotation.RestrictTo.Scope">
+              <point x="89.625" y="-15.5" />
+              <point x="4161.641068548012" y="806.0" />
+              <point x="4487.828568548012" y="806.0" />
+              <point x="4487.828568548012" y="313.0" />
+              <point x="4485.911901881345" y="313.0" />
+              <point x="-7.416666666666515" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Controller.SettingActivity">
+              <point x="-8.645161290322449" y="-15.5" />
+              <point x="2963.374536289948" y="1390.0" />
+              <point x="2724.5899837024563" y="1390.0" />
+              <point x="-37.5" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment.InstantiationException" target="android.content.Context">
+              <point x="0.0" y="-15.5" />
+              <point x="5312.734669273379" y="71.0" />
+              <point x="2253.5738546701978" y="71.0" />
+              <point x="30.041666666666515" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity" target="android.support.annotation.RestrictTo">
+              <point x="-22.28571428571422" y="-15.5" />
+              <point x="4345.7095209289655" y="444.0" />
+              <point x="4337.828568548012" y="444.0" />
+              <point x="4337.828568548012" y="212.0" />
+              <point x="4346.285500215513" y="212.0" />
+              <point x="-33.71428571428578" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback" target="android.app.Activity">
+              <point x="0.0" y="-15.5" />
+              <point x="3419.120531689787" y="434.0" />
+              <point x="3156.8346073583702" y="434.0" />
+              <point x="12.5" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.LocationSystem" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="-39.25" y="15.5" />
+              <point x="1233.6104350279354" y="1219.0" />
+              <point x="1309.226127975222" y="1219.0" />
+              <point x="1309.226127975222" y="1833.0" />
+              <point x="2029.4258315001136" y="1833.0" />
+              <point x="-20.757575757575978" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="android.support.v7.app.AppCompatActivity">
+              <point x="-17.290322580645352" y="-15.5" />
+              <point x="2954.729374999625" y="1410.0" />
+              <point x="2530.6571880035317" y="1410.0" />
+              <point x="60.66666666666674" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.BaseFragmentActivityApi16" target="android.support.v4.app.BaseFragmentActivityApi16">
+              <point x="-79.66666666666674" y="15.5" />
+              <point x="3992.3494018813453" y="877.0" />
+              <point x="3932.5160685480123" y="877.0" />
+              <point x="3932.5160685480123" y="841.5" />
+              <point x="-119.5" y="-0.0" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.DatabaseConnect" target="com.handsomelee.gotroute.Model.Location">
+              <point x="-48.57142857142844" y="-15.5" />
+              <point x="1648.098635000006" y="1611.0" />
+              <point x="939.9280303030303" y="1611.0" />
+              <point x="939.9280303030303" y="1289.0" />
+              <point x="928.918332276297" y="1289.0" />
+              <point x="6.75" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Controller.MapsActivity.ProgressType">
+              <point x="-49.81818181818198" y="-15.5" />
+              <point x="2000.3652254395076" y="1903.0" />
+              <point x="589.3699047249056" y="1903.0" />
+              <point x="589.3699047249056" y="1108.0" />
+              <point x="620.9654358041189" y="1108.0" />
+              <point x="-28.199999999999818" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Controller.MapsActivity.DirectionType">
+              <point x="38.9032258064517" y="-15.5" />
+              <point x="3010.9229233867222" y="1470.0" />
+              <point x="5258.955427628674" y="1470.0" />
+              <point x="-54.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.view.View.OnCreateContextMenuListener">
+              <point x="-41.52777777777783" y="-15.5" />
+              <point x="5000.6629803742435" y="655.0" />
+              <point x="4086.3285685480123" y="655.0" />
+              <point x="66.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.RouteDetailAdapter" target="android.widget.BaseAdapter">
+              <point x="74.39999999999964" y="-15.5" />
+              <point x="204.52499999999964" y="1702.0" />
+              <point x="416.1361353066004" y="1702.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity.PagerAdapter" target="com.handsomelee.gotroute.Controller.SettingActivity">
+              <point x="-36.0" y="-15.5" />
+              <point x="4987.190758152021" y="1279.0" />
+              <point x="2799.5899837024563" y="1279.0" />
+              <point x="37.5" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity.PagerAdapter" target="android.support.v4.app.Fragment">
+              <point x="36.0" y="-15.5" />
+              <point x="17.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v7.app.AppCompatCallback">
+              <point x="45.5" y="-15.5" />
+              <point x="2515.4905213368647" y="1279.0" />
+              <point x="2605.323854670198" y="1279.0" />
+              <point x="2605.323854670198" y="685.0" />
+              <point x="3013.575611558765" y="685.0" />
+              <point x="46.75" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.ParkingWindow" target="com.handsomelee.gotroute.Services.DatabaseConnect">
+              <point x="-63.19999999999982" y="-15.5" />
+              <point x="1981.7542310142844" y="1702.0" />
+              <point x="1760.4200635714344" y="1702.0" />
+              <point x="63.75" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity" target="android.arch.lifecycle.LifecycleOwner">
+              <point x="-44.57142857142861" y="-15.5" />
+              <point x="4323.423806643251" y="384.0" />
+              <point x="4288.828568548012" y="384.0" />
+              <point x="38.5" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity.NonConfigurationInstances" target="android.support.v4.app.FragmentActivity">
+              <point x="79.66666666666674" y="15.5" />
+              <point x="4962.091799818688" y="947.0" />
+              <point x="4683.901485214679" y="947.0" />
+              <point x="57.40625" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.DatabaseConnect" target="com.handsomelee.gotroute.MainActivity">
+              <point x="24.285714285714675" y="-15.5" />
+              <point x="1720.955777857149" y="1601.0" />
+              <point x="2916.186364246937" y="1601.0" />
+              <point x="-55.833333333333485" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.SnapToRoad.SnapPoint" target="com.handsomelee.gotroute.Model.Location">
+              <point x="0.0" y="-15.5" />
+              <point x="1017.4280303030303" y="1279.0" />
+              <point x="942.418332276297" y="1279.0" />
+              <point x="20.25" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.SettingActivity.ApplyAction" target="com.handsomelee.gotroute.MainActivity">
+              <point x="-26.40000000000009" y="15.5" />
+              <point x="2705.689983702456" y="1118.0" />
+              <point x="2676.5899837024563" y="1118.0" />
+              <point x="2676.5899837024563" y="1400.0" />
+              <point x="2959.0519556447866" y="1400.0" />
+              <point x="-12.9677419354839" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="android.support.v4.app.FragmentActivity">
+              <point x="12.9677419354839" y="-15.5" />
+              <point x="2984.9874395157544" y="1410.0" />
+              <point x="4631.995235214679" y="1410.0" />
+              <point x="4631.995235214679" y="1108.0" />
+              <point x="4647.370235214679" y="1108.0" />
+              <point x="20.875" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.support.v4.app.Fragment.OnStartEnterTransitionListener">
+              <point x="35.13888888888869" y="-15.5" />
+              <point x="5077.32964704091" y="655.0" />
+              <point x="5137.484669273379" y="655.0" />
+              <point x="5137.484669273379" y="444.0" />
+              <point x="5144.234669273379" y="444.0" />
+              <point x="89.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatActivity" target="android.view.ContextThemeWrapper">
+              <point x="-45.5" y="-15.5" />
+              <point x="2424.4905213368647" y="1279.0" />
+              <point x="2324.448854670198" y="1279.0" />
+              <point x="2324.448854670198" y="1068.0" />
+              <point x="1968.386364246937" y="1068.0" />
+              <point x="-52.25" y="15.5" />
+            </edge>
+            <edge source="android.widget.ListAdapter" target="android.widget.Adapter">
+              <point x="0.0" y="-15.5" />
+              <point x="514.3699047249056" y="1530.0" />
+              <point x="442.1361353066004" y="1530.0" />
+              <point x="26.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v4.app.FragmentActivity">
+              <point x="75.83333333333326" y="-15.5" />
+              <point x="2545.8238546701978" y="1289.0" />
+              <point x="4620.995235214679" y="1289.0" />
+              <point x="4620.995235214679" y="1108.0" />
+              <point x="4605.620235214679" y="1108.0" />
+              <point x="-20.875" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.content.Context">
+              <point x="78.28125" y="-15.5" />
+              <point x="4704.776485214679" y="967.0" />
+              <point x="5976.037683899135" y="967.0" />
+              <point x="5976.037683899135" y="61.0" />
+              <point x="2262.1571880035317" y="61.0" />
+              <point x="38.625" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.SettingActivity.ApplyAction" target="com.handsomelee.gotroute.Model.DeviceInfo">
+              <point x="-44.0" y="-15.5" />
+              <point x="2688.0899837024563" y="947.0" />
+              <point x="1818.6292310142844" y="947.0" />
+              <point x="48.80000000000018" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Services.CheckLocationService">
+              <point x="-60.51612903225805" y="-15.5" />
+              <point x="2911.5035685480125" y="1510.0" />
+              <point x="1196.9280303030303" y="1510.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.DatabaseConnect" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="21.25" y="15.5" />
+              <point x="1717.9200635714344" y="1702.0" />
+              <point x="1682.995821147192" y="1702.0" />
+              <point x="1682.995821147192" y="1793.0" />
+              <point x="2046.0318921061746" y="1793.0" />
+              <point x="-4.151515151515014" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.BaseFragmentActivityApi16" target="android.support.v4.app.BaseFragmentActivityApi14">
+              <point x="29.875" y="-15.5" />
+              <point x="4101.891068548012" y="806.0" />
+              <point x="4071.7035685480123" y="806.0" />
+              <point x="89.625" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.DatabaseConnect" target="com.handsomelee.gotroute.Model.Report">
+              <point x="-72.85714285714312" y="-15.5" />
+              <point x="1623.8129207142913" y="1621.0" />
+              <point x="917.55303030303" y="1621.0" />
+              <point x="35.625" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Services.GoogleMapSystem.MARKERTYPE">
+              <point x="45.66666666666697" y="-15.5" />
+              <point x="2095.8500739243564" y="1873.0" />
+              <point x="5512.455427628674" y="1873.0" />
+              <point x="35.5" y="15.5" />
+            </edge>
+            <edge source="android.app.Activity" target="android.view.LayoutInflater.Factory2">
+              <point x="8.333333333333258" y="-15.5" />
+              <point x="3152.6679406917037" y="293.0" />
+              <point x="3205.7096073583702" y="293.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.BaseFragmentActivityApi14">
+              <point x="-57.40625" y="-15.5" />
+              <point x="4569.088985214679" y="947.0" />
+              <point x="3922.0160685480123" y="947.0" />
+              <point x="3922.0160685480123" y="806.0" />
+              <point x="3952.2035685480123" y="806.0" />
+              <point x="-29.875" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.BaseFragmentActivityApi16">
+              <point x="-36.53125" y="-15.5" />
+              <point x="4589.963985214679" y="927.0" />
+              <point x="4151.682735214679" y="927.0" />
+              <point x="79.66666666666669" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.CheckLocationService" target="com.handsomelee.gotroute.Model.Location">
+              <point x="-49.5" y="-15.5" />
+              <point x="1147.4280303030303" y="1259.0" />
+              <point x="969.418332276297" y="1259.0" />
+              <point x="47.25" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.SnapToRoad" target="com.handsomelee.gotroute.Model.SnapToRoad.SnapPoint">
+              <point x="0.0" y="-15.5" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator" target="android.support.annotation.RestrictTo">
+              <point x="114.0" y="-15.5" />
+              <point x="4819.828568548012" y="313.0" />
+              <point x="4725.488141495602" y="313.0" />
+              <point x="4725.488141495602" y="172.0" />
+              <point x="4430.571214501228" y="172.0" />
+              <point x="50.57142857142867" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Services.GoogleMapSystem.MARKERTYPE">
+              <point x="47.54838709677415" y="-15.5" />
+              <point x="3019.5680846770447" y="1490.0" />
+              <point x="5441.455427628674" y="1490.0" />
+              <point x="-35.5" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Services.GoogleMapSystem">
+              <point x="49.81818181818198" y="-15.5" />
+              <point x="2100.0015890758714" y="1883.0" />
+              <point x="5604.193783194477" y="1883.0" />
+              <point x="5604.193783194477" y="1269.0" />
+              <point x="5492.555255055949" y="1269.0" />
+              <point x="50.28571428571422" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.CheckLocationService" target="com.handsomelee.gotroute.Services.DatabaseConnect">
+              <point x="-66.0" y="15.5" />
+              <point x="1130.9280303030303" y="1530.0" />
+              <point x="1112.9280303030303" y="1530.0" />
+              <point x="1112.9280303030303" y="1601.0" />
+              <point x="1672.3843492857197" y="1601.0" />
+              <point x="-24.285714285714675" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.FragmentActivity.HostCallbacks">
+              <point x="-15.65625" y="-15.5" />
+              <point x="4610.838985214679" y="907.0" />
+              <point x="4542.154808162268" y="907.0" />
+              <point x="-48.33333333333326" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.ParkingWindow">
+              <point x="4.151515151515014" y="-15.5" />
+              <point x="2054.3349224092044" y="1773.0" />
+              <point x="2084.4542310142842" y="1773.0" />
+              <point x="39.5" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.RouteDetailAdapter" target="com.handsomelee.gotroute.Model.RouteInfo.RouteDetail">
+              <point x="0.0" y="-15.5" />
+              <point x="130.125" y="1702.0" />
+              <point x="117.81838957339005" y="1702.0" />
+              <point x="-32.5" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.BaseFragmentActivityApi16" target="android.support.annotation.RestrictTo">
+              <point x="-89.625" y="-15.5" />
+              <point x="3982.3910685480123" y="796.0" />
+              <point x="3690.5714748289347" y="796.0" />
+              <point x="3690.5714748289347" y="444.0" />
+              <point x="4162.828568548012" y="444.0" />
+              <point x="4162.828568548012" y="212.0" />
+              <point x="4329.428357358371" y="212.0" />
+              <point x="-50.57142857142867" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.ParkingWindow" target="com.handsomelee.gotroute.MainActivity">
+              <point x="63.19999999999982" y="-15.5" />
+              <point x="2108.154231014284" y="1702.0" />
+              <point x="2984.701515762089" y="1702.0" />
+              <point x="2984.701515762089" y="1611.0" />
+              <point x="2960.853030913604" y="1611.0" />
+              <point x="-11.166666666666515" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.SettingActivity.ApplyAction" target="com.handsomelee.gotroute.Controller.SettingActivity">
+              <point x="26.40000000000009" y="15.5" />
+              <point x="2758.4899837024564" y="1118.0" />
+              <point x="2762.0899837024563" y="1118.0" />
+              <point x="0.0" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity.ExtraData" target="android.support.annotation.RestrictTo.Scope">
+              <point x="29.5" y="-15.5" />
+              <point x="4436.828568548012" y="313.0" />
+              <point x="4456.245235214679" y="313.0" />
+              <point x="-37.083333333333314" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.Report">
+              <point x="-33.21212121212102" y="-15.5" />
+              <point x="2016.9712860455686" y="1863.0" />
+              <point x="830.7846774521777" y="1863.0" />
+              <point x="830.7846774521777" y="1611.0" />
+              <point x="846.30303030303" y="1611.0" />
+              <point x="-35.625" y="15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatCallback" target="android.support.v7.app.AppCompatCallback">
+              <point x="-46.75" y="15.5" />
+              <point x="2920.075611558765" y="515.0" />
+              <point x="2853.325611558765" y="515.0" />
+              <point x="2853.325611558765" y="479.5" />
+              <point x="-93.5" y="-0.0" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.LocationSystem" target="android.content.Context">
+              <point x="0.0" y="-15.5" />
+              <point x="1272.8604350279354" y="1118.0" />
+              <point x="1252.777101694602" y="1118.0" />
+              <point x="1252.777101694602" y="81.0" />
+              <point x="2202.0738546701978" y="81.0" />
+              <point x="-21.458333333333485" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.google.android.gms.maps.LocationSource.OnLocationChangedListener">
+              <point x="0.0" y="-15.5" />
+              <point x="2972.0196975802705" y="1380.0" />
+              <point x="2981.0899837024563" y="1380.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.RequestHandler" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="53.0" y="15.5" />
+              <point x="6060.84007534058" y="1520.0" />
+              <point x="6030.23598318423" y="1520.0" />
+              <point x="6030.23598318423" y="1913.0" />
+              <point x="2112.4561345304164" y="1913.0" />
+              <point x="62.272727272727025" y="-15.5" />
+            </edge>
+            <edge source="android.support.annotation.RestrictTo" target="android.support.annotation.RestrictTo.Scope">
+              <point x="16.85714285714289" y="15.5" />
+              <point x="4396.856928786941" y="192.0" />
+              <point x="4515.578568548012" y="192.0" />
+              <point x="22.25" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.BaseFragmentActivityApi14" target="android.support.v4.app.BaseFragmentActivityApi14">
+              <point x="-89.625" y="15.5" />
+              <point x="3892.4535685480123" y="756.0" />
+              <point x="3842.5785685480123" y="756.0" />
+              <point x="3842.5785685480123" y="720.5" />
+              <point x="-119.5" y="-0.0" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.RouteInfo" target="com.handsomelee.gotroute.Model.RouteInfo.RouteDetail">
+              <point x="-9.75" y="15.5" />
+              <point x="123.37876730423295" y="1530.0" />
+              <point x="92.87876730423295" y="1530.0" />
+              <point x="92.87876730423295" y="1611.0" />
+              <point x="124.31838957339005" y="1611.0" />
+              <point x="-26.0" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.CheckLocationService" target="android.content.Context">
+              <point x="-16.5" y="-15.5" />
+              <point x="1180.4280303030303" y="1249.0" />
+              <point x="1140.2354350279354" y="1249.0" />
+              <point x="1140.2354350279354" y="71.0" />
+              <point x="2193.4905213368647" y="71.0" />
+              <point x="-30.041666666666515" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.LocalDatabase" target="android.database.sqlite.SQLiteOpenHelper">
+              <point x="-49.66666666666663" y="-15.5" />
+              <point x="2797.9233170357898" y="806.0" />
+              <point x="2775.5899837024563" y="806.0" />
+              <point x="-44.5" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.Fragment">
+              <point x="26.09375" y="-15.5" />
+              <point x="4652.588985214679" y="917.0" />
+              <point x="4752.425133152021" y="917.0" />
+              <point x="4752.425133152021" y="796.0" />
+              <point x="5024.940758152021" y="796.0" />
+              <point x="-17.25" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.LocationSystem" target="com.handsomelee.gotroute.MainActivity">
+              <point x="65.41666666666697" y="15.5" />
+              <point x="1338.2771016946024" y="1279.0" />
+              <point x="1333.1938699107059" y="1279.0" />
+              <point x="1333.1938699107059" y="1460.0" />
+              <point x="2933.116471773819" y="1460.0" />
+              <point x="-38.9032258064517" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.LocationSystem" target="android.location.LocationListener">
+              <point x="52.33333333333303" y="-15.5" />
+              <point x="1325.1937683612684" y="1118.0" />
+              <point x="1345.277101694602" y="1118.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.widget.BaseAdapter" target="android.widget.ListAdapter">
+              <point x="34.25" y="-15.5" />
+              <point x="450.3861353066004" y="1621.0" />
+              <point x="514.3699047249056" y="1621.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.support.annotation.RestrictTo.Scope">
+              <point x="-28.75" y="-15.5" />
+              <point x="5013.440758152021" y="635.0" />
+              <point x="4509.828568548012" y="635.0" />
+              <point x="4509.828568548012" y="313.0" />
+              <point x="4515.578568548012" y="313.0" />
+              <point x="22.25" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.CheckLocationService" target="com.handsomelee.gotroute.Services.LocationSystem">
+              <point x="49.5" y="-15.5" />
+              <point x="1246.4280303030303" y="1229.0" />
+              <point x="1207.4437683612684" y="1229.0" />
+              <point x="-65.41666666666697" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.SettingActivity" target="android.support.v4.app.Fragment">
+              <point x="60.0" y="-15.5" />
+              <point x="2822.0899837024563" y="1118.0" />
+              <point x="5048.190758152021" y="1118.0" />
+              <point x="5.75" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.RequestHandler" target="com.handsomelee.gotroute.Model.PlaceSearch">
+              <point x="0.0" y="-15.5" />
+              <point x="6007.84007534058" y="1289.0" />
+              <point x="6010.107685146395" y="1289.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity" target="android.support.v4.app.SupportActivity">
+              <point x="-39.0" y="15.5" />
+              <point x="4328.995235214679" y="515.0" />
+              <point x="4269.995235214679" y="515.0" />
+              <point x="4269.995235214679" y="479.5" />
+              <point x="-78.0" y="-0.0" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem.MARKERTYPE" target="com.handsomelee.gotroute.Services.GoogleMapSystem">
+              <point x="-47.333333333333485" y="-15.5" />
+              <point x="5429.6220942953405" y="1289.0" />
+              <point x="5417.126683627377" y="1289.0" />
+              <point x="-25.142857142857338" y="15.5" />
+            </edge>
+            <edge source="android.view.ContextThemeWrapper" target="android.content.ContextWrapper">
+              <point x="0.0" y="-15.5" />
+              <point x="-40.75" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Model.DeviceInfo">
+              <point x="-34.58064516129025" y="-15.5" />
+              <point x="2937.4390524189803" y="1450.0" />
+              <point x="1838.9431818181818" y="1450.0" />
+              <point x="1838.9431818181818" y="967.0" />
+              <point x="1769.8292310142842" y="967.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity.HostCallbacks" target="android.support.v4.app.Fragment">
+              <point x="36.25" y="-15.5" />
+              <point x="4626.738141495602" y="786.0" />
+              <point x="5013.440758152021" y="786.0" />
+              <point x="-28.75" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.content.ComponentCallbacks">
+              <point x="-47.916666666666515" y="-15.5" />
+              <point x="4994.274091485355" y="665.0" />
+              <point x="3877.8285685480123" y="665.0" />
+              <point x="48.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.FragmentActivity">
+              <point x="-62.625" y="15.5" />
+              <point x="4563.870235214679" y="1038.0" />
+              <point x="4522.995235214679" y="1038.0" />
+              <point x="4522.995235214679" y="1002.5" />
+              <point x="-83.5" y="-0.0" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.RouteInfo">
+              <point x="-58.12121212121201" y="-15.5" />
+              <point x="1992.0621951364776" y="1923.0" />
+              <point x="258.2183895733906" y="1923.0" />
+              <point x="258.2183895733906" y="1520.0" />
+              <point x="181.87876730423295" y="1520.0" />
+              <point x="48.75" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.handsomelee.gotroute.MainActivity">
+              <point x="-75.42857142857156" y="15.5" />
+              <point x="5366.840969341663" y="1289.0" />
+              <point x="5230.455427628674" y="1289.0" />
+              <point x="5230.455427628674" y="1460.0" />
+              <point x="3006.600342741561" y="1460.0" />
+              <point x="34.58064516129025" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.google.android.gms.maps.GoogleMap.OnMarkerClickListener">
+              <point x="-12.45454545454595" y="-15.5" />
+              <point x="2037.7288618031437" y="1813.0" />
+              <point x="1554.344305995677" y="1813.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.handsomelee.gotroute.Services.DatabaseConnect">
+              <point x="-50.28571428571422" y="15.5" />
+              <point x="5391.98382648452" y="1289.0" />
+              <point x="5395.455427628674" y="1289.0" />
+              <point x="5395.455427628674" y="1621.0" />
+              <point x="1769.5272064285775" y="1621.0" />
+              <point x="72.85714285714312" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.GoogleRoute" target="com.handsomelee.gotroute.Model.GoogleRoute.Path">
+              <point x="-8.625" y="-15.5" />
+              <point x="6059.3117407599875" y="2044.0" />
+              <point x="6055.3117407599875" y="2044.0" />
+              <point x="6055.3117407599875" y="1933.0" />
+              <point x="6118.34007534058" y="1933.0" />
+              <point x="-30.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.Report.fetchReport">
+              <point x="-24.90909090909099" y="-15.5" />
+              <point x="2025.2743163485986" y="1843.0" />
+              <point x="910.9361926036929" y="1843.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity.ExtraData" target="android.support.annotation.RestrictTo">
+              <point x="-29.5" y="-15.5" />
+              <point x="4377.828568548012" y="212.0" />
+              <point x="4363.142643072656" y="212.0" />
+              <point x="-16.85714285714289" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.BaseFragmentActivityApi14" target="android.support.annotation.RequiresApi">
+              <point x="0.0" y="-15.5" />
+              <point x="3982.0785685480123" y="685.0" />
+              <point x="3962.4881414956017" y="685.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Model.CarParking">
+              <point x="41.515151515151956" y="-15.5" />
+              <point x="2091.6985587728414" y="1863.0" />
+              <point x="5439.955427628674" y="1863.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="android.content.ComponentCallbacks2" target="android.content.ComponentCallbacks">
+              <point x="0.0" y="-15.5" />
+              <point x="2563.039321236184" y="212.0" />
+              <point x="3781.3285685480123" y="212.0" />
+              <point x="-48.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.support.v4.app.FragmentActivity">
+              <point x="-5.75" y="15.5" />
+              <point x="5036.440758152021" y="806.0" />
+              <point x="5012.425133152021" y="806.0" />
+              <point x="5012.425133152021" y="957.0" />
+              <point x="4694.338985214679" y="957.0" />
+              <point x="67.84375" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.app.Activity">
+              <point x="-54.30555555555566" y="-15.5" />
+              <point x="4987.885202596465" y="675.0" />
+              <point x="3742.2381414956017" y="675.0" />
+              <point x="3742.2381414956017" y="404.0" />
+              <point x="3181.8346073583702" y="404.0" />
+              <point x="37.5" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.GoogleRoute" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="-25.875" y="-15.5" />
+              <point x="6042.0617407599875" y="2024.0" />
+              <point x="2050.1834072576894" y="2024.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.ParkingWindow" target="android.app.Activity">
+              <point x="0.0" y="-15.5" />
+              <point x="2044.9542310142842" y="1692.0" />
+              <point x="2091.9542310142842" y="1692.0" />
+              <point x="2091.9542310142842" y="1088.0" />
+              <point x="2271.678030913604" y="1088.0" />
+              <point x="2271.678030913604" y="635.0" />
+              <point x="2611.164321236184" y="635.0" />
+              <point x="2611.164321236184" y="394.0" />
+              <point x="3098.5012740250368" y="394.0" />
+              <point x="-45.83333333333326" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.GoogleRoute.Route" target="com.handsomelee.gotroute.Model.GoogleRoute.Path">
+              <point x="-22.25" y="-15.5" />
+              <point x="6152.46507534058" y="1943.0" />
+              <point x="6158.34007534058" y="1943.0" />
+              <point x="10.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="33.5" y="15.5" />
+              <point x="3005.5196975802705" y="1601.0" />
+              <point x="2999.853030913604" y="1601.0" />
+              <point x="2999.853030913604" y="1813.0" />
+              <point x="2070.9409830152654" y="1813.0" />
+              <point x="20.757575757575978" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity.ProgressType" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="0.0" y="15.5" />
+              <point x="649.1654358041187" y="1118.0" />
+              <point x="593.5214198764206" y="1118.0" />
+              <point x="593.5214198764206" y="1893.0" />
+              <point x="2004.5167405910227" y="1893.0" />
+              <point x="-45.66666666666697" y="-15.5" />
+            </edge>
+            <edge source="android.widget.SpinnerAdapter" target="android.widget.Adapter">
+              <point x="0.0" y="-15.5" />
+              <point x="351.3699047249056" y="1530.0" />
+              <point x="390.1361353066004" y="1530.0" />
+              <point x="-26.0" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment.SavedState" target="android.support.v4.app.Fragment">
+              <point x="35.71428571428578" y="15.5" />
+              <point x="4668.542854262298" y="615.0" />
+              <point x="5026.218535929798" y="615.0" />
+              <point x="-15.972222222222172" y="-15.5" />
+            </edge>
+            <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v7.app.AppCompatActivity">
+              <point x="-60.66666666666663" y="15.5" />
+              <point x="2409.323854670198" y="1360.0" />
+              <point x="2358.9905213368647" y="1360.0" />
+              <point x="2358.9905213368647" y="1324.5" />
+              <point x="-91.0" y="-0.0" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Model.ParkingWindow" target="com.google.android.gms.maps.GoogleMap.InfoWindowAdapter">
+              <point x="-31.59999999999991" y="-15.5" />
+              <point x="2013.3542310142843" y="1692.0" />
+              <point x="1924.7950635714344" y="1692.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.MainActivity">
+              <point x="24.90909090909099" y="-15.5" />
+              <point x="2075.0924981667804" y="1823.0" />
+              <point x="3004.004546065119" y="1823.0" />
+              <point x="3004.004546065119" y="1611.0" />
+              <point x="3027.853030913604" y="1611.0" />
+              <point x="55.833333333333485" y="15.5" />
+            </edge>
+            <edge source="android.content.ContextWrapper" target="android.content.Context">
+              <point x="40.75" y="-15.5" />
+              <point x="2102.136364246937" y="101.0" />
+              <point x="2219.2405213368647" y="101.0" />
+              <point x="-4.291666666666515" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.SettingActivity" target="com.handsomelee.gotroute.Controller.SettingActivity.ApplyAction">
+              <point x="-30.0" y="-15.5" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="android.support.v4.app.FragmentActivity">
+              <point x="-50.28571428571422" y="-15.5" />
+              <point x="5391.98382648452" y="1088.0" />
+              <point x="4689.120235214679" y="1088.0" />
+              <point x="62.625" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.Fragment" target="android.support.v4.app.Fragment.AnimationInfo">
+              <point x="3.1944444444443434" y="-15.5" />
+              <point x="5045.385202596465" y="585.0" />
+              <point x="4993.784669273379" y="585.0" />
+              <point x="-59.19999999999982" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.RequestHandler" target="com.handsomelee.gotroute.MainActivity">
+              <point x="0.0" y="15.5" />
+              <point x="6007.84007534058" y="1520.0" />
+              <point x="3032.5358266125286" y="1520.0" />
+              <point x="60.51612903225805" y="-15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity.HostCallbacks" target="android.support.v4.app.FragmentActivity">
+              <point x="48.33333333333326" y="15.5" />
+              <point x="4638.821474828935" y="897.0" />
+              <point x="4631.713985214679" y="897.0" />
+              <point x="5.21875" y="-15.5" />
+            </edge>
+            <edge source="android.support.annotation.RestrictTo.Scope" target="android.support.annotation.RestrictTo">
+              <point x="-22.25" y="-15.5" />
+              <point x="4471.078568548012" y="202.0" />
+              <point x="4379.999785929799" y="202.0" />
+              <point x="0.0" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Controller.MapsActivity" target="com.handsomelee.gotroute.Services.RouteDetailAdapter">
+              <point x="-62.272727272727025" y="-15.5" />
+              <point x="1987.9106799849626" y="1933.0" />
+              <point x="176.625" y="1933.0" />
+              <point x="46.5" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.CheckLocationService" target="android.app.Service">
+              <point x="16.5" y="-15.5" />
+              <point x="1213.4280303030303" y="1239.0" />
+              <point x="1151.2354350279354" y="1239.0" />
+              <point x="1151.2354350279354" y="615.0" />
+              <point x="2476.914321236184" y="615.0" />
+              <point x="2476.914321236184" y="444.0" />
+              <point x="2458.164321236184" y="444.0" />
+              <point x="-24.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.FragmentActivity" target="android.app.Activity">
+              <point x="-67.84375" y="-15.5" />
+              <point x="4558.651485214679" y="957.0" />
+              <point x="3583.620531689787" y="957.0" />
+              <point x="3583.620531689787" y="424.0" />
+              <point x="3165.1679406917037" y="424.0" />
+              <point x="20.833333333333258" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.LocalDatabase" target="android.content.Context">
+              <point x="49.66666666666663" y="-15.5" />
+              <point x="2897.256650369123" y="806.0" />
+              <point x="2919.5899837024563" y="806.0" />
+              <point x="2919.5899837024563" y="605.0" />
+              <point x="2423.414321236184" y="605.0" />
+              <point x="2423.414321236184" y="101.0" />
+              <point x="2227.8238546701978" y="101.0" />
+              <point x="4.291666666666515" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="android.support.v4.app.Fragment">
+              <point x="50.28571428571422" y="-15.5" />
+              <point x="5492.555255055949" y="1108.0" />
+              <point x="5609.619329580592" y="1108.0" />
+              <point x="5609.619329580592" y="796.0" />
+              <point x="5082.440758152021" y="796.0" />
+              <point x="40.25" y="15.5" />
+            </edge>
+            <edge source="android.support.v4.app.SupportActivity" target="android.support.v4.app.SupportActivity.ExtraData">
+              <point x="0.0" y="-15.5" />
+              <point x="-39.33333333333334" y="15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.MainActivity.PagerAdapter" target="com.handsomelee.gotroute.Controller.MapsActivity">
+              <point x="57.59999999999991" y="15.5" />
+              <point x="5080.790758152021" y="1450.0" />
+              <point x="5125.369540770234" y="1450.0" />
+              <point x="5125.369540770234" y="1833.0" />
+              <point x="2079.2440133182954" y="1833.0" />
+              <point x="29.060606060606005" y="-15.5" />
+            </edge>
+            <edge source="com.handsomelee.gotroute.Services.GoogleMapSystem" target="com.handsomelee.gotroute.Services.GoogleMapSystem.MARKERTYPE">
+              <point x="0.0" y="15.5" />
+              <point x="5442.269540770234" y="1289.0" />
+              <point x="5476.955427628674" y="1289.0" />
+              <point x="0.0" y="-15.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.20000000000000007" x="483.66666666666697" y="662.0000000000002" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Controller/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="30" column="3" lean-forward="false" selection-start-line="30" selection-start-column="3" selection-end-line="31" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/LocationSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1193">
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding>
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1462#1463#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+            <element signature="e#1533#1534#0" expanded="true" />
+            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="e#1642#1643#0" expanded="true" />
+            <element signature="e#1681#1682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/CheckLocationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding>
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#965#966#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+            <element signature="e#1090#1091#0" expanded="true" />
+            <element signature="e#1168#1169#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Controller/MapsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+        <state relative-caret-position="-1">
+          <caret line="235" column="51" lean-forward="true" selection-start-line="235" selection-start-column="51" selection-end-line="235" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#13210#13211#0" expanded="true" />
-            <element signature="e#13244#13245#0" expanded="true" />
+            <element signature="e#13436#13437#0" expanded="true" />
+            <element signature="e#13470#13471#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/RouteDetailAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+          <folding>
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1180#1181#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#1260#1261#0" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1326#1327#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.handsomelee.gotroute.MainActivity">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.handsomelee.gotroute.MainActivity</OriginalElement>
+          <nodes>
+            <node x="" y="">android.content.Context</node>
+            <node x="" y="">android.view.KeyEvent.Callback</node>
+            <node x="" y="">com.handsomelee.gotroute.MainActivity</node>
+            <node x="" y="">android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator</node>
+            <node x="" y="">android.content.ComponentCallbacks</node>
+            <node x="" y="">android.view.LayoutInflater.Factory2</node>
+            <node x="" y="">android.support.annotation.RequiresApi</node>
+            <node x="" y="">android.support.v4.app.BaseFragmentActivityApi14</node>
+            <node x="" y="">android.support.v4.app.SupportActivity</node>
+            <node x="" y="">android.support.v4.app.BaseFragmentActivityApi16</node>
+            <node x="" y="">android.support.v4.app.FragmentActivity.HostCallbacks</node>
+            <node x="" y="">android.support.v4.app.SupportActivity.ExtraData</node>
+            <node x="" y="">android.view.Window.Callback</node>
+            <node x="" y="">android.view.ContextThemeWrapper</node>
+            <node x="" y="">android.support.v4.app.TaskStackBuilder.SupportParentable</node>
+            <node x="" y="">android.content.ContextWrapper</node>
+            <node x="" y="">android.view.View.OnCreateContextMenuListener</node>
+            <node x="" y="">android.support.annotation.RestrictTo.Scope</node>
+            <node x="" y="">android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback</node>
+            <node x="" y="">android.support.v7.app.ActionBarDrawerToggle.DelegateProvider</node>
+            <node x="" y="">android.support.v4.app.FragmentActivity.NonConfigurationInstances</node>
+            <node x="" y="">android.support.v7.app.AppCompatCallback</node>
+            <node x="" y="">android.arch.lifecycle.LifecycleOwner</node>
+            <node x="" y="">com.google.android.gms.maps.LocationSource.OnLocationChangedListener</node>
+            <node x="" y="">android.support.v7.app.AppCompatActivity</node>
+            <node x="" y="">android.content.ComponentCallbacks2</node>
+            <node x="" y="">android.support.annotation.RestrictTo</node>
+            <node x="" y="">android.view.LayoutInflater.Factory</node>
+            <node x="" y="">android.support.v4.app.FragmentActivity</node>
+            <node x="" y="">com.handsomelee.gotroute.MainActivity.PagerAdapter</node>
+            <node x="" y="">android.app.Activity</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="1948.0" y="860.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="74" column="16" lean-forward="true" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10811#11016#0" expanded="true" />
+            <element signature="e#11015#11016#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/DatabaseConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/LocalDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding>
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
           </folding>
         </state>
       </provider>

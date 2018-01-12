@@ -13,6 +13,47 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * GoogleRoute.
+ * Attributes:
+ *  public:
+ *    JsonObject distance
+ *    JsonObject duration
+ *    String end_address
+ *    JsonObject end_location;
+ *    String start_address;
+ *    JsonObject start_location;
+ *    Route[] steps
+ *
+ * Methods:
+ *  public:
+ *    fetchLatLng(List<LatLng>, GoogleRoute.Route[]): void
+ *    processRouteInfo(JSONArray): void
+ *
+ * Inner class:
+ *  Route.
+ *
+ *  Attributes
+ *    public:
+ *      JsonObject distance
+ *      JsonObject duration
+ *      JsonObject end_location
+ *      JsonObject start_location;
+ *
+ *  Inner class:
+ *    Path:
+ *      Attributes:
+ *        private:
+ *          JsonElement lat
+ *          JsonElement lng
+ *
+ *      Methods:
+ *        public:
+ *          getLatitude(): double
+ *          getLongtitude(): double
+ *
+ */
+
 // legs
 public class GoogleRoute {
   public JsonObject distance;
@@ -47,16 +88,6 @@ public class GoogleRoute {
     Gson gson = new Gson();
     RouteInfo routeInfo = gson.fromJson(jsonArray.getJSONObject(0).toString(), RouteInfo.class);
     MapsActivity.routeInfo = routeInfo;
-//    List<RouteInfo.RouteDetail> routeDetails = new ArrayList<>();
-//    String distance = null;
-//    String duration = null;
-//    for (int i = 0; i < jsonArray.length(); i++) {
-//      JSONArray steps = jsonArray.getJSONObject(i).getJSONArray("steps");
-//      processRouteDetail(routeDetails, steps);
-//      distance = jsonArray.getJSONObject(i).getJSONObject("distance").getString("text");
-//      duration = jsonArray.getJSONObject(i).getJSONObject("duration").getString("text");
-//    }
-//    MapsActivity.routeInfo = new RouteInfo(distance, duration, routeDetails);
   }
   
   // steps
@@ -74,7 +105,7 @@ public class GoogleRoute {
   }
   
   public static class Path {
-    public JsonElement lat;
+    private JsonElement lat;
     private JsonElement lng;
 
     public double getLatitude() {
@@ -90,36 +121,4 @@ public class GoogleRoute {
     }
   }
 
-//  public static void processRouteDetail(List<RouteInfo.RouteDetail> routeDetails, JSONArray steps) {
-//    try {
-//      for (int i = 0; i < steps.length(); i++) {
-//        Log.v("steps", steps.getJSONObject(i).length() + "");
-//          JSONObject object = steps.getJSONObject(i);
-//          String temp = "", travelMode = "", distance = "", duration = "", html_instructions = "";
-//          if (object.has("travel_mode"))
-//            travelMode = object.getString("travel_mode");
-//          if (object.has("html_instructions"))
-//            html_instructions = object.getString("html_instructions");
-//          if (object.has("distance"))
-//            distance = object.getJSONObject("distance").getString("text");
-//          if (object.has("duration"))
-//            duration = object.getJSONObject("duration").getString("text");
-//          routeDetails.add(new RouteInfo.RouteDetail(duration,
-//                  distance,
-//                  html_instructions,
-//                  travelMode,
-//                  temp));
-//          Log.v("distance", distance);
-//          if(object.has("transit") && object.getJSONArray("transit").length() > 0) {
-//
-//          }
-//          if (object.has("steps") && object.getJSONArray("steps").length() > 0) {
-//            processRouteDetail(routeDetails, object.getJSONArray("steps"));
-//          }
-//      }
-//
-//    } catch (JSONException e) {
-//      Log.e("ProcessRouteDetail", e.toString());
-//    }
-//  }
 }

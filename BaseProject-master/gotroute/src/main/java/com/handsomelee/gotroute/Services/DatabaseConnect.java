@@ -24,13 +24,34 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * DataConnect.
+ *
+ * Attributes:
+ *  public boolean directionStatus
+ *  default(~) List<LatLng> latLngList
+ *  private boolean navigationStatus
+ *
+ * Methods:
+ *  public:
+ *    fetchData(String, String): String[]
+ *    updateCarParking(String, String): void
+ *    insertReportData(Report): void
+ *    fetchDirection(String): void
+ *    updateUserLocation(Long, Location): void
+ *    getNavigationStatus(): Boolean
+ *    setNavigationStatus(Boolean): void
+ *
+ * Dependency:
+ *  MainActivity
+ */
+
 public class DatabaseConnect {
   
   public static boolean directionStatus = true;
-  public static boolean parkingStatus;
   static String secretKey = "12345";
   static List<LatLng> latLngList;
-  private static Boolean navigationStatus = false;
+  private static boolean navigationStatus = false;
   
   public static String[] fetchData(String db, String collection) {
     String url = "https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj" +

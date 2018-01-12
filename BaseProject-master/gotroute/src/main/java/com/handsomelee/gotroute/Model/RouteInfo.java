@@ -8,6 +8,60 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * RouteInfo.
+ *
+ * Attributes:
+ *  public:
+ *    RouteDetail[] steps
+ *
+ *  private:
+ *    JsonObject distance
+ *    JsonObject duration
+ *    JsonObject arrival_time
+ *    JsonObject departure_time
+ *
+ * Methods:
+ *  public getDistance(): String
+ *  public getDuration() String
+ *
+ * Inner Class:
+ *  RouteDetail:
+ *    private:
+ *      JsonObject duration
+ *      JsonObject distance
+ *      String instruction
+ *      Transit transit
+ *
+ *  Methods:
+ *    public:
+ *      getDistance(): String
+ *      getDuration(): String
+ *      getInsturctions(): String
+ *      getTransit(): Transit
+ *
+ *
+ *  Transit:
+ *    Attributes:
+ *      public:
+ *        JsonObject arrival_stop;
+ *        JsonObject arrival_time;
+ *        JsonObject departure_stop;
+ *        JsonObject departure_time;
+ *        JsonObject line;
+ *        JsonObject num_stops;
+ *
+ *   Methods:
+ *    public:
+ *      getArrivalStop(): String
+ *      getArrivalTime(): Date
+ *      getDepartureStop(): String
+ *      getDepartureTime(): Date
+ *      getBusNo(): String
+ *      getBusName(): String
+ *
+ */
+
 public class RouteInfo {
   public RouteDetail[] steps;
   private JsonObject distance;

@@ -2,6 +2,21 @@ package com.handsomelee.gotroute.Model;
 
 import com.google.gson.JsonElement;
 
+/**
+ * CarParking.
+ *
+ * Attribute:
+ *  private:
+ *    String name
+ *    JsonElement avaible
+ *
+ * Methods:
+ *  public:
+ *    getName()
+ *    getAvailable()
+ *
+ */
+
 public class CarParking {
   private String name;
   private JsonElement available;

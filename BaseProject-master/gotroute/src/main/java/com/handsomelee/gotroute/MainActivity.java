@@ -49,6 +49,39 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+/**
+ * MainActivity.
+ *
+ * Attributes:
+ *  public:
+ *    RequestQueue queue
+ *    ViewPager viewPager
+ *    PagerAdapter pageAdapter
+ *    LocationSystem locationSystem
+ *
+ * Methods:
+ *  public:
+ *    requestNavigation(View): boolean
+ *    getLocationSystem(): LocationSystem
+ *    hasLocationSystem(): boolean
+ *    hasLocationSystem(): boolean
+ *    createUserId(): void
+ *
+ *  private:
+ *    requestLocationPermission(): void
+ *
+ * Dependency:
+ *  MapsActivity
+ *  RequestQueue
+ *  LocationSystem
+ *
+ *  Inner Class:
+ *    PagerAdapter
+ *      Methods:
+ *        public:
+ *          getItem(int): Fragment
+ *          getCount(): int
+ */
 
 public class MainActivity extends AppCompatActivity implements LocationSource.OnLocationChangedListener {
   

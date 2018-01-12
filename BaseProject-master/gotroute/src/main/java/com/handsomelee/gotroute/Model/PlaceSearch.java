@@ -4,6 +4,34 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+/**
+ * PlaceSearch.
+ * Attributes:
+ *  public:
+ *    JsonArray htmlattributions
+ *    searchDetail[] results
+ *    String status
+ *
+ * Inner Class:
+ *  searchDetail:
+ *    Attributes:
+ *      public:
+ *        String name
+ *        JsonObject opening_hours
+ *        double rating
+ *
+ *    Methods:
+ *      public:
+ *        isOpen(): boolean
+ *        getLatLng(): LatLng
+ *        getLatitude(): double
+ *        getLongitude(): double
+ *
+ *  Associate:
+ *    JsonArray
+ *
+ */
+
 public class PlaceSearch {
   public JsonArray html_attributions;
   public searchDetail[] results;

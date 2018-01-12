@@ -2,6 +2,31 @@ package com.handsomelee.gotroute.Model;
 
 import java.util.Date;
 
+/**
+ * DeviceInfo.
+ *
+ * Attributes:
+ *  private:
+ *    DeviceInfo _instance
+ *    String id
+ *    Date date
+ *    Long refreshTime
+ *
+ * Methods:
+ *  public:
+ *    getInstance()
+ *    getId(): String
+ *    setId(String): void
+ *    getDate(): void
+ *    setDate(): void
+ *    getRefreshTime(): Long
+ *    setRefreshTime(long): void
+ *
+ * Composition:
+ *  Date
+ *
+ */
+
 public class DeviceInfo {
   
   private static DeviceInfo _instance;

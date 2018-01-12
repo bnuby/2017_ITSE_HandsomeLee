@@ -15,6 +15,14 @@ import com.handsomelee.gotroute.MainActivity;
 import com.handsomelee.gotroute.R;
 import com.handsomelee.gotroute.Services.DatabaseConnect;
 
+/**
+ * ParkingWindow.
+ * Methods:
+ *  public:
+ *    updateButton(CharSequence, CharSequence, Marker): void
+ *
+ */
+
 public class ParkingWindow implements GoogleMap.InfoWindowAdapter {
   private Activity context;
   

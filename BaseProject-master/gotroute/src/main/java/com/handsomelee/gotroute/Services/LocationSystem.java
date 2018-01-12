@@ -13,6 +13,24 @@ import com.google.android.gms.maps.model.LatLng;
 import com.handsomelee.gotroute.Controller.MapsActivity;
 import com.handsomelee.gotroute.MainActivity;
 
+/**
+ * LocationSystem.
+ *
+ * Attribute:
+ *  default(~):
+ *    boolean reset
+ *
+ *  private:
+ *    LocationManager locationManager
+ *    Location location
+ *
+ *  Methods:
+ *    public:
+ *      getCurrentLocation(): Location
+ *      onLocationChanged(Location): void
+ *
+ */
+
 public class LocationSystem implements LocationListener {
 
   static boolean reset;

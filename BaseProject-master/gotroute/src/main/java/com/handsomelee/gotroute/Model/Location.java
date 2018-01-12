@@ -2,6 +2,25 @@ package com.handsomelee.gotroute.Model;
 
 import com.google.android.gms.maps.model.LatLng;
 
+/**
+ * Location.
+ * Attributes:
+ *  private:
+ *    double latitude
+ *    double longtitude
+ * Methods:
+ *  public:
+ *    Location(double, double)
+ *    getLatitude(): double
+ *    getLongitude(): double
+ *    getLatLng(): LatLng
+ *    setLatLng(Location location): void
+ *
+ * Dependency:
+ *  android.location
+ *
+ */
+
 public class Location {
     private double latitude;
     private double longitude;

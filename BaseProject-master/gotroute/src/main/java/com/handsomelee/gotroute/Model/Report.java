@@ -6,6 +6,46 @@ import com.google.gson.JsonElement;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Report.
+ *
+ * Attributes:
+ *  private:
+ *    JsonElement no
+ *    String dateTime
+ *    String reportType
+ *    String comment
+ *    Location location
+ *    String user
+ *
+ * Methods:
+ *  public:
+ *    Report(String, String, String, Location)
+ *    ConvertLocation(Location): Location
+ *    getDateTime(): String
+ *    getReportType(): String
+ *    getComment(): String
+ *    getLocation(): Location
+ *
+ * Inner Class:
+ *  Attributes:
+ *    public:
+ *      JsonElement no
+ *      String time
+ *      String comment
+ *      String type
+ *
+ *    private:
+ *      String location
+ *
+ *  Methods:
+ *    public getLatLng(): LatLng
+ *
+ *  Associate:
+ *    android
+ *
+ */
+
 public class Report {
   private JsonElement no;
   private String dateTime;

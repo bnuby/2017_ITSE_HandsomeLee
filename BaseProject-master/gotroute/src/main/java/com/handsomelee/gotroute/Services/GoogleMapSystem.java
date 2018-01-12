@@ -24,6 +24,22 @@ import com.handsomelee.gotroute.MainActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * GoogleMapSystem.
+ *
+ * Attributes
+ *  public:
+ *    GoogleMap mMap
+ *    PolyLine polyline
+ *
+ * Methods:
+ *  public:
+ *    GoogleMapSystem(int, int, int)
+ *    drawPolyLine(FragmentActivity): void
+ *
+ * Dependency:
+ *    DatabaseConnect
+ */
 public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener
         , GoogleMap.OnMyLocationClickListener {
   

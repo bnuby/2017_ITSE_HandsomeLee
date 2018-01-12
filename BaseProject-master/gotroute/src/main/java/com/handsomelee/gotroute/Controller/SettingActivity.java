@@ -13,32 +13,45 @@ import com.handsomelee.gotroute.Model.DeviceInfo;
 import com.handsomelee.gotroute.R;
 import com.handsomelee.gotroute.Services.LocalDatabase;
 
+/**
+ * SettingActivity.
+ *
+ * Method
+ *  public:
+ *    onCreateView(LayoutInflater, ViewGroup, Bundle): View
+ * Inner Class:
+ *  ApplyAction
+ *
+ *  Methods:
+ *    public onClick(View)
+ *
+ * Dependency:
+ *  LocalDatabase
+ *
+ * Composition:
+ *  MainActivity
+ */
 
 public class SettingActivity extends Fragment {
+  private EditText refreshEt;
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     final View rootView = inflater.inflate(R.layout.activity_setting, container, false);
     final Button applyButton = rootView.findViewById(R.id.ApplyButton);
-    final EditText refreshEt = rootView.findViewById(R.id.refreshET);
+    refreshEt = rootView.findViewById(R.id.refreshET);
     
     refreshEt.setText(DeviceInfo.getInstance().getRefreshTime().toString());
-    
-    long second = Long.parseLong(refreshEt.getText().toString());
-    applyButton.setOnClickListener(new applyAction(second));
+    applyButton.setOnClickListener(new ApplyAction());
     
     return rootView;
   }
   
-  class applyAction implements View.OnClickListener {
-    long second;
+  class ApplyAction implements View.OnClickListener {
     
-    public applyAction(long second) {
-      this.second = second;
-    }
-  
     @Override
     public void onClick(View view) {
+      long second = Long.parseLong(refreshEt.getText().toString());
       if (second < 30) {
             Toast.makeText(MainActivity.mActivity, "Please insert not smaller than 30.", Toast.LENGTH_LONG).show();
           } else {
@@ -50,6 +63,4 @@ public class SettingActivity extends Fragment {
           }
     }
   }
-  
-  
 }

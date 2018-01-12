@@ -49,11 +49,11 @@ import static android.content.ContentValues.TAG;
  * Method:
  *  public:
  *    MapsActivity(int, int, int)
- *    requestDirection(String, String, DirectionType)
- *    processReport()
- *    processParking()
- *    getDestination()
- *    placeMarker(Place)
+ *    requestDirection(String, String, DirectionType): void
+ *    processReport(): void
+ *    processParking(): void
+ *    getDestination(): String
+ *    placeMarker(Place): void
  *
  *  Dependency:
  *    PlaceSearch
@@ -71,6 +71,18 @@ import static android.content.ContentValues.TAG;
  *    CarParking
  *    ParkingWindow
  *    MainActivity
+ *
+ *  Composition:
+ *    MainActivity
+ *
+ *  Inner Enum
+ *    public:
+ *      ProgressType:
+ *        Navigation, Free
+ *
+ *      DirectionType:
+ *        Driving, Walking, Transit, Cycling
+ *
  */
 public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListener
         , GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener {

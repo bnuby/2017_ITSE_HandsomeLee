@@ -9,6 +9,28 @@ import android.util.Log;
 import com.handsomelee.gotroute.MainActivity;
 import com.handsomelee.gotroute.Model.Location;
 
+/**
+ * CheckLocationService.
+ * Attributes:
+ *  Default (~):
+ *    LocationSystem locationSystem
+ *    Location location
+ *    Long duration
+ *    Long UPDATE_DURATION
+ * Methods:
+ *  public:
+ *    initialize(): void
+ *    checkLocation(): boolean
+ *
+ * Dependency:
+ *  DatabaseConnect
+ *
+ * Composite:
+ *  LocationSystem
+ *  Location
+ *
+ */
+
 public class CheckLocationService extends Service {
 
   static LocationSystem locationSystem;

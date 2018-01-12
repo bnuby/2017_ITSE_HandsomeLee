@@ -12,6 +12,22 @@ import com.handsomelee.gotroute.MainActivity;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * LocalDatabase.
+ * Attributes:
+ *  public:
+ *    String DATABASE_NAME
+ *    String TABLE_NAME
+ *
+ * Methods:
+ *  public:
+ *    LocalDatabase(Context)
+ *
+ *  Dependency:
+ *    SQLiteDatabase
+ *    Cursor
+ */
+
 public class LocalDatabase extends SQLiteOpenHelper {
   
   public static final String DATABASE_NAME = "Gotroute.db";
@@ -74,6 +90,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
     SQLiteDatabase db = this.getWritableDatabase();
     ContentValues contentValues = new ContentValues();
     contentValues.put(COL_3, time);
+    Log.v("Update Table", "" + time);
     db.update(TABLE_NAME, contentValues, null, null);
   }
   

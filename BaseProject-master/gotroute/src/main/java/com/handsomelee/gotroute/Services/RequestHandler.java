@@ -13,6 +13,19 @@ import com.handsomelee.gotroute.Model.PlaceSearch;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * RequestHandler.
+ * Attributes:
+ *  public:
+ *    boolean parkingStatus
+ *    String api
+ * Methods:
+ *  public requestPlaceSearch(LatLng): void
+ *
+ * Dependency:
+ *  MainActivity.
+ */
+
 public class RequestHandler {
 
   public static boolean parkingStatus;
@@ -67,6 +80,4 @@ public class RequestHandler {
     });
     MainActivity.queue.add(request);
   }
-  
-  
 }

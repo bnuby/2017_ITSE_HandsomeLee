@@ -11,6 +11,20 @@ import com.handsomelee.gotroute.Model.RouteInfo;
 
 import java.util.List;
 
+/**
+ * RouteDetailAdapter.
+ * Attributes:
+ *  public:
+ *    RouteInfo.RouteDetail[] routeDetails
+ *
+ * Methods:
+ *  public:
+ *    getView(int i, View view, ViewGroup viewGroup): View
+ *
+ * Associate:
+ *  RouteInfo
+ */
+
 public class RouteDetailAdapter extends BaseAdapter {
   
   int layoutId;
