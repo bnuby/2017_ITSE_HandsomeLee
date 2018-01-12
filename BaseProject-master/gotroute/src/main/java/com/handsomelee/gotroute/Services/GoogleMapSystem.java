@@ -182,9 +182,7 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
     
     marker = mMap.addMarker(markerOptions);
-    ParkingWindow parkingWindow = new ParkingWindow(getActivity());
     mMap.setInfoWindowAdapter(null);
-//    mMap.setInfoWindowAdapter(parkingWindow);
     markerType = MARKERTYPE.LatLng;
     this.latLng = latLng;
   }

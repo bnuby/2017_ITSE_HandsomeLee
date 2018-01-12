@@ -1,6 +1,7 @@
 package com.handsomelee.gotroute;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -14,10 +15,12 @@ import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.*;
 import android.support.v4.view.ViewPager;
@@ -48,6 +51,7 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements LocationSource.OnLocationChangedListener {
+  
 
   public static RequestQueue queue;
   public static MapsActivity.DirectionType directionType = MapsActivity.DirectionType.Driving;
@@ -63,8 +67,9 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
   SettingActivity tab2;
   private ViewPager viewPager;
   private PagerAdapter pageAdapter;
-  private boolean ListViewDrawer;
+  
   private TabLayout.OnTabSelectedListener tabLayoutOnTabListener = new TabLayout.OnTabSelectedListener() {
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
       viewPager.setCurrentItem(tab.getPosition(), true);

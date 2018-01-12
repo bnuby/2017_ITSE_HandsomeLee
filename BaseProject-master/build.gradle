@@ -12,7 +12,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:2.3.3'
     }
 }
 
@@ -22,19 +22,10 @@ allprojects {
         mavenCentral()
         maven { url "https://maven.google.com" }
         maven { url "https://jitpack.io" }
-
     }
 }
-
-
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        html.enabled false
-    }
-}

@@ -35,6 +35,43 @@ import java.util.Date;
 
 import static android.content.ContentValues.TAG;
 
+
+/**
+ * MapsActivity Class.
+ *
+ * Attributes:
+ *  public:
+ *    ListView listView
+ *    RouteInfo routeInfo
+ *  private:
+ *    String destinationString = ""
+ *
+ * Method:
+ *  public:
+ *    MapsActivity(int, int, int)
+ *    requestDirection(String, String, DirectionType)
+ *    processReport()
+ *    processParking()
+ *    getDestination()
+ *    placeMarker(Place)
+ *
+ *  Dependency:
+ *    PlaceSearch
+ *    DatabaseConnect
+ *    Location
+ *    Report
+ *
+ *  Association:
+ *    DeviceInfo
+ *
+ *  Aggregation:
+ *    RouteInfo
+ *
+ *  Composite:
+ *    CarParking
+ *    ParkingWindow
+ *    MainActivity
+ */
 public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListener
         , GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener {
   private static final Handler refreshHandler = new Handler();
@@ -52,14 +89,11 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   private static String destinationString = "";
   private static ProgressType progressType = ProgressType.Free;
   private static long refreshSecond;
-  int PLACE_PICKER_REQUEST = 1;
-  GestureDetector gestureDetector;
-  private EditText editText;
   private Button getLocationBtn;
   private Button navigationBtn;
+  
   public MapsActivity(int mapViewId, int layoutActivityId, int googleMapType) {
     super(mapViewId, layoutActivityId, googleMapType);
-    
   }
   
   public static void requestDirection(String origin, String destination, DirectionType type) {
@@ -100,26 +134,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
                     });
           }
         }, 2000);
-
-//        StringRequest request = new StringRequest("https://stitch.mongodb.com/api/client/v2.0/app/handsomelee-bxznj/service/findCollection/incoming_webhook/fetch_direction?secret=12345",
-//                new Response.Listener<String>() {
-//                  @Override
-//                  public void onResponse(String s) {
-//                    new Handler().postDelayed(new Runnable() {
-//                      @Override
-//                      public void run() {
-//                        DatabaseConnect.fetchDirection();
-//                      }
-//                    }, 0);
-//                  }
-//                },
-//                new Response.ErrorListener() {
-//                  @Override
-//                  public void onErrorResponse(VolleyError volleyError) {
-//                    Log.e("Direction", volleyError.toString());
-//                  }
-//                });
-//        MainActivity.queue.add(request);
         super.onPageFinished(view, url);
       }
     });

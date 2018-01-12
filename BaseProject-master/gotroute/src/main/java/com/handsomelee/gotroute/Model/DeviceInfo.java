@@ -1,7 +1,5 @@
 package com.handsomelee.gotroute.Model;
 
-import android.util.Log;
-
 import java.util.Date;
 
 public class DeviceInfo {
@@ -36,7 +34,6 @@ public class DeviceInfo {
 
   // ScreenWidth Setter Method
   public void setScreenWidth(int screenWidth) {
-    Log.v("Screen Width", screenWidth + "");
     this.screenWidth = screenWidth;
   }
 
@@ -47,7 +44,6 @@ public class DeviceInfo {
 
   // ScreenHeight Setter Method
   public void setScreenHeight(int screenHeight) {
-    Log.v("Screen Width", screenHeight + "");
     this.screenHeight = screenHeight;
   }
   

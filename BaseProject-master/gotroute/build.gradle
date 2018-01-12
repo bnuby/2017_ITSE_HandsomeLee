@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.1"
+    buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "com.handsomelee.gotroute"
         minSdkVersion 24
@@ -13,6 +13,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,14 +29,15 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
+    androidTestCompile( 'com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     // App's dependencies, including test
-    compile 'com.android.support:support-annotations:+'
+    //    compile 'com.android.support:support-annotations:+'
     // Testing-only dependencies
-    androidTestCompile 'com.android.support.test:runner:+'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:+'
+    //    androidTestCompile 'com.android.support.test:runner:+'
+    //    androidTestCompile 'com.android.support.test.espresso:espresso-core:+'
+    //noinspection GradleCompatible
     compile 'com.android.support:appcompat-v7:27.+'
     compile 'com.android.support:design:+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -47,6 +49,5 @@ dependencies {
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.github.evgenyneu:js-evaluator-for-android:v4.0.0'
-    compile files('/Users/collin/Library/Application Support/IntelliJIdea2017.3/AndroidTestsRecorder/lib/AndroidTestsRecorder.jar')
 }
 

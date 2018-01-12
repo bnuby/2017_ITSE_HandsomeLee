@@ -48,7 +48,7 @@ goto fail
 :init
 @rem Get command-line arguments, handling Windows variants
 
-if not "%OS%" == "Windows_NT" goto win9xME_args
+if not "%OS%" == "Windows_NgibsonT" goto win9xME_args
 
 :win9xME_args
 @rem Slurp the command line arguments.

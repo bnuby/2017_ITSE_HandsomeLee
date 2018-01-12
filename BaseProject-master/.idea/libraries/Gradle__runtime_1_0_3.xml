@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: runtime-1.0.3">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/5b2a69b21586a23c35e06c8f1b646bf9e40e23c3/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/5b2a69b21586a23c35e06c8f1b646bf9e40e23c3/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/f8604074fa1b24834a9fc9ccad77a5f79851d5bf/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/f8604074fa1b24834a9fc9ccad77a5f79851d5bf/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/runtime/1.0.3/4154878465bd9019f4c4988c668c7d69f2f687b3/runtime-1.0.3-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: AndroidTestsRecorder">
-    <CLASSES>
-      <root url="jar://$APPLICATION_PLUGINS_DIR$/AndroidTestsRecorder/lib/AndroidTestsRecorder.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
