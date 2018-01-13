@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -61,6 +62,7 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
   }
   
   public static void EnableMyLocationSetting(final Activity activity) {
+    //  120.645879 24.178855
     
     new AsyncTask<Void, String, Boolean>() {
       @Override
@@ -181,6 +183,7 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
     mMap.setMapType(googleMapType);
     mMap.setOnMyLocationClickListener(this);
     mMap.setOnMapLongClickListener(this);
+    
   }
   
   @Override
@@ -202,7 +205,6 @@ public class GoogleMapSystem extends Fragment implements OnMapReadyCallback, Goo
     markerType = MARKERTYPE.LatLng;
     this.latLng = latLng;
   }
-  
   public Boolean removeMarker() {
     if (marker != null) {
       marker.remove();

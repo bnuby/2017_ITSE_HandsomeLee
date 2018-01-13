@@ -1,6 +1,15 @@
-language: java
+language: android
 before_install:
   - chmod +x gradlew
 after_success:
   - ./gradlew jacocoTestReport
   - bash <(curl -s https://codecov.io/bash)
+
+android:
+  components:
+    - build-tools-27.0.3
+    - android-27
+
+    - extra-google-google_play_services
+    - sys-img-armeabi-v7a-android-27
+    - extra

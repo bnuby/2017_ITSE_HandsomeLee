@@ -374,6 +374,7 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     autoRefresh();
+    
   }
   
   private void autoRefresh() {
@@ -450,6 +451,8 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
     super.onMapReady(googleMap);
     mMap.setOnMarkerClickListener(this);
     mMap.setOnMapClickListener(this);
+    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(24.178855,120.645879)));
+    
   }
   
   private void afterScreenLoaded() {

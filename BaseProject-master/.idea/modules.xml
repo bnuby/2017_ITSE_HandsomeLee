@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BaseProject.iml" filepath="$PROJECT_DIR$/BaseProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gotroute/gotroute.iml" filepath="$PROJECT_DIR$/gotroute/gotroute.iml" />
+      <module fileurl="file:///extend/WorkPlace/SoftwareProject/2017_ITSE_HandsomeLee/BaseProject-master/BaseProject.iml" filepath="/extend/WorkPlace/SoftwareProject/2017_ITSE_HandsomeLee/BaseProject-master/BaseProject.iml" />
+      <module fileurl="file:///extend/WorkPlace/SoftwareProject/2017_ITSE_HandsomeLee/BaseProject-master/gotroute/gotroute.iml" filepath="/extend/WorkPlace/SoftwareProject/2017_ITSE_HandsomeLee/BaseProject-master/gotroute/gotroute.iml" />
     </modules>
   </component>
 </project>

@@ -40,9 +40,12 @@ public class LocationSystem implements LocationListener {
   public LocationSystem(Context context) {
     locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 
-    if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+    if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
       locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 1, this);
       location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+      if(location == null) {
+        location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+      }
     }
   }
 

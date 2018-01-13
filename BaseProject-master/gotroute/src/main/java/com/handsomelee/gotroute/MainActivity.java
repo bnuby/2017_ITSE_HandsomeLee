@@ -118,7 +118,10 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
   };
 
   public static Boolean checkGPSPermission(Context context) {
-    return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    return ActivityCompat.checkSelfPermission(context,
+            Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+            && ActivityCompat.checkSelfPermission(context
+            , Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
   }
 
   public static Boolean removeFragment(int id) {
@@ -178,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
                 return null;
               }
             }
+            
             DatabaseConnect.setNavigationStatus(false);
             mActivity.runOnUiThread(new Runnable() {
               @Override
@@ -221,6 +225,9 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
   }
 
   public static LocationSystem getLocationSystem() {
+    if(locationSystem == null) {
+      locationSystem = new LocationSystem(MainActivity.mActivity);
+    }
     return locationSystem;
   }
 
