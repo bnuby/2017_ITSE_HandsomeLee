@@ -31,32 +31,32 @@ public class RequestHandler {
   public static boolean parkingStatus;
   static String api = "AIzaSyCMY3fnCku6kSTiZ3AxnlCUC84YWQgUYqE";
 
-  public static JSONObject convertLatLngToAddress(LatLng latLng) throws JSONException {
-    String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latLng.latitude + "," + latLng.longitude + "&key=" + api;
-    final String[] data = {""};
-    StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-      @Override
-      public void onResponse(String s) {
-        data[0] = s;
-      }
-    }, new Response.ErrorListener() {
-      @Override
-      public void onErrorResponse(VolleyError volleyError) {
-        Log.e("Exception", "Lat Long Request Fail!\n" + volleyError.toString());
-      }
-    });
-    
-    MainActivity.queue.add(request);
-    Log.v("JsonObject", data[0]);
-    
-    if (data[0].equals("")) {
-      return null;
-    }
-    
-    JSONObject jsonObject = new JSONObject(data[0]);
-    Log.v("JsonObject", jsonObject.toString());
-    return jsonObject;
-  }
+//  public static JSONObject convertLatLngToAddress(LatLng latLng) throws JSONException {
+//    String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latLng.latitude + "," + latLng.longitude + "&key=" + api;
+//    final String[] data = {""};
+//    StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+//      @Override
+//      public void onResponse(String s) {
+//        data[0] = s;
+//      }
+//    }, new Response.ErrorListener() {
+//      @Override
+//      public void onErrorResponse(VolleyError volleyError) {
+//        Log.e("Exception", "Lat Long Request Fail!\n" + volleyError.toString());
+//      }
+//    });
+//
+//    MainActivity.queue.add(request);
+//    Log.v("JsonObject", data[0]);
+//
+//    if (data[0].equals("")) {
+//      return null;
+//    }
+//
+//    JSONObject jsonObject = new JSONObject(data[0]);
+//    Log.v("JsonObject", jsonObject.toString());
+//    return jsonObject;
+//  }
   
   public static void requestPlaceSearch(LatLng latLng, String keyword, String type) {
     String latLngString = latLng.latitude + "," + latLng.longitude;

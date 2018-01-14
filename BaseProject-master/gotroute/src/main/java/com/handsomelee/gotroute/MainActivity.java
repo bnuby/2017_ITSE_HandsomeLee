@@ -12,6 +12,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -23,6 +25,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.*;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -134,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     } catch (Exception e) {
       return false;
     }
-
     return true;
   }
 
@@ -142,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     (v).setClickable(false);
     if (MapsActivity.getProgressType() == MapsActivity.ProgressType.Free || ((Button) v).getText().equals("")) {
       MapsActivity.setProgressType(MapsActivity.ProgressType.Navigation);
+      ((Button) v).setBackground(ContextCompat.getDrawable(MainActivity.mActivity, R.drawable.navigation_shape_gray));
       try {
         final String locString = locationSystem.getLatitude() + "," + locationSystem.getLongitude();
         String destination = "";
@@ -198,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
                         .build();
                 MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                 MapsActivity.showListView();
+                ((Button) v).setBackground(ContextCompat.getDrawable(activity, R.drawable.navigation_shape));
               }
             });
             return null;
@@ -219,6 +223,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
               .zoom(15f)
               .build();
       MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+      ((Button) v).setClickable(true);
     }
 
     return true;

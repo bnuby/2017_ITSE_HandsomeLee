@@ -61,13 +61,13 @@ public class LocalDatabase extends SQLiteOpenHelper {
     if(cursor.getCount() == 0)
       insertData(UUID.randomUUID().toString(), new Date().toString(), 30L);
   }
-  
-  public void dropTable() {
-    SQLiteDatabase db = this.getWritableDatabase();
-    db.execSQL("drop table " + TABLE_NAME);
-    Log.v("drop", "das");
-  }
-  
+//
+//  public void dropTable() {
+//    SQLiteDatabase db = this.getWritableDatabase();
+//    db.execSQL("drop table " + TABLE_NAME);
+//    Log.v("drop", "das");
+//  }
+//
   public void insertData(String id, String dateTime, Long refreshTime) {
 //    Cursor cursor = getData();
 //    if(!cursor.isNull(0)){

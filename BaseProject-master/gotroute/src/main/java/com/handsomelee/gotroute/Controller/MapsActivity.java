@@ -198,10 +198,10 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
     origin.getView().setClickable(true);
     destination.getView().setClickable(true);
     origin.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(85.34)).start();
-    destination.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(20.8) + MainActivity.calculateHeight(85.34) + 20).start();
+    destination.getView().animate().setDuration(600).alpha(1).y(MainActivity.calculateHeight(10.8) + MainActivity.calculateHeight(85.34) + 20).start();
     origin.getView().setVisibility(View.VISIBLE);
     destination.getView().setVisibility(View.VISIBLE);
-    navigationRadioGroup.animate().y(2 * (MainActivity.calculateHeight(13.8)) + MainActivity.calculateHeight(85.34) + 40).alpha(1).start();
+    navigationRadioGroup.animate().y(2 * (MainActivity.calculateHeight(10.8)) + MainActivity.calculateHeight(85.34) + 40).alpha(1).start();
     autocompleteFragment.getView().animate().setDuration(600).alpha(0).y(-200).start();
   }
   
@@ -633,10 +633,10 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
     navigationBtn.setText("navigation");
     MapsActivity.setProgressType(ProgressType.Free);
     autocompleteFragment.setText(String.format("%.4f,\t%.4f", latLng.latitude, latLng.longitude));
-    if (mMap.getCameraPosition().zoom >= 15f) {
+    if (mMap.getCameraPosition().zoom <= 15 || mMap.getCameraPosition().zoom >= 15) {
       CameraPosition cameraPosition = new CameraPosition.Builder()
-              .target(mMap.getCameraPosition().target)
-              .zoom(15f)
+              .target(latLng)
+              .zoom(15)
               .build();
       MapsActivity.getmMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
