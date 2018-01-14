@@ -93,7 +93,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivityTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivityTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gotroute/src/androidTest/java/com/handsomelee/gotroute/MainActivityTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
@@ -104,6 +104,16 @@
                 <element signature="e#5182#5183#0" expanded="true" />
                 <element signature="e#5245#5246#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,16 +203,6 @@
           </provider>
           <provider editor-type-id="android-designer2">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navigation_shape_gray.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gotroute/src/main/res/drawable/navigation_shape_gray.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -3476,7 +3476,6 @@
         <option value="$PROJECT_DIR$/gotroute/build/generated/source/r/debug/com/handsomelee/gotroute/R.java" />
         <option value="$PROJECT_DIR$/gotroute/src/androidTest/java/com/handsomelee/gotroute/AndroidJococoTestRunner.java" />
         <option value="$PROJECT_DIR$/gotroute/src/androidTest/java/com/handsomelee/gotroute/AndroidJacocoTestRunner.java" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/gotroute/src/release/res/values/google_maps_api.xml" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
@@ -3490,6 +3489,7 @@
         <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/MainActivity.java" />
         <option value="$PROJECT_DIR$/gotroute/src/main/java/com/handsomelee/gotroute/Services/LocalDatabase.java" />
         <option value="$PROJECT_DIR$/gotroute/src/androidTest/java/com/handsomelee/gotroute/MainActivityTest.java" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -3922,7 +3922,7 @@
       <workItem from="1515853524344" duration="1494000" />
       <workItem from="1515855041143" duration="6490000" />
       <workItem from="1515862073373" duration="1522000" />
-      <workItem from="1515917909054" duration="22307000" />
+      <workItem from="1515917909054" duration="22913000" />
     </task>
     <servers />
   </component>
@@ -3959,7 +3959,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48710000" />
+    <option name="totallyTimeSpent" value="49316000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -3972,6 +3972,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2769477" sideWeight="0.50623053" order="2" side_tool="true" content_ui="tabs" />
@@ -3993,7 +3994,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33907428" sideWeight="0.52187836" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33907428" sideWeight="0.52187836" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.51304346" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -4183,13 +4184,6 @@
         <state relative-caret-position="216">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -4417,6 +4411,14 @@
             <element signature="e#5182#5183#0" expanded="true" />
             <element signature="e#5245#5246#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
