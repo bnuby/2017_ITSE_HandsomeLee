@@ -1,5 +1,6 @@
 package com.handsomelee.gotroute.Model;
 
+import android.util.Log;
 import com.google.gson.JsonElement;
 
 /**
@@ -28,7 +29,7 @@ public class CarParking {
   
   // available Getter Method
   public int getAvailable() {
-    return available.getAsInt();
+    return (int)available.getAsLong();
   }
   
 }

@@ -74,9 +74,9 @@ public class GoogleRoute {
           latLngList.add(path.getLatLng());
         }
       }
-      if (step.steps != null && step.steps.length > 0) {
-        fetchLatLng(latLngList, step.steps);
-      }
+//      if (step.steps != null && step.steps.length > 0) {
+//        fetchLatLng(latLngList, step.steps);
+//      }
       JsonObject end_location = step.end_location;
       latLngList.add(new LatLng(end_location.get("lat").getAsDouble(),
               end_location.get("lng").getAsDouble()));
@@ -88,6 +88,7 @@ public class GoogleRoute {
     Gson gson = new Gson();
     RouteInfo routeInfo = gson.fromJson(jsonArray.getJSONObject(0).toString(), RouteInfo.class);
     MapsActivity.routeInfo = routeInfo;
+    Log.v("routeinfo",routeInfo.steps.length+"");
   }
   
   // steps

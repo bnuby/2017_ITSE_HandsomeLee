@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.TabLayout;
 import android.util.Base64;
 import android.util.Log;
 import android.view.*;
@@ -31,7 +32,9 @@ import com.handsomelee.gotroute.Services.GoogleMapSystem;
 import com.handsomelee.gotroute.Services.RouteDetailAdapter;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -108,6 +111,65 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
     super(mapViewId, layoutActivityId, googleMapType);
   }
   
+  @Override
+    public void addOn() {
+      super.addOn();
+      listViewBtn = rootView.findViewById(R.id.ListViewBtn);
+      listLinearLayoutView = rootView.findViewById(R.id.ListViewParent);
+      final Button reportBtn = (Button) rootView.findViewById(R.id.ReportBtn);
+      navigationBtn = (Button) rootView.findViewById(R.id.navigationBtn);
+      autocompleteFragment = (PlaceAutocompleteFragment) getActivity().getFragmentManager().findFragmentById(R.id.placeSearch);
+      origin = (PlaceAutocompleteFragment) getActivity().getFragmentManager().findFragmentById(R.id.Origin);
+      destination = (PlaceAutocompleteFragment) getActivity().getFragmentManager().findFragmentById(R.id.Destination);
+      navigationRadioGroup = (RadioGroup) rootView.findViewById(R.id.navigationRadioGroup);
+      getLocationBtn = (Button) rootView.findViewById(R.id.getMyLocation);
+      ProgressBar progressBar = new ProgressBar(getActivity());
+      progressBar.setLayoutParams(new AbsListView.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
+              ActionBar.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+      progressBar.setIndeterminate(true);
+      listView = (ListView) rootView.findViewById(R.id.ListView);
+      listView.setEmptyView(progressBar);
+      autocompleteFragment.getView().setBackgroundColor(Color.argb(255 / 100 * 95, 255, 255, 255));
+      configureRadioGroup();
+      configureOriginAndDestination();
+      afterScreenLoaded();
+      autocompleteFragment.setOnPlaceSelectedListener(this);
+      destination.setOnPlaceSelectedListener(this);
+      processReport();
+      autocompleteFragment.getView().setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          view.setVisibility(View.GONE);
+        }
+      });
+      autocompleteFragment.getView().findViewById(R.id.place_autocomplete_clear_button).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          autocompleteFragment.setText("");
+          removeMarker();
+          hideNavigationBtn();
+        }
+      });
+      
+      getLocationBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          mMap.animateCamera(CameraUpdateFactory.newCameraPosition(
+                  new CameraPosition.Builder()
+                          .target(MainActivity.getLocationSystem().getLatLng())
+                          .zoom(15)
+                          .build()
+          ));
+        }
+      });
+      reportBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          reportProcessBtn();
+        }
+      });
+    }
+  
   public static void requestDirection(String origin, String destination, DirectionType type) {
     String url = "http://www.kebohan.com/gibson.php";
 //    String url = "http://192.168.31.38/index.php";
@@ -140,8 +202,7 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
                     new ValueCallback<String>() {
                       @Override
                       public void onReceiveValue(String s) {
-                        String string = convertStandardJSONString(s);
-                        DatabaseConnect.fetchDirection(string);
+                        String string = convertStandardJSONString(s);                        DatabaseConnect.fetchDirection(string);
                       }
                     });
           }
@@ -149,7 +210,10 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
         super.onPageFinished(view, url);
       }
     });
-    webView.loadUrl(String.format("%s?origin=%s&destination=%s&travelMode=%s&id=%s", url, origin, destination, mode, DeviceInfo.getInstance().getId()));
+    url = String.format("%s?origin=%s&destination=%s&travelMode=%s&id=%s", url, origin, destination, mode, DeviceInfo.getInstance().getId());
+    Log.v("url", url);
+
+    webView.loadUrl(url);
   }
   
   public static String convertStandardJSONString(String data_json) {
@@ -158,6 +222,12 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
     data_json = data_json.replace("&gt;", "");
     data_json = data_json.replace("div style=\"font-size:0.9em\"", "");
     data_json = data_json.replace("&lt;", "");
+    data_json = data_json.replace("/div", "");
+    data_json = data_json.replace("/b", "");
+    data_json = data_json.replace(" b", " ");
+    data_json = data_json.replace(" e ", " be ");
+    
+    
     return data_json;
   }
   
@@ -174,7 +244,8 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   
   public static void hideListView() {
     listViewBtn.setText("^");
-    listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight() - 40).start();
+    listLinearLayoutView.animate().setDuration(600).y(MainActivity.getHeight() - 30).start();
+    
     
   }
   
@@ -323,10 +394,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
                     final CarParking[] carParkings = gson.fromJson(fetchData[0], CarParking[].class);
                     for (Marker marker : carParkingMarkers) {
                       for (CarParking carParking : carParkings) {
-                        Log.v("Parking", carParkings.length+""+carParkings[0].getAvailable());
-                        Log.v("Parking", fetchData[0]);
-                        Log.v("Parking1", "asda");
-                        Log.v("Parking2", marker.getTitle());
                         if (carParking.getName().equals(Base64.encodeToString(marker.getTitle().getBytes(), 0))) {
                           Log.v("Parking", "Found");
                           String snippet = marker.getSnippet().split(",")[0];
@@ -365,9 +432,31 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   }
   
   public static void configureRouteDetail() {
-    int viewId[] = {R.id.Distance, R.id.duration, R.id.html_instructions, R.id.travel_mode, R.id.maneuver};
-    mAdapter = new RouteDetailAdapter(MainActivity.mActivity, routeInfo.steps, R.layout.simple_list, viewId);
-    listView.setAdapter(mAdapter);
+    int viewId[] = {R.id.Distance, R.id.duration, R.id.html_instructions, R.id.travel_mode, R.id.busNo};
+    try {
+      List<RouteInfo.RouteDetail> stepList = new ArrayList<>();
+      processRouteDetail(stepList, routeInfo.steps);
+      Log.v("route", "count: " + stepList.size());
+      RouteInfo.RouteDetail[] stepArray = stepList.toArray(new RouteInfo.RouteDetail[stepList.size()]);
+      Log.v("route", "array count: " + stepArray.length);
+      mAdapter = new RouteDetailAdapter(MainActivity.mActivity, stepArray, R.layout.simple_list, viewId);
+      listView.setAdapter(mAdapter);
+    } catch (Exception e) {
+      Log.e("routeinfo", "Construct detail failed");
+    }
+    
+  }
+  
+  private static void processRouteDetail(List<RouteInfo.RouteDetail> infoList, RouteInfo.RouteDetail[] steps) {
+    if(steps!= null) {
+      for(RouteInfo.RouteDetail step : steps) {
+        infoList.add(step);
+        if(step.steps != null){
+          processRouteDetail(infoList, step.steps);
+        }
+      }
+      
+    }
   }
   
   @Override
@@ -385,65 +474,6 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
         autoRefresh();
       }
     }, refreshSecond);
-  }
-  
-  @Override
-  public void addOn() {
-    super.addOn();
-    listViewBtn = rootView.findViewById(R.id.ListViewBtn);
-    listLinearLayoutView = rootView.findViewById(R.id.ListViewParent);
-    final Button reportBtn = (Button) rootView.findViewById(R.id.ReportBtn);
-    navigationBtn = (Button) rootView.findViewById(R.id.navigationBtn);
-    autocompleteFragment = (PlaceAutocompleteFragment) getActivity().getFragmentManager().findFragmentById(R.id.placeSearch);
-    origin = (PlaceAutocompleteFragment) getActivity().getFragmentManager().findFragmentById(R.id.Origin);
-    destination = (PlaceAutocompleteFragment) getActivity().getFragmentManager().findFragmentById(R.id.Destination);
-    navigationRadioGroup = (RadioGroup) rootView.findViewById(R.id.navigationRadioGroup);
-    getLocationBtn = (Button) rootView.findViewById(R.id.getMyLocation);
-    ProgressBar progressBar = new ProgressBar(getActivity());
-    progressBar.setLayoutParams(new AbsListView.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
-            ActionBar.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
-    progressBar.setIndeterminate(true);
-    listView = (ListView) rootView.findViewById(R.id.ListView);
-    listView.setEmptyView(progressBar);
-    autocompleteFragment.getView().setBackgroundColor(Color.argb(255 / 100 * 95, 255, 255, 255));
-    configureRadioGroup();
-    configureOriginAndDestination();
-    afterScreenLoaded();
-    autocompleteFragment.setOnPlaceSelectedListener(this);
-    destination.setOnPlaceSelectedListener(this);
-    processReport();
-    autocompleteFragment.getView().setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        view.setVisibility(View.GONE);
-      }
-    });
-    autocompleteFragment.getView().findViewById(R.id.place_autocomplete_clear_button).setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        autocompleteFragment.setText("");
-        removeMarker();
-        hideNavigationBtn();
-      }
-    });
-    
-    getLocationBtn.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(
-                new CameraPosition.Builder()
-                        .target(MainActivity.getLocationSystem().getLatLng())
-                        .zoom(15)
-                        .build()
-        ));
-      }
-    });
-    reportBtn.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        reportProcessBtn();
-      }
-    });
   }
   
   @Override
@@ -525,8 +555,17 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   public void configureOriginAndDestination() {
     configureAutoComplete(origin);
     configureAutoComplete(destination);
+    disableAutoPlacement(origin);
+    disableAutoPlacement(destination);
     origin.getView().setY(-300);
     destination.getView().animate().y(-100).start();
+  }
+  
+  void disableAutoPlacement(PlaceAutocompleteFragment v) {
+    v.getView().findViewById(R.id.place_autocomplete_search_button).setVisibility(View.GONE);
+    v.getView().findViewById(R.id.place_autocomplete_clear_button).setVisibility(View.GONE);
+    v.getView().findViewById(R.id.place_autocomplete_search_input).setClickable(false);
+    v.getView().findViewById(R.id.place_autocomplete_search_input).setEnabled(false);
   }
   
   public void placeMarker(Place place) {
@@ -659,6 +698,7 @@ public class MapsActivity extends GoogleMapSystem implements PlaceSelectionListe
   @Override
   public void onPlaceSelected(Place place) {
     // TODO: Get info about the selected place.
+    Log.v("Place Id", place.getId());
     destinationString = place.getName().toString();
     placeMarker(place);
     showNavigationBtn();

@@ -78,6 +78,6 @@ public class RequestHandler {
         Log.e("", "Error in PlaceSearch " + volleyError.toString());
       }
     });
-    MainActivity.queue.add(request);
+    MainActivity.addRequestQueue(request);
   }
 }

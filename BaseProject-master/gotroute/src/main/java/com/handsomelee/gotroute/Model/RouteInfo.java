@@ -1,5 +1,6 @@
 package com.handsomelee.gotroute.Model;
 
+import android.util.Log;
 import com.google.gson.JsonObject;
 
 import java.sql.Time;
@@ -104,6 +105,8 @@ public class RouteInfo {
     private String instructions;
     private String travel_mode;
     private Transit transit;
+    public RouteDetail[] steps;
+    
     
     public String getDistance() {
       return distance.get("text").getAsString();
@@ -125,6 +128,7 @@ public class RouteInfo {
     // transit Getter Method
     public Transit getTransit() {
       return transit;
+//      return null;
     }
   }
   
@@ -134,7 +138,7 @@ public class RouteInfo {
     private JsonObject departure_stop;
     private JsonObject departure_time;
     private JsonObject line;
-    private JsonObject num_stops;
+    private int num_stops;
     
     
     public String getArrivalStop() {
@@ -170,6 +174,7 @@ public class RouteInfo {
     }
     
     public String getBusNo() {
+      Log.v("shortname", line.get("short_name").toString());
       return line.get("short_name").getAsString();
     }
     
@@ -178,7 +183,7 @@ public class RouteInfo {
     }
     
     public int getNumberOfStop() {
-      return num_stops.get("$numberInt").getAsInt();
+      return num_stops;
     }
     
     

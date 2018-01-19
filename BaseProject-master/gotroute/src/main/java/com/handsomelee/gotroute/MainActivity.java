@@ -16,6 +16,9 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,6 +36,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.Toast;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -89,7 +94,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements LocationSource.OnLocationChangedListener {
   
 
-  public static RequestQueue queue;
+  private static RequestQueue queue;
   public static MapsActivity.DirectionType directionType = MapsActivity.DirectionType.Driving;
   public static android.app.FragmentManager mFragmentManager;
   public static List<LatLng> latLngs;
@@ -109,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
       viewPager.setCurrentItem(tab.getPosition(), true);
+      tab.getIcon();
     }
 
     @Override
@@ -141,6 +147,10 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
   }
 
   public static boolean requestNavigation(final View v) {
+    if(!checkNetwork()) {
+      Toast.makeText(mActivity, "Your network are not available now.\nPlease try again later.", Toast.LENGTH_SHORT).show();
+      return false;
+    }
     (v).setClickable(false);
     if (MapsActivity.getProgressType() == MapsActivity.ProgressType.Free || ((Button) v).getText().equals("")) {
       MapsActivity.setProgressType(MapsActivity.ProgressType.Navigation);
@@ -163,8 +173,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
         }
 
         final FragmentActivity activity = (FragmentActivity) mActivity;
-
-
+        
         // Your Position
         if ((locationSystem.getLatitude() + "," + locationSystem.getLongitude()).equals(locString)) {
           MapsActivity.origin.setText("Your Position");
@@ -173,13 +182,15 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
         }
 
         MapsActivity.requestDirection(locString, destination, directionType);
-
+        
         new AsyncTask<Void, Void, Void>() {
           @Override
           protected Void doInBackground(Void... voids) {
             while (!DatabaseConnect.getNavigationStatus()) {
               if (!DatabaseConnect.directionStatus) {
+                ((Button) v).setBackground(ContextCompat.getDrawable(MainActivity.mActivity, R.drawable.navigation_shape));
                 ((Button) v).setClickable(true);
+                Toast.makeText(mActivity, "Try Again Later", 1);
                 Log.v("error", "d");
                 return null;
               }
@@ -288,6 +299,25 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
     requestLocationPermissions();
     CheckLocationService.start(this);
   }
+  
+  public static boolean checkNetwork() {
+    ConnectivityManager connMgr = (ConnectivityManager)
+                mActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+    return !(networkInfo == null || !networkInfo.isConnected());
+  }
+  
+  public static void addRequestQueue(Request request) {
+    
+    try {
+      if(!checkNetwork())
+        throw new Exception("This is not available");
+      queue.add(request);
+    } catch (Exception e) {
+      e.printStackTrace();
+      Toast.makeText(mActivity, "Your network are not available now.\nPlease try again later.", Toast.LENGTH_SHORT).show();
+    }
+  }
 
   @Override
   public void onLocationChanged(Location location) {
@@ -381,13 +411,16 @@ public class MainActivity extends AppCompatActivity implements LocationSource.On
   public void parkingBtn(View v) {
     if (!RequestHandler.parkingStatus) {
       RequestHandler.requestPlaceSearch(MapsActivity.getmMap().getCameraPosition().target, "", "parking");
-
       Log.v("true", "");
     } else {
       Log.v("false", "");
       MapsActivity.removeParkingMarker();
       RequestHandler.parkingStatus = false;
     }
+  }
+  
+  public static void clearBackgroundThread() {
+  
   }
 
   public static void notificationMessage(String title, String contentText) {

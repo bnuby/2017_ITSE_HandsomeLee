@@ -39,6 +39,7 @@ public class RouteDetailAdapter extends BaseAdapter {
     this.layoutId = layoutId;
     this.viewId = viewId;
     mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    Log.v("routeinfo","count Inside" + routeDetails.length);
   }
   
   @Override
@@ -65,6 +66,10 @@ public class RouteDetailAdapter extends BaseAdapter {
     ((TextView) rowView.findViewById(viewId[3])).setText(routeDetails[i].getTravelMode());
     if (routeDetails[i].getTransit() != null)
       ((TextView) rowView.findViewById(viewId[4])).setText(routeDetails[i].getTransit().getBusNo());
+    else {
+      ((TextView) rowView.findViewById(viewId[4])).setVisibility(View.INVISIBLE);
+      ((TextView) rowView.findViewById(viewId[4])).setHeight(0);
+    }
     return rowView;
   }
 }

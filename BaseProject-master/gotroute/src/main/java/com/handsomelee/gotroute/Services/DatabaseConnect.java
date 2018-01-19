@@ -70,7 +70,7 @@ public class DatabaseConnect {
         Log.e("Failed", "Fetch Data From MongoDB");
       }
     });
-    MainActivity.queue.add(request);
+    MainActivity.addRequestQueue(request);
     return response;
   }
   
@@ -101,7 +101,7 @@ public class DatabaseConnect {
         return map;
       }
     };
-    MainActivity.queue.add(request);
+    MainActivity.addRequestQueue(request);
   }
   
   public static void insertReportData(final Report report) {
@@ -131,7 +131,7 @@ public class DatabaseConnect {
         return map;
       }
     };
-    MainActivity.queue.add(objectRequest);
+    MainActivity.addRequestQueue(objectRequest);
   }
   
   public static void fetchDirection(String s) {
@@ -144,10 +144,11 @@ public class DatabaseConnect {
         return;
       }
       JSONArray legs = jsonObject.getJSONArray("routes").getJSONObject(0).getJSONArray("legs");
-      Log.v("JSON", legs.toString());
+      Log.v("route", legs.toString());
       Gson gson = new Gson();
       GoogleRoute route[] = gson.fromJson(legs.toString(), GoogleRoute[].class);
       GoogleRoute.fetchLatLng(latLngList, route[0].steps);
+      Log.v("route", latLngList + "");
       MainActivity.latLngs = latLngList;
       navigationStatus = true;
       GoogleRoute.processRouteInfo(legs);
@@ -171,7 +172,6 @@ public class DatabaseConnect {
       @Override
       public void onErrorResponse(VolleyError volleyError) {
         Log.e("Update User Location", "Failed");
-        
       }
     }) {
       @Override
@@ -185,7 +185,7 @@ public class DatabaseConnect {
         return map;
       }
     };
-    MainActivity.queue.add(request);
+    MainActivity.addRequestQueue(request);
   }
   
   // navigationStatus Getter Method
